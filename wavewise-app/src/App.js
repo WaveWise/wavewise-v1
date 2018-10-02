@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
-import ncOutline from './ncOutline.gif'
-
-import Canvas from './Canvas'
+import Coast from './Coast@2x.png'
+import wavewise from './wavewise-logo@2x.png'
 
 class App extends Component {
   constructor () {
@@ -48,8 +47,8 @@ class App extends Component {
     return (
       <div className='body'>
         <div className='container'>
-          <h1 className='header'>Wave<strong>Wise</strong></h1>
-          <img className='nc-photo' src={ncOutline} />
+          <h1 className='header'><img src={wavewise} />Wave<strong>Wise</strong></h1>
+          <img className='nc-photo' src={Coast} />
           <div className='more-info-link'>
             {this.state.locations.SurfCity.map((status, i) =>
               <div>
