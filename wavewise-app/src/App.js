@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
-import Coast from './Coast@2x.png'
-import wavewise from './wavewise-logo@2x.png'
+import Coast from './assets/Coast@2x.png'
+import wavewise from './assets/wavewise-logo_0.5x.png'
 
 class App extends Component {
   constructor () {
@@ -47,13 +47,14 @@ class App extends Component {
     return (
       <div className='body'>
         <div className='container'>
-          <h1 className='header'><img src={wavewise} />Wave<strong>Wise</strong></h1>
-          <img className='nc-photo' src={Coast} />
+          <h1 className='header'><img className='img' src={wavewise} />Wave<strong>Wise</strong></h1>
+          <img className='coastline' src={Coast} />
           <div className='more-info-link'>
             {this.state.locations.SurfCity.map((status, i) =>
-              <div>
-                <p>The wind is {status.wind.speed} from {status.wind.compassDirection}</p>
-                <p>The surf is {status.swell.components.combined.height}ft at {status.swell.components.combined.period} seconds</p></div>)}
+              <div className='suggestion-body'>
+                <p>The wind is {status.wind.speed}mph from the {status.wind.compassDirection}</p>
+                <p>The surf is {status.swell.components.combined.height}ft at {status.swell.components.combined.period} seconds</p>
+              </div>)}
           </div>
         </div>
       </div>
