@@ -1,5 +1,7 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: sans-serif;
-}
+  text-align: center;
+  background-image: url(nature-ocean-sea-5350.jpg)
+ }
