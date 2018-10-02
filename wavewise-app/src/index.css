@@ -1,7 +1,21 @@
+:root {  
+  --color-primary: #283044;
+  --color-blue: #78A1BB;
+  --color-light: #EBF5EE;
+  --color-sand: #EBE6D3;
+  --color-tan: #8B786D;
+}
 body {
   margin: 0;
   padding: 20px;
   font-family: sans-serif;
   text-align: center;
-  background-image: url(nature-ocean-sea-5350.jpg)
+  background:  linear-gradient(rgba(24, 22, 34, 0.2),rgba(24, 22, 34, 0.7)), url(nature-ocean-sea-5350.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  vertical-align: bottom;
+  min-height: 100vh;
+ }
+ p {
+  color: var(--color-light)
  }
