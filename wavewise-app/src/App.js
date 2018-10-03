@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
+import { device } from './device'
+import styled from 'styled-components'
 import Coast from './assets/Coast@2x.png'
 import wavewise from './assets/wavewise-logo_0.5x.png'
 
