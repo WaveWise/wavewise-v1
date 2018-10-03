@@ -42,10 +42,11 @@ class App extends Component {
         (spot.wind_direction === 'ESE' && spot.wind_speed_mph > 5)) {
       conditionValue -= 1
     }
-    return conditionValue
+    console.log(conditionValue)
   }
 
   render () {
+    this.findSpotConditionValue(this.state.spots.SurfCity)
     return (
       <div>
         <div className='body-container'>
