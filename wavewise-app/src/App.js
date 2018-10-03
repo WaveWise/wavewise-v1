@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './App.css'
-import Coast from './assets/Coast@2x.png'
-import wavewise from './assets/wavewise-logo_0.5x.png'
+import Home from './Home'
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   constructor () {
@@ -36,7 +37,7 @@ class App extends Component {
             }
           },
           wind: {
-            speed: 10,
+            speed: 6,
             compassDirection: 'W'
           }
         }] }
@@ -45,19 +46,11 @@ class App extends Component {
 
   render () {
     return (
-      <div className='body'>
-        <div className='container'>
-          <h1 className='header'><img className='img' src={wavewise} />Wave<strong>Wise</strong></h1>
-          <img className='coastline' src={Coast} />
-          <div className='more-info-link'>
-            {this.state.locations.SurfCity.map((status, i) =>
-              <div className='suggestion-body'>
-                <p>The wind is {status.wind.speed}mph from the {status.wind.compassDirection}</p>
-                <p>The surf is {status.swell.components.combined.height}ft at {status.swell.components.combined.period} seconds</p>
-              </div>)}
-          </div>
+      <BrowserRouter>
+        <div className='body-container'>
+          <Route exact path='/' render={() => <Home locations={this.state.locations} />} />
         </div>
-      </div>
+      </BrowserRouter>
     )
   }
 }
