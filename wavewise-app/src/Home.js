@@ -14,7 +14,7 @@ class Home extends Component {
   render () {
     return (
       <div className='container'>
-        <h1 className='header'><img className='img' src={wavewise} />Wave<strong>Wise</strong></h1>
+        <h1 className='header'><img className='logo' src={wavewise} />Wave<strong>Wise</strong></h1>
         <img className='coastline' src={Coast} />
         <div className='more-info-link'>
           {this.props.locations.SurfCity.map((status, i) =>
