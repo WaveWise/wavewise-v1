@@ -3,19 +3,20 @@ import './App.css'
 import Home from './Home'
 import data from './data'
 
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+// import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
-      locations: {
+      spots: {
         NorthWrightsville: [],
         SouthWrightsville: [],
         SurfCity: [],
         CarolinaBeach: []
       },
-      currentBestSpot: []
+      currentBestSpot: [],
+      spotValues: []
     }
   }
 
@@ -23,7 +24,7 @@ class App extends Component {
     data.getConditions()
       .then(res => {
         this.setState({
-          locations: {
+          spots: {
             SurfCity: res[0],
             NorthWrightsville: res[1],
             SouthWrightsville: res[2],
@@ -33,14 +34,18 @@ class App extends Component {
       })
   }
 
+  findBestSpot (spot) {
+
+  }
+
   render () {
     return (
-      <Router>
+      <div>
         <div className='body-container'>
           {/* <Route exact path='/:spot_id' render={() => <Home surfCity={this.state.SurfCity} />} /> */}
-          <Home locations={this.state.locations} />
+          <Home locations={this.state.spots} />
         </div>
-      </Router>
+      </div>
     )
   }
 }
