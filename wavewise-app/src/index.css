@@ -6,7 +6,7 @@
   --color-tan: #8B786D;
 }
 body {
-  margin: 0;
+  margin-top: 10px;
   padding: 20px;
   font-family: sans-serif;
   text-align: center;
