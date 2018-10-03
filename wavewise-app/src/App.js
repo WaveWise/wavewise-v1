@@ -34,8 +34,15 @@ class App extends Component {
       })
   }
 
-  findBestSpot (spot) {
-
+  findSpotConditionValue (spot) {
+    let conditionValue = 0
+    if ((spot.wind_direction === 'E' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'S' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'SE' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'ESE' && spot.wind_speed_mph > 5)) {
+      conditionValue -= 1
+    }
+    return conditionValue
   }
 
   render () {
