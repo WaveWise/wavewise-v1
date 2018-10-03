@@ -11,17 +11,22 @@ class Home extends Component {
     }
   }
 
+  componentDidMount () {
+    this.setState({
+      locations: this.props.locations
+    })
+  }
+
   render () {
+    console.log(this.state.locations)
     return (
       <div className='container'>
-        <h1 className='header'><img className='logo' src={wavewise} />Wave<strong>Wise</strong></h1>
+        <h1 className='header'><img className='logo'
+          alt='Sorry Surfer - Not Found'
+          src={wavewise} />Wave<strong>Wise</strong></h1>
         <CoastSVG className='coastline' />
         <div className='more-info-link'>
-          {this.props.locations.SurfCity.map((status, i) =>
-            <div className='suggestion-body'>
-              <p>The wind is {status.wind.speed}mph from the {status.wind.compassDirection}</p>
-              <p>The surf is {status.swell.components.combined.height}ft at {status.swell.components.combined.period} seconds</p>
-            </div>)}
+          <h4>Check out the surrounding conditions</h4>
         </div>
       </div>
     )
