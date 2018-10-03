@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CoastSVG from './assets/CoastSVG'
 
 import wavewise from './assets/wavewise-logo_0.5x.png'
+import PinSVG from './assets/Pin';
 
 class Home extends Component {
   constructor (props) {
@@ -16,6 +17,7 @@ class Home extends Component {
       <div className='container'>
         <h1 className='header'><img className='logo' src={wavewise} />Wave<strong>Wise</strong></h1>
         <CoastSVG className='coastline' />
+        <PinSVG className='pin' />
         <div className='more-info-link'>
           {this.props.locations.SurfCity.map((status, i) =>
             <div className='suggestion-body'>

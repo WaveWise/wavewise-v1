@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgComponent = props => (
+const CoastSVG = props => (
   <svg viewBox='0 0 1920 1080' {...props}>
     <title>WhiteCoast</title>
     <path
@@ -14,4 +14,4 @@ const SvgComponent = props => (
   </svg>
 )
 
-export default SvgComponent
+export default CoastSVG
