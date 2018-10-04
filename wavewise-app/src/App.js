@@ -1,63 +1,60 @@
 import React, { Component } from 'react'
 import './App.css'
-import ncOutline from './ncOutline.gif'
+import Home from './Home'
+import data from './data'
 
-import Canvas from './Canvas'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
-      locations: {
-        SouthWrightsville: [{
-          swell: {
-            units: 'ft',
-            components: {
-              combined: {
-                height: 1.1,
-                period: 14,
-                compassDirection: 'E'
-              }
-            }
-          },
-          wind: {
-            speed: 10,
-            compassDirection: 'W'
-          }
-        }],
-        SurfCity: [{
-          swell: {
-            units: 'ft',
-            components: {
-              combined: {
-                height: 1.1,
-                period: 14,
-                compassDirection: 'E'
-              }
-            }
-          },
-          wind: {
-            speed: 10,
-            compassDirection: 'W'
-          }
-        }] }
+      spots: {
+        NorthWrightsville: [],
+        SouthWrightsville: [],
+        SurfCity: [],
+        CarolinaBeach: []
+      },
+      currentBestSpot: [],
+      spotValues: []
     }
+  }
+
+  componentWillMount () {
+    data.getConditions()
+      .then(res => {
+        this.setState({
+          spots: {
+            SurfCity: res[0],
+            NorthWrightsville: res[1],
+            SouthWrightsville: res[2],
+            CarolinaBeach: res[3]
+          },
+          currentBestSpot: res[0]
+        })
+      })
+  }
+
+  findSpotConditionValue (spot) {
+    let conditionValue = 0
+    if ((spot.wind_direction === 'E' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'S' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'SE' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'ESE' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'SSE' && spot.wind_speed_mph > 5)) {
+      conditionValue -= 1
+    }
+    return conditionValue
   }
 
   render () {
     return (
-      <div className='body'>
-        <div className='container'>
-          <h1 className='header'>Wave<strong>Wise</strong></h1>
-          <img className='nc-photo' src={ncOutline} />
-          <div className='more-info-link'>
-            {this.state.locations.SurfCity.map((status, i) =>
-              <div>
-                <p>The wind is {status.wind.speed} from {status.wind.compassDirection}</p>
-                <p>The surf is {status.swell.components.combined.height}ft at {status.swell.components.combined.period} seconds</p></div>)}
-          </div>
+      <Router>
+        <div className='body-container'>
+          {/* <Route exact path='/' render={() => <Home surfCity={this.state.SurfCity} />} /> */}
+          <Home bestSpot={this.state.currentBestSpot} />
         </div>
-      </div>
+      </Router>
     )
   }
 }

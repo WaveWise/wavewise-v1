@@ -14,15 +14,22 @@
   font-size: 300%;
   font-weight: lighter;
  }
- .nc-photo{
-   margin: 10px;
-   max-width: 350px;
-   /* -webkit-box-shadow: 0px 0px 78px -14px rgba(0,0,0,0.75);
+ .coastline {
+   margin: 0px;
+   height: 45vh;
+   -webkit-box-shadow: 0px 0px 78px -14px rgba(0,0,0,0.75);
    -moz-box-shadow: 0px 0px 78px -14px rgba(0,0,0,0.75);
-   box-shadow: 0px 0px 78px -14px rgba(0,0,0,0.75); */
+   box-shadow: 0px 0px 78px -14px rgba(0,0,0,0.75);
  }
  .container{
    display: flex;
    flex-direction: column;
    justify-content: center;
+ }
+ .logo {
+   margin-right: 5px;
+ }
+ .surf-suggestion {
+   color: var(--color-light);
+   margin: 0px;
  }
