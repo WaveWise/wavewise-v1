@@ -13,7 +13,7 @@ class Home extends Component {
           src={wavewise} />Wave<strong>Wise</strong></h1>
         <CoastSVG className='coastline' />
         <div className='surf-suggestion'>
-          <h3 className='suggestion'>Go surf {bestSpot.spot_name}!</h3>
+          <h3 className='suggestion'>Go surf at {bestSpot.spot_name}!</h3>
           <p>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds.</p>
           <p>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
         </div>
