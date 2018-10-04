@@ -65,3 +65,8 @@
   top: 70%;   
   z-index: 1;
  }
+
+ .surf-suggestion {
+   color: var(--color-light);
+   margin: 0px;
+ }
