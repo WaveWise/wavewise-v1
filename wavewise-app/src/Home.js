@@ -10,7 +10,7 @@ class Home extends Component {
       <div className='container'>
         <h1 className='header'><img className='logo'
           alt='Sorry Surfer - Not Found'
-          src={wavewise} />Wave<strong>Wise</strong></h1>
+          src={wavewise} />Wave<strong className='wise'>Wise</strong></h1>
         <CoastSVG className='coastline' />
         <div className='surf-suggestion'>
           <h3 className='suggestion'>Go surf at {bestSpot.spot_name}!</h3>
