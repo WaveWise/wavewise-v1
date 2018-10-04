@@ -29,3 +29,7 @@
  .logo {
    margin-right: 5px;
  }
+ .surf-suggestion {
+   color: var(--color-light);
+   margin: 0px;
+ }

@@ -3,7 +3,7 @@ import './App.css'
 import Home from './Home'
 import data from './data'
 
-// import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   constructor () {
@@ -29,7 +29,8 @@ class App extends Component {
             NorthWrightsville: res[1],
             SouthWrightsville: res[2],
             CarolinaBeach: res[3]
-          }
+          },
+          currentBestSpot: res[0]
         })
       })
   }
@@ -39,21 +40,21 @@ class App extends Component {
     if ((spot.wind_direction === 'E' && spot.wind_speed_mph > 5) ||
         (spot.wind_direction === 'S' && spot.wind_speed_mph > 5) ||
         (spot.wind_direction === 'SE' && spot.wind_speed_mph > 5) ||
-        (spot.wind_direction === 'ESE' && spot.wind_speed_mph > 5)) {
+        (spot.wind_direction === 'ESE' && spot.wind_speed_mph > 5) ||
+        (spot.wind_direction === 'SSE' && spot.wind_speed_mph > 5)) {
       conditionValue -= 1
     }
-    console.log(conditionValue)
+    return conditionValue
   }
 
   render () {
-    this.findSpotConditionValue(this.state.spots.SurfCity)
     return (
-      <div>
+      <Router>
         <div className='body-container'>
-          {/* <Route exact path='/:spot_id' render={() => <Home surfCity={this.state.SurfCity} />} /> */}
-          <Home locations={this.state.spots} />
+          {/* <Route exact path='/' render={() => <Home surfCity={this.state.SurfCity} />} /> */}
+          <Home bestSpot={this.state.currentBestSpot} />
         </div>
-      </div>
+      </Router>
     )
   }
 }
