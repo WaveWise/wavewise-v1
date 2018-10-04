@@ -44,7 +44,7 @@ const data = {
     if (optimalPeriod && funSwell && goodWind) {
       conditionValue += 3
     }
-    return conditionValue
+    return { conditionValue, spot }
   }
 }
 export default data

@@ -32,8 +32,13 @@ class App extends Component {
           },
           currentBestSpot: res[0]
         })
-        // console.log(this.state.spots)
-        console.log(data.findSpotConditionValue(this.state.spots.CarolinaBeach), this.state.spots.CarolinaBeach)
+        // this.state.spots.map((spot) => { data.findSpotConditionValue(this.state.spots.value)})Object.values(this.state.spots)
+        // console.log(data.findSpotConditionValue(this.state.spots.CarolinaBeach), this.state.spots.CarolinaBeach)
+        Object.values(this.state.spots).map((spot) => { 
+          console.log(data.findSpotConditionValue(spot))
+
+        })
+
       })
   }
 
