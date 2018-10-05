@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Home from './Home'
+import SpotCondition from './SpotCondition'
 import data from './data'
 
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -15,7 +16,7 @@ class App extends Component {
         SurfCity: [],
         CarolinaBeach: []
       },
-      currentBestSpot: [],
+      currentBestSpot: {},
       spotValues: []
     }
   }
@@ -29,18 +30,20 @@ class App extends Component {
             NorthWrightsville: res[1],
             SouthWrightsville: res[2],
             CarolinaBeach: res[3]
-          },
-          currentBestSpot: res[0]
+          }
         })
-        // console.log(this.state.spots.CarolinaBeach)
-        // console.log(data.findSpotConditionValue(this.state.spots.CarolinaBeach))
-        // console.log(Object.values(this.state.spots))
-        Object.values(this.state.spots).map((spot) => {
-          this.setState({
-            spotValues: this.state.spotValues.concat(data.findSpotConditionValue(spot))
-          })
-        })
-        console.log(this.state.spotValues[0].spot.spot_id)
+        this.setState(state => ({
+          spotValues: state.spotValues.concat(
+            Object.values(state.spots).map(spot =>
+              data.findSpotConditionValue(spot)))
+        }))
+        this.setState(state => ({
+          currentBestSpot: Object.assign(
+            {},
+            state.currentBestSpot,
+            data.selectTopSpot(this.state.spotValues.sort(data.rank))
+          )
+        }))
       })
   }
 
@@ -49,7 +52,9 @@ class App extends Component {
       <Router>
         <div className='body-container'>
           <Home bestSpot={this.state.currentBestSpot} />
+          <SpotCondition SurfCity={this.state.spots.SurfCity} />
         </div>
+
       </Router>
     )
   }

@@ -1,0 +1,11 @@
+
+.spot-info-container {
+  display: grid;
+  grid-template-columns: 1fr 50%;
+  grid-template-rows: 1fr 33% 33%;
+}
+
+.condition-icon {
+  border-radius: 10px;
+}
+
