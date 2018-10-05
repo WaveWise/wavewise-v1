@@ -3,7 +3,6 @@ import './SpotConditions.css'
 
 class SpotCondition extends Component {
   render () {
-    console.log(this.props)
     return (
       <React.Fragment>
         <h2 className='single-spot-header'>{this.props.SurfCity.spot_name}</h2>
