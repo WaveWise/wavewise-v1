@@ -36,12 +36,12 @@ class App extends Component {
         // console.log(this.state.spots.CarolinaBeach)
         // console.log(data.findSpotConditionValue(this.state.spots.CarolinaBeach))
         // console.log(Object.values(this.state.spots))
-        Object.values(this.state.spots).map((spot) => {
-          this.setState({
-            spotValues: this.state.spotValues.concat(data.findSpotConditionValue(spot))
-          })
-        })
-        console.log(this.state.spotValues[0].spot.spot_id)
+        this.setState(state => ({
+          spotValues: state.spotValues.concat(
+            Object.values(state.spots).map(spot =>
+              data.findSpotConditionValue(spot)))
+        }))
+        console.log(this.state.spotValues)
       })
   }
 
@@ -50,7 +50,7 @@ class App extends Component {
       <Router>
         <div className='body-container'>
           <Home bestSpot={this.state.currentBestSpot} />
-          <SpotCondition SurfCity={this.state.SurfCity} />
+          <SpotCondition SurfCity={this.state.spots.SurfCity} />
         </div>
 
       </Router>
