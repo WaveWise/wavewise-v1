@@ -16,7 +16,7 @@ class App extends Component {
         SurfCity: [],
         CarolinaBeach: []
       },
-      currentBestSpot: [],
+      currentBestSpot: {},
       spotValues: []
     }
   }
@@ -30,18 +30,20 @@ class App extends Component {
             NorthWrightsville: res[1],
             SouthWrightsville: res[2],
             CarolinaBeach: res[3]
-          },
-          currentBestSpot: res[0]
+          }
         })
-        // console.log(this.state.spots.CarolinaBeach)
-        // console.log(data.findSpotConditionValue(this.state.spots.CarolinaBeach))
-        // console.log(Object.values(this.state.spots))
         this.setState(state => ({
           spotValues: state.spotValues.concat(
             Object.values(state.spots).map(spot =>
               data.findSpotConditionValue(spot)))
         }))
-        console.log(this.state.spotValues)
+        this.setState(state => ({
+          currentBestSpot: Object.assign(
+            {},
+            state.currentBestSpot,
+            data.selectTopSpot(this.state.spotValues.sort(data.rank))
+          )
+        }))
       })
   }
 

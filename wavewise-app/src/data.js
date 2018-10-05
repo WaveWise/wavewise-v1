@@ -32,19 +32,28 @@ const data = {
     if (goodWind) {
       conditionValue += 1
     }
-    if ((spot.spot_code === 'SC' || spot.spot_code === 'WB_NE') && spot.swell_direction === 'S') {
+    if ((spot.spot_code === 'SC' || spot.spot_code === 'wb_ne') && spot.swell_direction === 'S') {
       conditionValue += 1
     }
-    if ((spot.spot_code === 'WB_SE' || spot.spot_code === 'CB' || spot.spot_code === 'WB_NE') && spot.swell_direction === 'NE' && spot.swell_height_ft > 2 && optimalPeriod) {
+    if ((spot.spot_code === 'wb_se' || spot.spot_code === 'cb' || spot.spot_code === 'wb_ne') && spot.swell_direction === 'NE' && spot.swell_height_ft > 2 && optimalPeriod) {
       conditionValue += 1
     }
-    if (bigSwell && longPeriod && (spot.swell_direction === 'S' || spot.swell_direction === 'SSE') && spot.spot_code === 'SC') {
+    if (bigSwell && longPeriod && (spot.swell_direction === 'S' || spot.swell_direction === 'SSE') && spot.spot_code === 'sc') {
       conditionValue += 5
     }
     if (optimalPeriod && funSwell && goodWind) {
       conditionValue += 3
     }
+    if (spot.spot_code === 'wb_se') {
+      conditionValue += 0.1
+    }
     return { conditionValue, spot }
+  },
+  rank (spot1, spot2) {
+    return spot2.conditionValue - spot1.conditionValue
+  },
+  selectTopSpot (arr) {
+    return arr[0].spot
   }
 }
 export default data
