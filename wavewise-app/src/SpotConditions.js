@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './SpotCondition.css'
+import './SpotConditions.css'
 
 class SpotCondition extends Component {
   render () {

@@ -1,6 +1,7 @@
 
 .spot-info-container {
   display: grid;
+  min-height: 100%;
   grid-template-columns: 1fr 50%;
   grid-template-rows: 1fr 33% 33%;
 }
