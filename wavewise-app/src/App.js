@@ -50,7 +50,6 @@ class App extends Component {
       <Router>
         <div className='body-container'>
           <Home bestSpot={this.state.currentBestSpot} />
-          <SpotCondition SurfCity={this.state.spots.SurfCity} />
         </div>
       </Router>
     )
