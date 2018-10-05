@@ -41,10 +41,3 @@
  .wise {
    color: var(--color-blue)
  }
- .spot-info-container {
-   display: flex;
-   flex-direction: column;
- }
- .condition-icon {
-   border-radius: 10px;
- }
