@@ -1,6 +1,6 @@
 import request from 'superagent/superagent.js'
 
-const apiDomain = 'http://wavewise.herokuapp.com/api'
+const apiDomain = 'https://wavewise.herokuapp.com/api'
 
 const data = {
   getConditions: () => {
@@ -13,7 +13,7 @@ const data = {
   findSpotConditionValue (spot) {
     let conditionValue = 0
     const badPeriod = spot.swell_period_s < 5 || spot.swell_period_s > 8
-    const optimalWbPeriod = spot.swell_period_s > 5 && spot.swell_period_s < 9
+    const optimalPeriod = spot.swell_period_s > 5 && spot.swell_period_s < 9
     const longPeriod = spot.swell_period_s > 8
     const bigSwell = spot.swell_height_ft > 4
     const funSwell = spot.swell_height_ft > 2 && spot.swell_height_ft < 4
@@ -35,16 +35,16 @@ const data = {
     if ((spot.spot_code === 'SC' || spot.spot_code === 'WB_NE') && spot.swell_direction === 'S') {
       conditionValue += 1
     }
-    if ((spot.spot_code === 'WB_SE' || spot.spot_code === 'CB' || spot.spot_code === 'WB_NE') && spot.swell_direction === 'NE' && spot.swell_height_ft > 2 && optimalWbPeriod) {
+    if ((spot.spot_code === 'WB_SE' || spot.spot_code === 'CB' || spot.spot_code === 'WB_NE') && spot.swell_direction === 'NE' && spot.swell_height_ft > 2 && optimalPeriod) {
       conditionValue += 1
     }
     if (bigSwell && longPeriod && (spot.swell_direction === 'S' || spot.swell_direction === 'SSE') && spot.spot_code === 'SC') {
       conditionValue += 5
     }
-    if (optimalWbPeriod && funSwell && goodWind) {
+    if (optimalPeriod && funSwell && goodWind) {
       conditionValue += 3
     }
-    console.log(conditionValue)
+    return { conditionValue, spot }
   }
 }
 export default data
