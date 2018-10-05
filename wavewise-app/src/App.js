@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Home from './Home'
+import SpotCondition from './SpotCondition'
 import data from './data'
 
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -49,6 +50,7 @@ class App extends Component {
       <Router>
         <div className='body-container'>
           <Home bestSpot={this.state.currentBestSpot} />
+          <SpotCondition SurfCity={this.state.spots.SurfCity} />
         </div>
       </Router>
     )
