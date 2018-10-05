@@ -1,6 +1,6 @@
 import request from 'superagent/superagent.js'
 
-const apiDomain = 'http://wavewise.herokuapp.com/api'
+const apiDomain = 'https://wavewise.herokuapp.com/api'
 
 const data = {
   getConditions: () => {

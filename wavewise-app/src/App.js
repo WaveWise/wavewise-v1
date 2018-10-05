@@ -32,22 +32,22 @@ class App extends Component {
           },
           currentBestSpot: res[0]
         })
-        // this.state.spots.map((spot) => { data.findSpotConditionValue(this.state.spots.value)})Object.values(this.state.spots)
-        // console.log(data.findSpotConditionValue(this.state.spots.CarolinaBeach), this.state.spots.CarolinaBeach)
-        Object.values(this.state.spots).map((spot) => { 
-          console.log(data.findSpotConditionValue(spot))
-
+        // console.log(this.state.spots.CarolinaBeach)
+        // console.log(data.findSpotConditionValue(this.state.spots.CarolinaBeach))
+        // console.log(Object.values(this.state.spots))
+        Object.values(this.state.spots).map((spot) => {
+          this.setState({
+            spotValues: this.state.spotValues.concat(data.findSpotConditionValue(spot))
+          })
         })
-
+        console.log(this.state.spotValues[0].spot.spot_id)
       })
   }
 
   render () {
-    data.findSpotConditionValue(this.state.spots.SouthWrightsville)
     return (
       <Router>
         <div className='body-container'>
-          {/* <Route exact path='/' render={() => <Home surfCity={this.state.SurfCity} />} /> */}
           <Home bestSpot={this.state.currentBestSpot} />
         </div>
       </Router>
