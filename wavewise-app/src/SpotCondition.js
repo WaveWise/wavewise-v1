@@ -5,31 +5,39 @@ class SpotCondition extends Component {
   render () {
     return (
       <React.Fragment>
-        <h2 className='single-spot-header'>{this.props.SurfCity.spot_name}</h2>
+        <select>
+          {(Object.values(this.props.spots).map((spot) =>
+            <option>{spot.spot_name}</option>
+          )
+          )}
+        </select>
+        <h2 className='single-spot-header'>{this.props.spots.SurfCity.spot_name}</h2>
         <div className='spot-info-container'>
-          <div classname='box spot-tide'>
+          <div className='box spot-tide'>
+            <h4>Tide</h4>
             <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
-            <p>{this.props.SurfCity.tide}</p>
+            <p>{this.props.spots.SurfCity.tide}</p>
           </div>
-          <div classname='box spot-swell-direction'>
+          <div className='box spot-swell-direction'>
+            <h4>Swell Direction</h4>
             <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
-            <p>{this.props.SurfCity.swell_direction}</p>
+            <p>{this.props.spots.SurfCity.swell_direction}</p>
           </div>
-          <div classname='box spot-swell-period'>
+          <div className='box spot-swell-height'>
             <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
-            <p>{this.props.SurfCity.swell_period_s} seconds</p>
+            <p>{this.props.spots.SurfCity.swell_height_ft} ft</p>
           </div>
-          <div classname='box spot-swell-height'>
+          <div className='box spot-swell-period'>
             <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
-            <p>{this.props.SurfCity.swell_height_ft} ft</p>
+            <p>{this.props.spots.SurfCity.swell_period_s} seconds</p>
           </div>
-          <div classname='box spot-wind-speed'>
+          <div className='box spot-wind-speed'>
             <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
-            <p>{this.props.SurfCity.wind_speed_mph} mph</p>
+            <p>{this.props.spots.SurfCity.wind_speed_mph} mph</p>
           </div>
-          <div classname='box spot-wind-direction'>
+          <div className='box spot-wind-direction'>
             <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
-            <p>{this.props.SurfCity.wind_direction}</p>
+            <p>{this.props.spots.SurfCity.wind_direction}</p>
           </div>
         </div>
       </React.Fragment>
