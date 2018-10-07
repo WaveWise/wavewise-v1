@@ -48,13 +48,10 @@ class App extends Component {
 
   render () {
     return (
-      <Router>
-        <div className='body-container'>
-          <Home path='/' bestSpot={this.state.currentBestSpot} />
-          <SpotConditions path='SpotConditions' SurfCity={this.state.spots.SurfCity} />
-        </div>
-
-      </Router>
+      <div className='body-container'>
+        <Home bestSpot={this.state.currentBestSpot} />
+        <SpotConditions SurfCity={this.state.spots.SurfCity} />
+      </div>
     )
   }
 }
