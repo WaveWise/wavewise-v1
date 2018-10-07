@@ -51,8 +51,8 @@ class App extends Component {
     return (
       <Router>
         <div className='body-container'>
-          <Home bestSpot={this.state.currentBestSpot} />
-          <SpotCondition SurfCity={this.state.spots.SurfCity} />
+          <Home path='/' bestSpot={this.state.currentBestSpot} />
+          <SpotCondition spots={this.state.spots} />
         </div>
 
       </Router>
