@@ -3,6 +3,7 @@ import './App.css'
 import Home from './Home'
 import SpotCondition from './SpotCondition'
 import data from './data'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 

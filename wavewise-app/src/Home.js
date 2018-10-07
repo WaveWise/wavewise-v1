@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import CoastSVG from './assets/CoastSVG'
+import Map from './Map'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 import wavewise from './assets/wavewise-logo_0.5x.png'
 
@@ -11,7 +13,8 @@ class Home extends Component {
         <h1 className='header'><img className='logo'
           alt='Sorry Surfer - Not Found'
           src={wavewise} />Wave<strong className='wise'>Wise</strong></h1>
-        <CoastSVG className='coastline' />
+        {/* <CoastSVG className='coastline' /> */}
+        <Map />
         <div className='surf-suggestion'>
           <h3 className='suggestion'>Go surf at {bestSpot.spot_name}!</h3>
           <p>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds.</p>
