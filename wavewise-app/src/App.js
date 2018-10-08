@@ -4,7 +4,7 @@ import Home from './Home'
 import SpotCondition from './SpotCondition'
 import data from './data'
 
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Router, Link } from '@reach/router'
 
 class App extends Component {
   constructor () {
@@ -19,6 +19,10 @@ class App extends Component {
       currentBestSpot: {},
       spotValues: []
     }
+  }
+
+  handleClick (e) {
+    console.log(e.target.value)
   }
 
   componentWillMount () {
@@ -50,11 +54,8 @@ class App extends Component {
   render () {
     return (
       <Router>
-        <div className='body-container'>
-          <Home path='/' bestSpot={this.state.currentBestSpot} />
-          <SpotCondition spots={this.state.spots} />
-        </div>
-
+        <Home path='/' bestSpot={this.state.currentBestSpot} />
+        <SpotCondition path='/spots' spots={this.state.spots} />
       </Router>
     )
   }
