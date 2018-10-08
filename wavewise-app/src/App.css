@@ -65,3 +65,6 @@
 .menu:hover {
   cursor: pointer;
 }
+.select-spot {
+  list-style: none;
+}

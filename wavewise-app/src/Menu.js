@@ -33,6 +33,7 @@ class Menu extends Component {
               )
               )}
             </ul>
+            <Link to='/'>Home</Link>
           </div>
           : <div className='menu-button'>
             <MenuSVG onClick={() => this.handleClick()} />
