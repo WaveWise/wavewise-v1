@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import './SpotCondition.css'
+import { Link } from '@reach/router'
+import Menu from './Menu'
 
 class SpotCondition extends Component {
   render () {
     return (
       <React.Fragment>
-        <select>
-          {(Object.values(this.props.spots).map((spot) =>
-            <option>{spot.spot_name}</option>
-          )
-          )}
-        </select>
+        <Menu spots={this.props.spots} />
         <h2 className='single-spot-header'>{this.props.spots.SurfCity.spot_name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
