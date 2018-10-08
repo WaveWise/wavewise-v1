@@ -4,7 +4,7 @@ import Home from './Home'
 import SpotCondition from './SpotCondition'
 import data from './data'
 
-import { Router, Link } from '@reach/router'
+import { Router } from '@reach/router'
 
 class App extends Component {
   constructor () {
