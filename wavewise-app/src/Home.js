@@ -12,11 +12,11 @@ class Home extends Component {
         <h1 className='header'><img className='logo'
           alt='Sorry Surfer - Not Found'
           src={wavewise} />Wave<strong className='wise'>Wise</strong></h1>
-        <CoastSVG className='coastline' />
+        {/* <CoastSVG className='coastline' /> */}
         <div className='surf-suggestion'>
-          <h3 className='suggestion'>Go surf at {bestSpot.spot_name}!</h3>
-          <p>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds.</p>
-          <p>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
+          <h3 className='suggestion'>Surf now at {bestSpot.spot_name}!</h3>
+          <p className='surf-condition'>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds.</p>
+          <p className='overview-conditions'>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
         </div>
         <div className='more-info-link'>
           <h4>Check out the surrounding conditions</h4>
