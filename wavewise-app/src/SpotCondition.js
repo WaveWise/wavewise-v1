@@ -10,7 +10,6 @@ import swellPeriod from './assets/swellPeriod.svg'
 import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
 
-
 class SpotCondition extends Component {
   render () {
     let { name, tide, swelldir, height, period, windspeed, winddir } = this.props
@@ -20,30 +19,30 @@ class SpotCondition extends Component {
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
-            <h4>Tide</h4>
+            {/* <h4>Tide</h4> */}
             <img className='condition-icon' src={hightTide} alt='not found' />
-            <p>{tide}</p>
+            <p>tide: <srtong>{tide}</srtong></p>
           </div>
           <div className='box spot-swell-direction'>
-            <h4>Swell Direction</h4>
+            {/* <h4>Swell Direction</h4> */}
             <img className='condition-icon' src={direction} alt='not found' />
-            <p>{swelldir}</p>
+            <p>swell direction: <strong>{swelldir}</strong></p>
           </div>
           <div className='box spot-swell-height'>
             <img className='condition-icon' src={swellHeight} alt='not found' />
-            <p>{height} ft</p>
+            <p>swell height: <strong>{height}</strong> ft</p>
           </div>
           <div className='box spot-swell-period'>
             <img className='condition-icon' src={swellPeriod} alt='not found' />
-            <p>{period} seconds</p>
+            <p>swell period: <strong>{period}</strong> seconds</p>
           </div>
           <div className='box spot-wind-speed'>
             <img className='condition-icon' src={windSpeed} alt='not found' />
-            <p>{windspeed} mph</p>
+            <p>windspeed: <strong>{windspeed}</strong> mph</p>
           </div>
           <div className='box spot-wind-direction'>
             <img className='condition-icon' src={windDirection} alt='not found' />
-            <p>{winddir}</p>
+            <p>wind direction: <strong>{winddir}</strong></p>
 
           </div>
         </div>
