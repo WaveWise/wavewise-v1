@@ -14,38 +14,34 @@ class SpotCondition extends Component {
     let { name, tide, swelldir, height, period, windspeed, winddir } = this.props
     return (
       <React.Fragment>
-        <div className='menu'>
-          <Menu spots={this.props.spots} />
-        </div>
-        <div className='spotCondition-body'>
-          <h2 className='single-spot-header'>{name}</h2>
-          <div className='spot-info-container'>
-            <div className='box spot-tide'>
-              <h4>Tide</h4>
-              <img className='condition-icon' src={hightTide} alt='not found' />
-              <p>{tide}</p>
-            </div>
-            <div className='box spot-swell-direction'>
-              <h4>Swell Direction</h4>
-              <img className='condition-icon' src={direction} alt='not found' />
-              <p>{swelldir}</p>
-            </div>
-            <div className='box spot-swell-height'>
-              <img className='condition-icon' src={swellHeight} alt='not found' />
-              <p>{height} ft</p>
-            </div>
-            <div className='box spot-swell-period'>
-              <img className='condition-icon' src={swellPeriod} alt='not found' />
-              <p>{period} seconds</p>
-            </div>
-            <div className='box spot-wind-speed'>
-              <img className='condition-icon' src={windSpeed} alt='not found' />
-              <p>{windspeed} mph</p>
-            </div>
-            <div className='box spot-wind-direction'>
-              <img className='condition-icon' src={windDirection} alt='not found' />
-              <p>{winddir}</p>
-            </div>
+        <Menu spots={this.props.spots} />
+        <h2 className='single-spot-header'>{name}</h2>
+        <div className='spot-info-container'>
+          <div className='box spot-tide'>
+            {/* <h4>Tide</h4> */}
+            <img className='condition-icon' src={hightTide} alt='not found' />
+            <p>tide: <strong>{tide}</strong></p>
+          </div>
+          <div className='box spot-swell-direction'>
+            {/* <h4>Swell Direction</h4> */}
+            <img className='condition-icon' src={direction} alt='not found' />
+            <p>swell direction: <strong>{swelldir}</strong></p>
+          </div>
+          <div className='box spot-swell-height'>
+            <img className='condition-icon' src={swellHeight} alt='not found' />
+            <p>swell height: <strong>{height}</strong> ft</p>
+          </div>
+          <div className='box spot-swell-period'>
+            <img className='condition-icon' src={swellPeriod} alt='not found' />
+            <p>swell period: <strong>{period}</strong> seconds</p>
+          </div>
+          <div className='box spot-wind-speed'>
+            <img className='condition-icon' src={windSpeed} alt='not found' />
+            <p>windspeed: <strong>{windspeed}</strong> mph</p>
+          </div>
+          <div className='box spot-wind-direction'>
+            <img className='condition-icon' src={windDirection} alt='not found' />
+            <p>wind direction: <strong>{winddir}</strong></p>
           </div>
         </div>
       </React.Fragment>
