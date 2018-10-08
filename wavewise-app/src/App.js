@@ -4,7 +4,7 @@ import Home from './Home'
 import SpotCondition from './SpotCondition'
 import data from './data'
 
-import { Router, Link } from '@reach/router'
+import { Router } from '@reach/router'
 
 class App extends Component {
   constructor () {
@@ -54,8 +54,10 @@ class App extends Component {
   render () {
     return (
       <Router>
-        <Home path='/' bestSpot={this.state.currentBestSpot} />
-        <SpotCondition path='/spots' spots={this.state.spots} />
+        <Home path='/'
+          bestSpot={this.state.currentBestSpot}
+          spots={this.state.spots} />
+        <SpotCondition path='/spots/:name/:tide/:swelldir/:height/:period/:windspeed/:winddir' spots={this.state.spots} />
       </Router>
     )
   }

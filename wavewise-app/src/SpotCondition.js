@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './SpotCondition.css'
+
 import { Link } from '@reach/router'
 import Menu from './Menu' 
 import hightTide from './assets/highTide.svg'
@@ -9,38 +10,41 @@ import swellPeriod from './assets/swellPeriod.svg'
 import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
 
+
 class SpotCondition extends Component {
   render () {
+    let { name, tide, swelldir, height, period, windspeed, winddir } = this.props
     return (
       <React.Fragment>
         <Menu spots={this.props.spots} />
-        <h2 className='single-spot-header'>{this.props.spots.SurfCity.spot_name}</h2>
+        <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
             <h4>Tide</h4>
             <img className='condition-icon' src={hightTide} alt='not found' />
-            <p>{this.props.spots.SurfCity.tide}</p>
+            <p>{tide}</p>
           </div>
           <div className='box spot-swell-direction'>
             <h4>Swell Direction</h4>
             <img className='condition-icon' src={direction} alt='not found' />
-            <p>{this.props.spots.SurfCity.swell_direction}</p>
+            <p>{swelldir}</p>
           </div>
           <div className='box spot-swell-height'>
             <img className='condition-icon' src={swellHeight} alt='not found' />
-            <p>{this.props.spots.SurfCity.swell_height_ft} ft</p>
+            <p>{height} ft</p>
           </div>
           <div className='box spot-swell-period'>
             <img className='condition-icon' src={swellPeriod} alt='not found' />
-            <p>{this.props.spots.SurfCity.swell_period_s} seconds</p>
+            <p>{period} seconds</p>
           </div>
           <div className='box spot-wind-speed'>
             <img className='condition-icon' src={windSpeed} alt='not found' />
-            <p>{this.props.spots.SurfCity.wind_speed_mph} mph</p>
+            <p>{windspeed} mph</p>
           </div>
           <div className='box spot-wind-direction'>
             <img className='condition-icon' src={windDirection} alt='not found' />
-            <p>{this.props.spots.SurfCity.wind_direction}</p>
+            <p>{winddir}</p>
+
           </div>
         </div>
       </React.Fragment>
