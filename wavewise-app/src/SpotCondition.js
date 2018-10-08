@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './SpotCondition.css'
 
-import { Link } from '@reach/router'
-import Menu from './Menu' 
+import Menu from './Menu'
 import hightTide from './assets/highTide.svg'
 import direction from './assets/direction.svg'
 import swellHeight from './assets/swellHeight.svg'
@@ -21,7 +20,7 @@ class SpotCondition extends Component {
           <div className='box spot-tide'>
             {/* <h4>Tide</h4> */}
             <img className='condition-icon' src={hightTide} alt='not found' />
-            <p>tide: <srtong>{tide}</srtong></p>
+            <p>tide: <strong>{tide}</strong></p>
           </div>
           <div className='box spot-swell-direction'>
             {/* <h4>Swell Direction</h4> */}
@@ -43,7 +42,6 @@ class SpotCondition extends Component {
           <div className='box spot-wind-direction'>
             <img className='condition-icon' src={windDirection} alt='not found' />
             <p>wind direction: <strong>{winddir}</strong></p>
-
           </div>
         </div>
       </React.Fragment>
