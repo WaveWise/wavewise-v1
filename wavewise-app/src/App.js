@@ -54,8 +54,10 @@ class App extends Component {
   render () {
     return (
       <Router>
-        <Home path='/' bestSpot={this.state.currentBestSpot} />
-        <SpotCondition path='/spots' spots={this.state.spots} />
+        <Home path='/'
+          bestSpot={this.state.currentBestSpot}
+          spots={this.state.spots} />
+        <SpotCondition path='/spots/:name/:tide/:swelldir/:height/:period/:windspeed/:winddir' spots={this.state.spots} />
       </Router>
     )
   }
