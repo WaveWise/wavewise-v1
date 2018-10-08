@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './SpotCondition.css'
 
 import Menu from './Menu'
-import hightTide from './assets/highTide.svg'
+import highTide from './assets/highTide.svg'
 import direction from './assets/direction.svg'
 import swellHeight from './assets/swellHeight.svg'
 import swellPeriod from './assets/swellPeriod.svg'
@@ -19,7 +19,7 @@ class SpotCondition extends Component {
         <div className='spot-info-container'>
           <div className='box spot-tide'>
             {/* <h4>Tide</h4> */}
-            <img className='condition-icon' src={hightTide} alt='not found' />
+            <img className='condition-icon' src={highTide} alt='not found' />
             <p>tide: <strong>{tide}</strong></p>
           </div>
           <div className='box spot-swell-direction'>
