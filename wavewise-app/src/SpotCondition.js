@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import './SpotCondition.css'
 import { Link } from '@reach/router'
-import Menu from './Menu'
+import Menu from './Menu' 
+import hightTide from './assets/highTide.svg'
+import direction from './assets/direction.svg'
+import swellHeight from './assets/swellHeight.svg'
+import swellPeriod from './assets/swellPeriod.svg'
+import windSpeed from './assets/windSpeed.svg'
+import windDirection from './assets/windDirection.svg'
 
 class SpotCondition extends Component {
   render () {
@@ -12,28 +18,28 @@ class SpotCondition extends Component {
         <div className='spot-info-container'>
           <div className='box spot-tide'>
             <h4>Tide</h4>
-            <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
+            <img className='condition-icon' src={hightTide} alt='not found' />
             <p>{this.props.spots.SurfCity.tide}</p>
           </div>
           <div className='box spot-swell-direction'>
             <h4>Swell Direction</h4>
-            <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
+            <img className='condition-icon' src={direction} alt='not found' />
             <p>{this.props.spots.SurfCity.swell_direction}</p>
           </div>
           <div className='box spot-swell-height'>
-            <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
+            <img className='condition-icon' src={swellHeight} alt='not found' />
             <p>{this.props.spots.SurfCity.swell_height_ft} ft</p>
           </div>
           <div className='box spot-swell-period'>
-            <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
+            <img className='condition-icon' src={swellPeriod} alt='not found' />
             <p>{this.props.spots.SurfCity.swell_period_s} seconds</p>
           </div>
           <div className='box spot-wind-speed'>
-            <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
+            <img className='condition-icon' src={windSpeed} alt='not found' />
             <p>{this.props.spots.SurfCity.wind_speed_mph} mph</p>
           </div>
           <div className='box spot-wind-direction'>
-            <img className='condition-icon' src={`https://placebear.com/60/60`} alt='not found' />
+            <img className='condition-icon' src={windDirection} alt='not found' />
             <p>{this.props.spots.SurfCity.wind_direction}</p>
           </div>
         </div>

@@ -33,11 +33,25 @@
  .surf-suggestion {
    color: var(--color-light);
    margin: 0px;
+   border: solid 4px;
+   border-style: ridge;
+   
  }
  .suggestion {
    margin: 10px;
    margin-top: 30px;
+   
+   
  }
+
+/* .surf-condition {
+  border-style: solid;
+}
+
+.overview-conditions {
+  border-style: solid;
+} */
+
  .wise {
    color: var(--color-blue)
  }
