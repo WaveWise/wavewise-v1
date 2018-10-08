@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CoastSVG from './assets/CoastSVG'
+import Menu from './Menu'
 
 import wavewise from './assets/wavewise-logo_0.5x.png'
 
@@ -20,6 +21,7 @@ class Home extends Component {
         <div className='more-info-link'>
           <h4>Check out the surrounding conditions</h4>
         </div>
+        <Menu spots={this.props.spots} />
       </div>
     )
   }
