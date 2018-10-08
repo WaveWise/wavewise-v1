@@ -12,7 +12,6 @@ import windDirection from './assets/windDirection.svg'
 class SpotCondition extends Component {
   render () {
     let { name, tide, swelldir, height, period, windspeed, winddir } = this.props
-    console.log(tide)
     return (
       <React.Fragment>
         <div className='menu'>
