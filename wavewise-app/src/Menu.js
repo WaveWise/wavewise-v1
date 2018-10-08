@@ -6,7 +6,7 @@ class Menu extends Component {
     return (
       <ul>
         {(Object.values(this.props.spots).map((spot) =>
-          <Link to={`/spots/${spot.spot_name}/${spot.tide}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}`}>
+          <Link key={spot.spot_id} to={`/spots/${spot.spot_name}/${spot.tide}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}`}>
             {spot.spot_name}
           </Link>
         )
