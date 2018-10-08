@@ -33,9 +33,8 @@
  .surf-suggestion {
    color: var(--color-light);
    margin: 0px;
-   border: solid 4px;
-   border-style: ridge;
-   
+   /* border: solid 4px;
+   border-style: ridge; */
  }
  .suggestion {
    margin: 10px;
@@ -55,3 +54,14 @@
  .wise {
    color: var(--color-blue)
  }
+.menu-button{
+  max-width: 50px;
+  text-align: center;
+}
+.menu {
+  margin: 10px;
+  justify-content: center;
+}
+.menu:hover {
+  cursor: pointer;
+}
