@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './SpotCondition.css'
-import { Link } from '@reach/router'
 import Menu from './Menu'
 
 class SpotCondition extends Component {
