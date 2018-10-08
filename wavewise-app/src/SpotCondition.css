@@ -11,7 +11,7 @@
   width: 100%; 
 }
 .condition-icon {
-  /* border-radius: 10px; */
+  border-radius: 10px;
   max-width: 75px;
 }
 .menu {
@@ -20,7 +20,10 @@
 .spotCondition-body {
   z-index: 1;
 }
-
+.box {
+  margin: 5px;
+  margin-top: 20px;
+}
 h2 {
   color: #EBF5EE;
 }

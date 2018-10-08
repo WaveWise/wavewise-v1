@@ -18,7 +18,10 @@ class Home extends Component {
           <p className='surf-condition'>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds.</p>
           <p className='overview-conditions'>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
         </div>
-        <Menu spots={this.props.spots} />
+        <div className='footer'>
+          <Menu spots={this.props.spots} />
+          <p>Check out other spots</p>
+        </div>
       </div>
     )
   }

@@ -57,10 +57,12 @@
  }
 .menu-button{
   max-width: 50px;
-  text-align: center;
+  /* margin: auto 0; */
 }
 .menu {
   margin: 10px;
+  margin-left: 140px;
+  margin-top: 40px;
   justify-content: center;
 }
 .menu:hover {
@@ -68,4 +70,8 @@
 }
 .select-spot {
   list-style: none;
+  background-color: white;
 }
+/* .footer {
+  margin: 0 auto;
+} */
