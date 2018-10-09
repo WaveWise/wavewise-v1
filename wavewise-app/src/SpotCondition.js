@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './SpotCondition.css'
+import SimpleMenu from './SimpleMenu'
 
 import Menu from './Menu'
 import highTide from './assets/highTide.svg'
@@ -14,7 +15,7 @@ class SpotCondition extends Component {
     let { name, tide, swelldir, height, period, windspeed, winddir } = this.props
     return (
       <React.Fragment>
-        <Menu spots={this.props.spots} />
+        <SimpleMenu spots={this.props.spots} />
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
