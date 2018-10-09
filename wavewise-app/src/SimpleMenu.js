@@ -4,8 +4,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Router, Link } from "@reach/router";
 import MenuSVG from './assets/MenuSVG';
-// import SvgIcon from '@material-ui/core/SvgIcon';
 import Waves from '@material-ui/icons/Waves';
+import './SpotCondition.css'
+import classNames from 'classnames';
 
 const styles = {
   smallIcon: {
@@ -55,7 +56,8 @@ class SimpleMenu extends React.Component {
 
     return (
       <div>
-        <Button style={{ color:'#EBF5EE' }}
+        <Button className='spot-menu-button'
+          style={{ color:'#EBF5EE' }}
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
@@ -65,8 +67,6 @@ class SimpleMenu extends React.Component {
       style={styles.small}/>
           
         </Button>
-       
-        
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
