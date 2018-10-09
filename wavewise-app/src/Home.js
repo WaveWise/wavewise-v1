@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CoastSVG from './assets/CoastSVG'
+// import CoastSVG from './assets/CoastSVG'
 import Menu from './Menu'
 import image from './assets/map_invert.png'
 
