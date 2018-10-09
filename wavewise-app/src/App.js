@@ -32,6 +32,9 @@ class App extends Component {
     } else {
       const newUserId = UUID.v4()
       window.localStorage.setItem('userId', newUserId)
+      this.setState({
+        currentUser: newUserId
+      })
     }
   }
 
