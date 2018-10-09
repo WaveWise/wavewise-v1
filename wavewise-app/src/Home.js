@@ -4,6 +4,7 @@ import Menu from './Menu'
 import image from './assets/map_invert.png'
 
 import wavewise from './assets/wavewise-logo_0.5x.png'
+import SimpleMenu from './SimpleMenu'
 
 class Home extends Component {
   render () {

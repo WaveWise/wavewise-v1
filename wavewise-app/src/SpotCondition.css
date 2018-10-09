@@ -28,5 +28,10 @@ h2 {
   color: #EBF5EE;
 }
 
+.spot-menu-button {
+  position: absolute;
+  justify-content: left;
+}
+
 
 
