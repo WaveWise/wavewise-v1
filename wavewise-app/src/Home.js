@@ -13,7 +13,7 @@ class Home extends Component {
         <h1 className='header'><img className='logo'
           alt='Sorry Surfer - Not Found'
           src={wavewise} />Wave<strong className='wise'>Wise</strong></h1>
-        <img className='coastline' src={image} />
+        <img className='coastline' src={image} alt='Not Found' />
         <div className='surf-suggestion'>
           <h3 className='suggestion'>Surf now at {bestSpot.spot_name}!</h3>
           <p className='surf-condition'>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds.</p>
