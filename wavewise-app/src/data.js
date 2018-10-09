@@ -10,6 +10,8 @@ const data = {
         return (spots)
       })
   },
+  // postReview: () => {
+  //   return request.post,
   findSpotConditionValue (spot) {
     let conditionValue = 0
     const badPeriod = spot.swell_period_s < 5 || spot.swell_period_s > 8
