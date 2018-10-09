@@ -8,13 +8,14 @@ import swellHeight from './assets/swellHeight.svg'
 import swellPeriod from './assets/swellPeriod.svg'
 import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
+import SimpleMenu from './assets/SimpleMenu';
 
 class SpotCondition extends Component {
   render () {
     let { name, tide, swelldir, height, period, windspeed, winddir } = this.props
     return (
       <React.Fragment>
-        <Menu spots={this.props.spots} />
+        <SimpleMenu spots={this.props.spots} />
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
