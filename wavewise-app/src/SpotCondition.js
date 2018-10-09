@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './SpotCondition.css'
 import SimpleMenu from './SimpleMenu'
 
-import Menu from './Menu'
+// import Menu from './Menu'
 import highTide from './assets/highTide.svg'
 import direction from './assets/direction.svg'
 import swellHeight from './assets/swellHeight.svg'
