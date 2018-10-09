@@ -3,6 +3,39 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Router, Link } from "@reach/router";
+import MenuSVG from './assets/MenuSVG';
+// import SvgIcon from '@material-ui/core/SvgIcon';
+import Waves from '@material-ui/icons/Waves';
+
+const styles = {
+  smallIcon: {
+    width: 36,
+    height: 36,
+  },
+  mediumIcon: {
+    width: 48,
+    height: 48,
+  },
+  largeIcon: {
+    width: 60,
+    height: 60,
+  },
+  small: {
+    width: 72,
+    height: 72,
+    padding: 16,
+  },
+  medium: {
+    width: 96,
+    height: 96,
+    padding: 24,
+  },
+  large: {
+    width: 120,
+    height: 120,
+    padding: 30,
+  },
+};
 
 class SimpleMenu extends React.Component {
   state = {
@@ -22,13 +55,17 @@ class SimpleMenu extends React.Component {
 
     return (
       <div>
-        <Button
+        <Button style={{ color:'#EBF5EE' }}
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
         >
-          Check out more spots
+       <Waves 
+      iconStyle={styles.smallIcon}
+      style={styles.small}/>
+          
         </Button>
+       
         
         <Menu
           id="simple-menu"
