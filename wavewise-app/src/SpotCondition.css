@@ -1,3 +1,6 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 
 .spot-info-container {
   display: grid;
@@ -9,6 +12,7 @@
   justify-content: center;
   flex: 1;
   width: 100%; 
+  
 }
 .condition-icon {
   border-radius: 10px;

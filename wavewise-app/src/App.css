@@ -1,3 +1,7 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
 :root {  
   --color-primary: #283044;
   --color-blue: #78A1BB;
@@ -40,7 +44,6 @@
  .suggestion {
    margin: 10px;
    margin-top: 30px;
-   
    
  }
 
