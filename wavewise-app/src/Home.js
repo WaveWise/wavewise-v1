@@ -21,7 +21,7 @@ class Home extends Component {
           <p className='overview-conditions'>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
         </div>
         <div className='footer'>
-          <Menu spots={this.props.spots} />
+          <SimpleMenu spots={this.props.spots} />
           <p>Check out other spots</p>
         </div>
       </div>
