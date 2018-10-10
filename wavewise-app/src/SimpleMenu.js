@@ -76,7 +76,7 @@ class SimpleMenu extends React.Component {
         >
     
     {(Object.values(this.props.spots).map((spot) =>
-                <MenuItem key={spot.spot_id} onClick={this.handleClose}> <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`} style={{ textDecoration: 'none', color:'#283044' }}>
+                <MenuItem key={spot.spot_id} onClick={this.handleClose}> <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.tide_time}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`} style={{ textDecoration: 'none', color:'#283044' }}>
                   {spot.spot_name}
     </Link> </MenuItem> ))}
                 

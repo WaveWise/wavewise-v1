@@ -14,7 +14,7 @@ import TemporaryDrawer from './TemporaryDrawer'
 
 class SpotCondition extends Component {
   render () {
-    let { name, tide, swelldir, height, period, windspeed, winddir, id } = this.props
+    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id } = this.props
     return (
       <React.Fragment>
         <TemporaryDrawer spots={this.props.spots} />
@@ -22,7 +22,7 @@ class SpotCondition extends Component {
         <div className='spot-info-container'>
           <div className='box spot-tide'>
             <img className='condition-icon' src={highTide} alt='not found' />
-            <p>tide: <strong>{tide}</strong></p>
+            <p>tide: <strong>{tide} at {tidetime}</strong></p>
           </div>
           <div className='box spot-swell-direction'>
             {/* <h4>Swell Direction</h4> */}
@@ -47,7 +47,13 @@ class SpotCondition extends Component {
           </div>
         </div>
         <Rating spotId={id}
-          spots={this.props.spots}
+          period={period} 
+          height={height}
+          swelldir={swelldir}
+          windspeed={windspeed}
+          winddir={winddir}
+          tide={tide}
+          tidetime={tidetime}
           currentUser={this.props.currentUser} />
       </React.Fragment>
     )
