@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ThumbUp from '@material-ui/icons/ThumbUp'
+import ThumbDown from '@material-ui/icons/ThumbDown'
 
 class Rating extends Component {
   constructor (props) {
@@ -30,10 +32,10 @@ class Rating extends Component {
     return (
       <div className='rating-container'>
         <div className='thumbs-icon up'>
-          <button onClick={(e) => this.handleClick(e)} value='+1'>Thumbs Up</button>
+          <ThumbUp onClick={(e) => this.handleClick(e)} value='+1' style={{ color: '#EBF5EE' }}>Thumbs Up> </ThumbUp>
         </div>
         <div className='thumbs-icon down'>
-          <button onClick={(e) => this.handleClick(e)} value='-1'>Thumbs Down</button>
+          <ThumbDown onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}>Thumbs Down</ThumbDown>
         </div>
       </div>
     )

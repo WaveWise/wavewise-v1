@@ -4,7 +4,6 @@ import Home from './Home'
 import SpotCondition from './SpotCondition'
 import data from './data'
 import { default as UUID } from 'node-uuid'
-
 import { Router } from '@reach/router'
 
 class App extends Component {

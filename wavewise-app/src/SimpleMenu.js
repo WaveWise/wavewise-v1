@@ -64,7 +64,8 @@ class SimpleMenu extends React.Component {
         >
        <Waves 
       iconStyle={styles.smallIcon}
-      style={styles.small}/>
+      style={styles.small}
+      />
           
         </Button>
         <Menu
@@ -84,6 +85,8 @@ class SimpleMenu extends React.Component {
           // <MenuItem onClick={this.handleClose}>Carolina Beach</MenuItem> */}
     
         </Menu>
+
+        
       </div>
     )
   }
