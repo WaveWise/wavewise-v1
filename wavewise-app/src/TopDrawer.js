@@ -45,7 +45,7 @@ const styles = {
   },
 };
 
-class TemporaryDrawer extends React.Component {
+class TopDrawer extends React.Component {
   state = {
     top: false,
     left: false,
@@ -72,14 +72,19 @@ class TemporaryDrawer extends React.Component {
 
     const fullList = (
       <div className={classes.fullList}>
-        {/* <List>test</List>
+        {/* 
         <Divider />
-        <List>test</List> */}
+         */}
         {(Object.values(this.props.spots).map((spot) =>
                 <List key={spot.spot_id} onClick={this.handleClose}> 
-                <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`} style={{ textDecoration: 'none', color:'#283044' }}>
+                <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.tide_time}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`} style={{ textDecoration: 'none', color:'#283044' }}>
                   {spot.spot_name}
-    </Link> </List> ))}
+    </Link> 
+    </List> ))}
+    <Divider />
+    <div className={classes.fullList}>
+    <Link to='/' style={{ textDecoration: 'none', color:'#283044' }}>Home</Link>
+    </div>
       </div>
     );
 
@@ -107,37 +112,13 @@ class TemporaryDrawer extends React.Component {
             {fullList}
           </div>
         </Drawer>
-        {/* <Drawer
-          anchor="bottom"
-          open={this.state.bottom}
-          onClose={this.toggleDrawer('bottom', false)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('bottom', false)}
-            onKeyDown={this.toggleDrawer('bottom', false)}
-          >
-            {fullList}
-          </div>
-        </Drawer>
-        <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('right', false)}
-            onKeyDown={this.toggleDrawer('right', false)}
-          >
-            {sideList}
-          </div>
-        </Drawer> */}
       </div>
     );
   }
 }
 
-TemporaryDrawer.propTypes = {
+TopDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TemporaryDrawer)
+export default withStyles(styles)(TopDrawer)

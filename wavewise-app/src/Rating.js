@@ -5,7 +5,6 @@ import ThumbDown from '@material-ui/icons/ThumbDown'
 
 import data from './data'
 
-
 class Rating extends Component {
   constructor (props) {
     super(props)
@@ -64,11 +63,7 @@ class Rating extends Component {
     return (
       <div className='rating-container'>
         <div className='thumbs-icon up'>
-
-          <ThumbUp onClick={(e) => this.handleClick(e)} value='+1' style={{ color: '#EBF5EE' }}>Thumbs Up> </ThumbUp>
-
-          <button onClick={(e) => this.handleClick(e)} value='1'>Thumbs Up</button>
-
+          <ThumbUp onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }}>Thumbs Up> </ThumbUp>
         </div>
         <div className='thumbs-icon down'>
           <ThumbDown onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}>Thumbs Down</ThumbDown>
