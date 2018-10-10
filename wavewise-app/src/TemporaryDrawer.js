@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from "@reach/router";
+import Waves from '@material-ui/icons/Waves';
 // import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 const styles = {
@@ -14,6 +15,33 @@ const styles = {
   },
   fullList: {
     width: 'auto',
+  },
+  smallIcon: {
+    width: 36,
+    height: 36,
+  },
+  mediumIcon: {
+    width: 48,
+    height: 48,
+  },
+  largeIcon: {
+    width: 60,
+    height: 60,
+  },
+  small: {
+    width: 72,
+    height: 72,
+    padding: 0,
+  },
+  medium: {
+    width: 96,
+    height: 96,
+    padding: 24,
+  },
+  large: {
+    width: 120,
+    height: 120,
+    padding: 30,
   },
 };
 
@@ -48,7 +76,8 @@ class TemporaryDrawer extends React.Component {
         <Divider />
         <List>test</List> */}
         {(Object.values(this.props.spots).map((spot) =>
-                <List key={spot.spot_id} onClick={this.handleClose}> <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`} style={{ textDecoration: 'none', color:'#283044' }}>
+                <List key={spot.spot_id} onClick={this.handleClose}> 
+                <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`} style={{ textDecoration: 'none', color:'#283044' }}>
                   {spot.spot_name}
     </Link> </List> ))}
       </div>
@@ -56,7 +85,8 @@ class TemporaryDrawer extends React.Component {
 
     return (
       <div>
-        <Button onClick={this.toggleDrawer('top', true)}>Check out more spots</Button>
+        <Button onClick={this.toggleDrawer('top', true)} style={{ color:'#EBF5EE' }} > <Waves iconStyle={styles.smallIcon}
+      style={styles.small}/> </Button>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
