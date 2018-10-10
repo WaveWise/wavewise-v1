@@ -10,8 +10,11 @@ const data = {
         return (spots)
       })
   },
-  // postReview: () => {
-  //   return request.post,
+  postReview: (obj) => {
+    return request.post(`${apiDomain}/condition_rating/create`)
+      .send(obj)
+      .then(res => console.log(res))
+  },
   findSpotConditionValue (spot) {
     let conditionValue = 0
     const badPeriod = spot.swell_period_s < 5 || spot.swell_period_s > 8

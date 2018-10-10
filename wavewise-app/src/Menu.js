@@ -27,7 +27,7 @@ class Menu extends Component {
             </div>
             <ul className='spot-list'>
               {(Object.values(this.props.spots).map((spot) =>
-                <li className='select-spot' key={spot.spot_id}><Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`}>
+                <li className='select-spot' key={spot.spot_id}><Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.tide_time}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}`}>
                   {spot.spot_name}
                 </Link></li>
               )

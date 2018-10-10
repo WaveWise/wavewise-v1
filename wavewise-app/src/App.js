@@ -70,7 +70,7 @@ class App extends Component {
         <Home path='/'
           bestSpot={this.state.currentBestSpot}
           spots={this.state.spots} />
-        <SpotCondition path='/spots/:name/:tide/:swelldir/:height/:period/:windspeed/:winddir/:id'
+        <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id'
           spots={this.state.spots}
           currentUser={this.state.currentUser} />
       </Router>
