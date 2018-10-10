@@ -13,7 +13,7 @@ import TopDrawer from './TopDrawer'
 
 class SpotCondition extends Component {
   render () {
-    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id } = this.props
+    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating, updateConditions } = this.props
     return (
       <React.Fragment>
         <TopDrawer spots={this.props.spots} />
@@ -46,14 +46,16 @@ class SpotCondition extends Component {
           </div>
         </div>
         <Rating spotId={id}
-          period={period} 
+          period={period}
           height={height}
           swelldir={swelldir}
           windspeed={windspeed}
           winddir={winddir}
           tide={tide}
           tidetime={tidetime}
-          currentUser={this.props.currentUser} />
+          liveRating={rating}
+          currentUser={this.props.currentUser}
+          updateConditions={updateConditions} />
       </React.Fragment>
     )
   }

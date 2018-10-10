@@ -10,8 +10,6 @@ class Rating extends Component {
     super(props)
     this.state = {
       hidden: true,
-      reviewSent: false,
-      ratingReturn: [],
       ratingObject: { condition_rating: {
         spot_id: this.props.spotId,
         user: this.props.currentUser,
@@ -33,6 +31,7 @@ class Rating extends Component {
     if (this.state.ratingObject.rating !== null) {
       data.postReview(this.state.ratingObject)
     }
+    console.log(this.state.ratingObject)
   }
 
   handleClick (e) {
@@ -54,20 +53,23 @@ class Rating extends Component {
     // this.state.ratingObject.rating
     // console.log(this.state.ratingObject)
     // data.postReview(this.state.rating)
+    // this.props.updateConditions()
   }
 
   render () {
-    console.log(this.state.ratingReturn.length)
-    console.log(this.state.reviewSent)
-    console.log(this.state.ratingReturn)
+    const { liveRating } = this.props
     return (
-      <div className='rating-container'>
-        <div className='thumbs-icon up'>
-          <ThumbUp onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }}>Thumbs Up> </ThumbUp>
+      <div className='rating-body'>
+        <p>{liveRating}% of people are saying it's good right now!</p>
+        <div className='rating-container'>
+          <div className='thumbs-icon up'>
+            <button onClick={(e) => this.handleClick(e)} value='1'>Thumbs Up</button>
+          </div>
+          <div className='thumbs-icon down'>
+            <button onClick={(e) => this.handleClick(e)} value='-1'>Thumbs Down</button>
+          </div>
         </div>
-        <div className='thumbs-icon down'>
-          <ThumbDown onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}>Thumbs Down</ThumbDown>
-        </div>
+        <p>Tell us how it is</p>
       </div>
     )
   }
