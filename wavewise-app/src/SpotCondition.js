@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './SpotCondition.css'
-import SimpleMenu from './SimpleMenu'
 
 // import Menu from './Menu'
 import highTide from './assets/highTide.svg'
@@ -10,13 +9,14 @@ import swellPeriod from './assets/swellPeriod.svg'
 import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
 import Rating from './Rating'
+import TopDrawer from './TopDrawer'
 
 class SpotCondition extends Component {
   render () {
-    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id } = this.props
+    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating, updateConditions } = this.props
     return (
       <React.Fragment>
-        <SimpleMenu spots={this.props.spots} />
+        <TopDrawer spots={this.props.spots} />
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
@@ -46,14 +46,16 @@ class SpotCondition extends Component {
           </div>
         </div>
         <Rating spotId={id}
-          period={period} 
+          period={period}
           height={height}
           swelldir={swelldir}
           windspeed={windspeed}
           winddir={winddir}
           tide={tide}
           tidetime={tidetime}
-          currentUser={this.props.currentUser} />
+          liveRating={rating}
+          currentUser={this.props.currentUser}
+          updateConditions={updateConditions} />
       </React.Fragment>
     )
   }

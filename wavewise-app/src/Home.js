@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import image from './assets/map_invert.png'
 
 import wavewise from './assets/wavewise-logo_0.5x.png'
-import SimpleMenu from './SimpleMenu'
+import BottomDrawer from './BottomDrawer'
 
 class Home extends Component {
   constructor (props) {
@@ -32,7 +32,7 @@ class Home extends Component {
           </div>
           : <div /> }
         <div className='footer'>
-          <SimpleMenu spots={this.props.spots} />
+          <BottomDrawer spots={this.props.spots} />
           <p>Check out other spots</p>
         </div>
       </div>

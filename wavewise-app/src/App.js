@@ -4,7 +4,6 @@ import Home from './Home'
 import SpotCondition from './SpotCondition'
 import data from './data'
 import { default as UUID } from 'node-uuid'
-
 import { Router } from '@reach/router'
 
 class App extends Component {
@@ -21,6 +20,8 @@ class App extends Component {
       spotValues: [],
       currentUser: null
     }
+    this.updateConditions = this.updateConditions.bind(this)
+    this.setConditions = this.setConditions.bind(this)
   }
 
   componentDidMount () {
@@ -38,7 +39,11 @@ class App extends Component {
     }
   }
 
-  componentWillMount () {
+  updateConditions () {
+    this.setConditions()
+  }
+
+  setConditions () {
     data.getConditions()
       .then(res => {
         this.setState({
@@ -64,15 +69,20 @@ class App extends Component {
       })
   }
 
+  componentWillMount () {
+    this.setConditions()
+  }
+
   render () {
     return (
       <Router>
         <Home path='/'
           bestSpot={this.state.currentBestSpot}
           spots={this.state.spots} />
-        <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id'
+        <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
           spots={this.state.spots}
-          currentUser={this.state.currentUser} />
+          currentUser={this.state.currentUser}
+          updateConditions={this.updateConditions} />
       </Router>
     )
   }
