@@ -22,10 +22,11 @@ class SpotCondition extends Component {
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
+            <p className='spotData'>tide</p>
             {tide === 'LOW'
               ? <img className='condition-icon' src={lowTide} alt='not found' />
               : <img className='condition-icon' src={highTide} alt='not found' />}
-            <p className='spotData'>tide: <strong>{tide} at {tidetime}</strong></p>
+            <strong>{tide} at {tidetime}</strong>
           </div>
           <div className='box spot-swell-direction'>
             {/* <h4>Swell Direction</h4> */}

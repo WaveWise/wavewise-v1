@@ -3,21 +3,24 @@
 }
 
 .spot-info-container {
+  margin-top: 25px;
   display: grid;
   grid-template-columns: 1fr 50%;
 }
  .condition-icon {
   border-radius: 10px;
   max-width: 40px;
+  margin: 5px;
+  margin-left: 60px;
 }
 .box {
+  margin: 5px;
+  margin-top: 10px;
   display: flex;
-  justify-content: flex-start
-  /* margin: 5px;
-  margin-top: 20px; */
+  flex-direction: column;
 }
 .spotData {
-  margin-top: 60px;
+  margin-top: 10px;
 }
 h2 {
   color: #EBF5EE;
