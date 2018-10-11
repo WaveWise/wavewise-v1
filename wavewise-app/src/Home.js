@@ -62,12 +62,13 @@ class Home extends Component {
           : <div />}
         <div className='surf-suggestion'>
           <h3 className='suggestion'>Surf now at {bestSpot.spot_name}!</h3>
-          <p className='surf-condition'>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds.</p>
+          <p className='surf-condition'>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds</p>
           <p className='overview-conditions'>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
         </div>
         <div className='footer'>
-          <BottomDrawer spots={this.props.spots} />
-          <p>Check out other spots</p>
+          <p className='check-spots'>check out other spots</p>
+          <BottomDrawer className='bottom-wave-menu' spots={this.props.spots} />
+
         </div>
       </div>
     )
