@@ -50,17 +50,11 @@ class Rating extends Component {
       }
       }
     })
-    // this.state.ratingObject.rating
-    // console.log(this.state.ratingObject)
-    // data.postReview(this.state.rating)
-    // this.props.updateConditions()
   }
 
   render () {
-    const { liveRating } = this.props
     return (
       <div className='rating-body'>
-        <p>{liveRating}% of people are saying it's good right now!</p>
         <div className='rating-container'>
           <div className='thumbs-icon up'>
             <button onClick={(e) => this.handleClick(e)} value='1'>Thumbs Up</button>
