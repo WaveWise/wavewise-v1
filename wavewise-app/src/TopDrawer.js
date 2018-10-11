@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from "@reach/router";
 import Waves from '@material-ui/icons/Waves';
+import home from './assets/house.jpg'
 // import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 const styles = {
@@ -81,7 +82,7 @@ class TopDrawer extends React.Component {
     </List> ))}
     <Divider />
     <div className={classes.fullList}>
-    <Link to='/' style={{ textDecoration: 'none', color:'#283044' }}>Home</Link>
+    <Link to='/' style={{ textDecoration: 'none', color:'#283044' }}><img className='return-home'src={home} alt='Home' /></Link>
     </div>
       </div>
     );

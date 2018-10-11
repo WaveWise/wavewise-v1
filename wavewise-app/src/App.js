@@ -5,6 +5,7 @@ import SpotCondition from './SpotCondition'
 import data from './data'
 import { default as UUID } from 'node-uuid'
 import { Router } from '@reach/router'
+import SpotForm from './SpotForm'
 
 class App extends Component {
   constructor () {
@@ -83,6 +84,7 @@ class App extends Component {
           spots={this.state.spots}
           currentUser={this.state.currentUser}
           updateConditions={this.updateConditions} />
+        <SpotForm path='/spotform' />
       </Router>
     )
   }
