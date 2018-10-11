@@ -18,7 +18,7 @@ class SpotCondition extends Component {
     console.log(tide)
     return (
       <React.Fragment>
-        <TopDrawer align='left' className='top-drawer' spots={this.props.spots} />
+        <div className='menu-test'><TopDrawer align='left' className='top-drawer' spots={this.props.spots} /></div>
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>

@@ -43,6 +43,9 @@ h2 {
   position: relative;
   align-items: center;
 }
+.menu-test {
+  max-width: 30px;
+}
  
 
 
