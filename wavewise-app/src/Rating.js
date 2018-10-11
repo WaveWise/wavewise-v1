@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import IconButton from '@material-ui/core/IconButton'
 import ThumbUp from '@material-ui/icons/ThumbUp'
 import ThumbDown from '@material-ui/icons/ThumbDown'
 
@@ -39,7 +39,7 @@ class Rating extends Component {
       ratingObject: { condition_rating: {
         spot_id: this.props.spotId,
         user: this.props.currentUser,
-        rating: e.target.value,
+        rating: e.currentTarget.value,
         condition_swell_period_s: this.props.period,
         condition_swell_height_ft: this.props.height,
         condition_swell_direction: this.props.swelldir,
@@ -57,10 +57,10 @@ class Rating extends Component {
       <div className='rating-body'>
         <div className='rating-container'>
           <div className='thumbs-icon up'>
-            <button onClick={(e) => this.handleClick(e)} value='1'>Thumbs Up</button>
+            <IconButton onClick={(e) => this.handleClick(e)} value='1'> <ThumbUp /></IconButton>
           </div>
           <div className='thumbs-icon down'>
-            <button onClick={(e) => this.handleClick(e)} value='-1'>Thumbs Down</button>
+            <IconButton onClick={(e) => this.handleClick(e)} value='-1'> <ThumbDown /> </IconButton>
           </div>
         </div>
         <p>Tell us how it is</p>
