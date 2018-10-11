@@ -5,6 +5,7 @@
 .spot-info-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   max-width: 100%;
 }
@@ -13,43 +14,26 @@
   max-width: 75px;
   display: inline-block;
 }
-
-/* .menu {
-  z-index: 2;
-}
-
-.spotCondition-body {
-  z-index: 1;
-} */
-
 .box {
   margin: 5px;
   margin-top: 20px;
 }
-
 h2 {
   color: #EBF5EE;
 }
-
 .spot-data {
   margin-bottom: 10px;
   display: inline-flex;
-  /* width: 60%; */
-  
-  
 }
-
 .spot-menu-button {
   position: absolute;
   justify-content: left;
 }
-
 .top-drawer {
   position: fixed;
   top: 2%;
   left: 2%;
 }
-
 .thumb {
   position: relative;
   align-items: center;
