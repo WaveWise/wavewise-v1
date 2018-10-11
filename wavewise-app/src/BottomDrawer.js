@@ -17,8 +17,8 @@ const styles = {
     width: 'auto',
   },
   smallIcon: {
-    width: 36,
-    height: 36,
+    width: 34,
+    height: 34,
   },
   mediumIcon: {
     width: 48,
@@ -29,8 +29,8 @@ const styles = {
     height: 60,
   },
   small: {
-    width: 72,
-    height: 72,
+    width: 65,
+    height: 65,
     padding: 0,
   },
   medium: {
@@ -86,7 +86,7 @@ class BottomDrawer extends React.Component {
 
     return (
       <div>
-        <Button onClick={this.toggleDrawer('bottom', true)} style={{ color:'#EBF5EE' }} > <Waves iconStyle={styles.smallIcon}
+        <Button onClick={this.toggleDrawer('bottom', true)} style={{ color:'#78A1BB' }} > <Waves iconStyle={styles.smallIcon}
       style={styles.small}/> </Button>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
