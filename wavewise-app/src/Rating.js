@@ -31,7 +31,6 @@ class Rating extends Component {
     if (this.state.ratingObject.rating !== null) {
       data.postReview(this.state.ratingObject)
     }
-    console.log(this.state.ratingObject)
   }
 
   handleClick (e) {
