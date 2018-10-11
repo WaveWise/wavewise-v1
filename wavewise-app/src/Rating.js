@@ -5,6 +5,36 @@ import ThumbDown from '@material-ui/icons/ThumbDown'
 
 import data from './data'
 
+const styles = {
+  smallIcon: {
+    width: 20,
+    height: 20
+  },
+  mediumIcon: {
+    width: 48,
+    height: 48
+  },
+  largeIcon: {
+    width: 60,
+    height: 60
+  },
+  small: {
+    width: 40,
+    height: 40,
+    padding: 16
+  },
+  medium: {
+    width: 96,
+    height: 96,
+    padding: 24
+  },
+  large: {
+    width: 120,
+    height: 120,
+    padding: 30
+  }
+}
+
 class Rating extends Component {
   constructor (props) {
     super(props)
@@ -56,10 +86,13 @@ class Rating extends Component {
       <div className='rating-body'>
         <div className='rating-container'>
           <div className='thumbs-icon up'>
-            <IconButton onClick={(e) => this.handleClick(e)} value='1'> <ThumbUp /></IconButton>
+            <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
+            > <ThumbUp iconStyle={styles.smallIcon}
+                style={styles.small} /></IconButton>
           </div>
           <div className='thumbs-icon down'>
-            <IconButton onClick={(e) => this.handleClick(e)} value='-1'> <ThumbDown /> </IconButton>
+            <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
+              style={styles.small} /> </IconButton>
           </div>
         </div>
         <p>Tell us how it is</p>

@@ -29,8 +29,8 @@ const styles = {
     height: 60,
   },
   small: {
-    width: 72,
-    height: 72,
+    width: 50,
+    height: 50,
     padding: 0,
   },
   medium: {
@@ -44,6 +44,7 @@ const styles = {
     padding: 30,
   },
 };
+
 
 class TopDrawer extends React.Component {
   state = {
