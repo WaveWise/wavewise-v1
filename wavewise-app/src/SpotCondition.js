@@ -21,28 +21,28 @@ class SpotCondition extends Component {
         <div className='spot-info-container'>
           <div className='box spot-tide'>
             <img className='condition-icon' src={highTide} alt='not found' />
-            <p>tide: <strong>{tide} at {tidetime}</strong></p>
+            <p className='spotData'>tide: <strong>{tide} at {tidetime}</strong></p>
           </div>
           <div className='box spot-swell-direction'>
             {/* <h4>Swell Direction</h4> */}
             <img className='condition-icon' src={direction} alt='not found' />
-            <p>swell direction: <strong>{swelldir}</strong></p>
+            <p className='spotData'>swell direction: <strong>{swelldir}</strong></p>
           </div>
           <div className='box spot-swell-height'>
             <img className='condition-icon' src={swellHeight} alt='not found' />
-            <p>swell height: <strong>{height}</strong> ft</p>
+            <p className='spotData'>swell height: <strong>{height}</strong> ft</p>
           </div>
           <div className='box spot-swell-period'>
             <img className='condition-icon' src={swellPeriod} alt='not found' />
-            <p>swell period: <strong>{period}</strong> seconds</p>
+            <p className='spotData'>swell period: <strong>{period}</strong> seconds</p>
           </div>
           <div className='box spot-wind-speed'>
             <img className='condition-icon' src={windSpeed} alt='not found' />
-            <p>windspeed: <strong>{windspeed}</strong> mph</p>
+            <p className='spotData'>windspeed: <strong>{windspeed}</strong> mph</p>
           </div>
           <div className='box spot-wind-direction'>
             <img className='condition-icon' src={windDirection} alt='not found' />
-            <p>wind direction: <strong>{winddir}</strong></p>
+            <p className='spotData'>wind direction: <strong>{winddir}</strong></p>
           </div>
         </div>
         <Rating spotId={id}
