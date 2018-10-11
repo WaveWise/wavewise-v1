@@ -64,6 +64,7 @@ class Rating extends Component {
   }
 
   render () {
+    console.log(this.props)
     return (
       <div className='rating-body'>
         {this.state.reviewSent

@@ -83,7 +83,8 @@ class App extends Component {
         <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
           spots={this.state.spots}
           currentUser={this.state.currentUser}
-          updateConditions={this.updateConditions} />
+          ratingHasBeenSent={this.ratingHasBeenSent}
+          ratingSent={this.state.ratingSent} />
         <SpotForm path='/spotform' />
       </Router>
     )

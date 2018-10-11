@@ -19,7 +19,6 @@ class SpotCondition extends Component {
       showRating: true
     }
   }
-
   render () {
     let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating } = this.props
     return (

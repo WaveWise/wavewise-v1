@@ -78,6 +78,8 @@ class BottomDrawer extends React.Component {
                   {spot.spot_name}
     </Link> 
     </List> ))}
+    <Divider />
+    <Link to='/spotform'>Tell us about your spot</Link>
       </div>
     );
 
