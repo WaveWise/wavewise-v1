@@ -12,7 +12,7 @@
 }
 
 .condition-icon {
-  max-width: 75px;
+  max-width: 34%;
   /* display: inline-block; */
 }
 
@@ -26,8 +26,12 @@
 
 .box {
   display: flex;
+  justify-content: flex-start
   /* margin: 5px;
   margin-top: 20px; */
+}
+.spotData {
+  margin-top: 60px;
 }
 
 h2 {
@@ -50,8 +54,8 @@ h2 {
 
 .top-drawer {
   position: fixed;
-  top: 2%;
-  left: 2%;
+  float: left;
+  padding-right: 50%;
 }
 
 .thumb {

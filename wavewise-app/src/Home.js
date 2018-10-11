@@ -20,6 +20,7 @@ class Home extends Component {
         <h1 className='header'><img className='logo'
           alt='Sorry Surfer - Not Found'
           src={wavewise} />Wave<strong className='wise'>Wise</strong></h1>
+        <h3 className='suggestion'>Surf now at {bestSpot.spot_name}!</h3>
         {bestSpot.spot_name === 'Wrightsville Beach - South End'
           ? <Link
             to={`/spots/${bestSpot.spot_name}/${bestSpot.tide_type}/${bestSpot.tide_time}/${bestSpot.swell_direction}/${bestSpot.swell_height_ft}/${bestSpot.swell_period_s}/${bestSpot.wind_speed_mph}/${bestSpot.wind_direction}/${bestSpot.spot_id}/${bestSpot.rating}`}
@@ -61,7 +62,7 @@ class Home extends Component {
           </Link>
           : <div />}
         <div className='surf-suggestion'>
-          <h3 className='suggestion'>Surf now at {bestSpot.spot_name}!</h3>
+
           <p className='surf-condition'>The surf is {bestSpot.swell_height_ft}ft at {bestSpot.swell_period_s} seconds</p>
           <p className='overview-conditions'>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
         </div>
