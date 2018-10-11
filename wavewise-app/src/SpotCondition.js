@@ -13,9 +13,15 @@ import Rating from './Rating'
 import TopDrawer from './TopDrawer'
 
 class SpotCondition extends Component {
+  constructor () {
+    super()
+    this.state = {
+      showRating: true
+    }
+  }
+
   render () {
-    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating, updateConditions } = this.props
-    console.log(tide)
+    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating } = this.props
     return (
       <React.Fragment>
         <div className='menu-test'><TopDrawer align='left' className='top-drawer' spots={this.props.spots} /></div>
@@ -50,17 +56,21 @@ class SpotCondition extends Component {
             <p className='spotData'>wind direction: <strong>{winddir}</strong></p>
           </div>
         </div>
-        <Rating spotId={id}
-          period={period}
-          height={height}
-          swelldir={swelldir}
-          windspeed={windspeed}
-          winddir={winddir}
-          tide={tide}
-          tidetime={tidetime}
-          liveRating={rating}
-          currentUser={this.props.currentUser}
-          updateConditions={updateConditions} />
+        <div>
+          {this.state.showRating
+            ? <Rating spotId={id}
+              period={period}
+              height={height}
+              swelldir={swelldir}
+              windspeed={windspeed}
+              winddir={winddir}
+              tide={tide}
+              tidetime={tidetime}
+              liveRating={rating}
+              currentUser={this.props.currentUser} />
+            : <div />
+          }
+        </div>
       </React.Fragment>
     )
   }

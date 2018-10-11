@@ -40,6 +40,10 @@ class App extends Component {
     }
   }
 
+  componentWillMount () {
+    this.setConditions()
+  }
+
   updateConditions () {
     this.setConditions()
   }
@@ -68,10 +72,6 @@ class App extends Component {
           )
         }))
       })
-  }
-
-  componentWillMount () {
-    this.setConditions()
   }
 
   render () {
