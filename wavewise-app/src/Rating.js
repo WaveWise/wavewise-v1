@@ -40,6 +40,7 @@ class Rating extends Component {
     super(props)
     this.state = {
       hidden: true,
+      reviewSent: false,
       ratingObject: { condition_rating: {
         spot_id: this.props.spotId,
         user: this.props.currentUser,
@@ -58,8 +59,8 @@ class Rating extends Component {
   }
 
   componentDidUpdate () {
-    if (this.state.ratingObject.rating !== null) {
-      data.postReview(this.state.ratingObject)
+    if (this.state.ratingObject.rating !== null && !this.state.reviewSent) {
+      data.postReview(this.state.ratingObject).then(() => this.setState({ reviewSent: true }))
     }
   }
 
@@ -82,13 +83,15 @@ class Rating extends Component {
   }
 
   render () {
+    console.log(this.props.currentUser)
+    console.log(this.state.ratingObject.rating)
     return (
       <div className='rating-body'>
         <div className='rating-container'>
           <div className='thumbs-icon up'>
             <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
             > <ThumbUp iconStyle={styles.smallIcon}
-                style={styles.small} /></IconButton>
+              style={styles.small} /></IconButton>
           </div>
           <div className='thumbs-icon down'>
             <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
