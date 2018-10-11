@@ -3,6 +3,7 @@ import './SpotCondition.css'
 
 // import Menu from './Menu'
 import highTide from './assets/highTide.svg'
+import lowTide from './assets/lowTide.svg'
 import direction from './assets/direction.svg'
 import swellHeight from './assets/swellHeight.svg'
 import swellPeriod from './assets/swellPeriod.svg'
@@ -14,14 +15,17 @@ import TopDrawer from './TopDrawer'
 class SpotCondition extends Component {
   render () {
     let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating, updateConditions } = this.props
+    console.log(tide)
     return (
       <React.Fragment>
         <TopDrawer spots={this.props.spots} />
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
-            <img className='condition-icon' src={highTide} alt='not found' />
-            <p className='spotData'>tide: <strong>{tide} at {tidetime}</strong></p>
+            {tide === 'LOW'
+              ? <img className='condition-icon' src={lowTide} alt='not found' />
+              : <img className='condition-icon' src={highTide} alt='not found' />}
+            <p>tide: <strong>{tide} at {tidetime}</strong></p>
           </div>
           <div className='box spot-swell-direction'>
             {/* <h4>Swell Direction</h4> */}
