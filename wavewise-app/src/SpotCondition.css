@@ -3,18 +3,12 @@
 }
 
 .spot-info-container {
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 50%;
 }
-
-.condition-icon {
-  max-width: 34%;
-  /* display: inline-block; */
+ .condition-icon {
+  border-radius: 10px;
+  max-width: 40px;
 }
 .box {
   display: flex;
