@@ -10,6 +10,10 @@ class SpotForm extends Component {
       spotName: '',
       wind: '',
       swelldir: '',
+      period: '',
+      tide: '',
+      name: '',
+      number: '',
       directions: ['E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'],
       periods: ['4-6', '6-8', '10-12', '12-15', '15+']
     }
@@ -21,13 +25,28 @@ class SpotForm extends Component {
       spotName: e.target.value
     })
   }
+
   render () {
-    const { spotName, wind, swelldir } = this.state
+    const { spotName, wind, swelldir, tide, period, name, number } = this.state
     return (
       <div className='spot-form-container'>
         <form clasName='form'>
           <h3>Tell us about your favorite spot:</h3>
           <p>When the conditions are like you like them, we'll be able to tell you when it's on!</p>
+          <div className='field-form'>
+            <label>Your Name</label>
+            <input type='text'
+              value={name}
+              placeholder='Tap Here'
+              onChange={(e) => this.setState({ name: e.target.value })} />
+          </div>
+          <div className='field-form'>
+            <label>Your Number</label>
+            <input type='text'
+              value={number}
+              placeholder='123-456-7890'
+              onChange={(e) => this.setState({ number: e.target.value })} />
+          </div>
           <div className='field-form'>
             <label>Spot Name</label>
             <input type='text'
@@ -53,16 +72,20 @@ class SpotForm extends Component {
           </div>
           <div className='field-form'>
             <label>Best Swell Period</label>
-            <input type='text'
-              value={spotName}
-              onChange={(e) => this.handleNameChange(e)} />
+            <select value={period} onChange={(e) => this.setState({ period: e.target.value })}>
+              {this.state.periods.map((per, i) =>
+                <option value={per} key={i}>{per}</option>
+              )}
+            </select>
           </div>
           <div className='field-form'>
             <label>Best Tide</label>
-            <input type='text'
-              value={spotName}
-              onChange={(e) => this.handleNameChange(e)} />
+            <select value={tide} onChange={(e) => this.setState({ tide: e.target.value })}>
+              <option value='High'>High</option>
+              <option value='Low'>Low</option>
+            </select>
           </div>
+          <button type='submit'>Send it!</button>
         </form>
         <Link to='/' style={{ textDecoration: 'none', color: '#283044' }}><img className='return-home'src={wavewise} alt='Home' /></Link>
       </div>
