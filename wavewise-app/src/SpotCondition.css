@@ -3,15 +3,17 @@
 }
 
 .spot-info-container {
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 100%;
+  justify-content: space-between;
+  position: relative;
 }
 
 .condition-icon {
-  max-width: 75px;
-  display: inline-block;
+  max-width: 34%;
+  /* display: inline-block; */
 }
 
 /* .menu {
@@ -23,17 +25,23 @@
 } */
 
 .box {
-  margin: 5px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start
+  /* margin: 5px;
+  margin-top: 20px; */
+}
+.spotData {
+  margin-top: 60px;
 }
 
 h2 {
   color: #EBF5EE;
+  margin: 5px;
 }
 
 .spot-data {
   margin-bottom: 10px;
-  display: inline-flex;
+  display: inline-block;
   /* width: 60%; */
   
   
@@ -46,8 +54,8 @@ h2 {
 
 .top-drawer {
   position: fixed;
-  top: 2%;
-  left: 2%;
+  float: left;
+  padding-right: 50%;
 }
 
 .thumb {

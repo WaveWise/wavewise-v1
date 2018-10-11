@@ -17,6 +17,7 @@
   font-size: 300%;
   font-weight: lighter;
   margin-top: 0px;
+  margin-bottom: 10px;
  }
  .coastline {
    margin: 0px;
@@ -44,17 +45,18 @@
  }
  .suggestion {
    margin: 10px;
-   margin-top: 20px;
+   margin-top: 15px;
+   color: #EBF5EE;
    
  }
 
-/* .surf-condition {
-  border-style: solid;
+ .surf-condition { 
+  margin-top: 15px;
 }
 
 .overview-conditions {
-  border-style: solid;
-} */
+  margin-top: 10px;
+} 
 
  .wise {
    color: var(--color-blue)
@@ -83,6 +85,22 @@
 .rating-body {
   margin-top: 20px
 }
+
+.check-spots {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  color: #78A1BB;
+}
+
+.bottom-wave-menu {
+  margin-top: 0px;
+}
+
+.footer {
+  margin-top: 5px;
+  padding: 5px;
+
 .return-home {
   max-width: 40px;
+
 }
