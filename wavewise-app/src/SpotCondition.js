@@ -29,7 +29,7 @@ class SpotCondition extends Component {
             {tide === 'LOW'
               ? <img className='condition-icon' src={lowTide} alt='not found' />
               : <img className='condition-icon' src={highTide} alt='not found' />}
-            <p className='tideSpotData'> {tide} @ {tidetime} </p>
+            <p className='tideSpotData'> {tide}: {tidetime} </p>
             <p className='data-label'>tide</p>
           </div>
           <div className='box spot-swell-direction'>

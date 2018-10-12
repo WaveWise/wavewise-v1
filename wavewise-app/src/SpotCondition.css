@@ -12,8 +12,12 @@
 
 .spot-info-container {
   margin-top: 0px;
+  margin-bottom: -5%;
   display: grid;
   grid-template-columns: 1fr 50%;
+  max-width: 600px;
+  justify-items: center;
+  align-items: center;
 }
 
  .condition-icon {
@@ -48,7 +52,7 @@ h2 {
 } */
 
 .tideSpotData {
-  font-size: 95%;
+  font-size: 132%;
   color: #78A1BB;
 }
 
@@ -57,11 +61,11 @@ h2 {
   justify-content: left;
 }
 
-.top-drawer {
+/* .top-drawer {
   position: fixed;
   float: left;
   padding-right: 50%;
-}
+} */
 
 .thumb {
   position: relative;
