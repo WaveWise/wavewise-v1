@@ -79,7 +79,7 @@ class BottomDrawer extends React.Component {
     </Link> 
     </List> ))}
     <Divider />
-    <Link to='/spotform'>Tell us about your spot</Link>
+    <Link to='/spotform' style={{ textDecoration: 'none', color:'#283044' }}>Tell us about your spot</Link>
       </div>
     );
 

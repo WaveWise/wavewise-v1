@@ -14,10 +14,28 @@ class SpotForm extends Component {
       tide: '',
       name: '',
       number: '',
+      location: {},
       directions: ['E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'],
       periods: ['4-6', '6-8', '10-12', '12-15', '15+']
     }
     this.handleNameChange = this.handleNameChange.bind(this)
+  }
+
+  showCoordinates (pos) {
+    this.setState(state => {
+      location: Object.assign(
+        {},
+        state.location,
+        pos.coords
+      )
+    }
+    )
+  }
+
+  componentDidMount () {
+    if (!this.state.location) {
+      navigator.geolocation.getCurrentPosition(this.showCoordinates)
+    }
   }
 
   handleNameChange (e) {
@@ -26,7 +44,13 @@ class SpotForm extends Component {
     })
   }
 
+  handleClick (e) {
+    e.preventDefault()
+    alert('submitted!')
+  }
+
   render () {
+    console.log(this.state.location)
     const { spotName, wind, swelldir, tide, period, name, number } = this.state
     return (
       <div className='spot-form-container'>
@@ -85,7 +109,7 @@ class SpotForm extends Component {
               <option value='Low'>Low</option>
             </select>
           </div>
-          <button type='submit'>Send it!</button>
+          <button onClick={(e) => this.handleClick(e)} type='submit'>Send it!</button>
         </form>
         <Link to='/' style={{ textDecoration: 'none', color: '#283044' }}><img className='return-home'src={wavewise} alt='Home' /></Link>
       </div>
