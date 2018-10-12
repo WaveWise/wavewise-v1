@@ -64,7 +64,6 @@ class Rating extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <div className='rating-body'>
         {this.state.reviewSent
@@ -82,6 +81,9 @@ class Rating extends Component {
           </div>}
         {this.state.reviewSent
           ? <div className='review-response'>
+            <div className='clear'>
+              <button onClick={(e) => this.props.hideRating(e)} className='clear-button'>X</button>
+            </div>
             <div>
               <p>Thanks!</p>
               <img className='thanks-pic'src={photo} alt='thanks!' />

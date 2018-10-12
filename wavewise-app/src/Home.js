@@ -6,7 +6,7 @@ import SCimage from './map_gifs/SC.gif'
 import WbNeimage from './map_gifs/WB_NE.gif'
 import WbSeimage from './map_gifs/WB_SE.gif'
 import wavewise from './assets/wavewise-logo_0.5x.png'
-import BottomDrawer from './BottomDrawer'
+import BottomDrawer1 from './BottomDrawer1'
 
 class Home extends Component {
   constructor (props) {
@@ -18,8 +18,8 @@ class Home extends Component {
     return (
       <div className='container'>
         <h1 className='header'><img className='logo'
-          alt='Sorry Surfer - Not Found'
-          src={wavewise} />Wave<strong className='wise'>Wise</strong></h1>
+          alt='Sorry Surfer - Not Found'src={wavewise} />
+          Wave<strong className='wise'>Wise</strong></h1>
         <div className='surf-suggestion'>
           <h3 className='suggestion'>Surf now at {bestSpot.spot_name}!</h3>
         </div>
@@ -69,8 +69,7 @@ class Home extends Component {
         </div>
         <div className='footer'>
           <p className='check-spots'>check out other spots</p>
-          <BottomDrawer className='bottom-wave-menu' spots={this.props.spots} />
-
+          <BottomDrawer1 className='bottom-wave-menu' spots={this.props.spots} />
         </div>
       </div>
     )

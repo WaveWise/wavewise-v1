@@ -10,6 +10,12 @@ const data = {
         return (spots)
       })
   },
+  checkUserReviewHistory: (userId) => {
+    return request.get(`${apiDomain}/user/update?user_id=${userId}`)
+      .then(res => {
+        return res
+      })
+  },
   postReview: (obj) => {
     return request.post(`${apiDomain}/condition_rating/create`)
       .send(obj)

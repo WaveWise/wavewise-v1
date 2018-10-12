@@ -19,25 +19,22 @@ class App extends Component {
       },
       currentBestSpot: {},
       spotValues: [],
-      currentUser: null
+      currentUser: this.getUserId(),
+      showRating: true
     }
     this.updateConditions = this.updateConditions.bind(this)
     this.setConditions = this.setConditions.bind(this)
+    this.hideRating = this.hideRating.bind(this)
+    this.resetRating = this.resetRating.bind(this)
   }
 
-  componentDidMount () {
-    const userId = window.localStorage.getItem('userId')
-    if (userId) {
-      this.setState({
-        currentUser: userId
-      })
-    } else {
-      const newUserId = UUID.v4()
-      window.localStorage.setItem('userId', newUserId)
-      this.setState({
-        currentUser: newUserId
-      })
+  getUserId () {
+    let userId = window.localStorage.getItem('userId')
+    if (!userId) {
+      userId = UUID.v4()
+      window.localStorage.setItem('userId', userId)
     }
+    return userId
   }
 
   componentWillMount () {
@@ -46,6 +43,17 @@ class App extends Component {
 
   updateConditions () {
     this.setConditions()
+  }
+
+  hideRating () {
+    this.setState({
+      showRating: false
+    })
+  }
+  resetRating () {
+    this.setState({
+      showRating: true
+    })
   }
 
   setConditions () {
@@ -84,7 +92,10 @@ class App extends Component {
           spots={this.state.spots}
           currentUser={this.state.currentUser}
           ratingHasBeenSent={this.ratingHasBeenSent}
-          ratingSent={this.state.ratingSent} />
+          ratingSent={this.state.ratingSent}
+          showRating={this.state.showRating}
+          hideRating={this.hideRating}
+          resetRating={this.resetRating} />
         <SpotForm path='/spotform' currentUser={this.state.currentUser} />
       </Router>
     )

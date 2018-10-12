@@ -1,7 +1,6 @@
 * {
   font-family: 'Montserrat', sans-serif;
 }
-
 :root {  
   --color-primary: #283044;
   --color-blue: #78A1BB;
@@ -9,17 +8,16 @@
   --color-sand: #EBE6D3;
   --color-tan: #8B786D;
 }
-
 .spot-info-container {
-  margin-top: 25px;
+  margin-top: 0px;
   display: grid;
   grid-template-columns: 1fr 50%;
 }
  .condition-icon {
   border-radius: 10px;
-  max-width: 40px;
-  margin: 5px;
-  margin-left: 60px;
+  max-width: 75px;
+  margin: auto;
+  margin-bottom: -15px;
 }
 .box {
   margin: 5px;
@@ -29,14 +27,17 @@
 }
 .spotData {
   margin-top: 10px;
+  color: #78A1BB;
+  font-size: 135%;
+  font-weight: bolder;
 }
 h2 {
   color: #EBF5EE;
   margin: 5px;
 }
-.spot-data {
-  margin-bottom: 10px;
-  display: inline-flex;
+.tideSpotData {
+  font-size: 95%;
+  color: #78A1BB;
 }
 .spot-menu-button {
   position: absolute;
@@ -51,16 +52,48 @@ h2 {
   position: relative;
   align-items: center;
 }
-.menu-test {
+.top-menu {
   max-width: 30px;
+  padding: none;
+  display: inline-block;
+  align-items: left;
 }
 .thanks-pic {
  margin: 10px;
  max-width: 175px;
  border-radius: 200px;
 }
- 
-
-
+.single-spot-header  {
+  font-size: 135%;
+  display: inline-block;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+}
+.data-label {
+  font-size: 75%;
+  margin-top: 0;
+}
+.box-spot-tide {
+  color: #EBF5EE;
+}
+.MuiButton-root-9 {
+  margin-left: 0px !important;
+  padding-right: 5px !important;
+}
+.rating-container {
+  margin-top: -2%;
+}
+.spot-condition-body {
+  display: flex;
+  flex-direction: column;
+}
+.rating-prompt {
+  height: 100%; 
+  margin-top: 10%;
+}
+.bottom-wave-menu {
+  bottom: 10px;
+}
 
 
