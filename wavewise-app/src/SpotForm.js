@@ -90,7 +90,7 @@ class SpotForm extends Component {
       <div className='spot-form-container'>
         <form className='form'>
           <h3>Tell us about your favorite spot:</h3>
-          <p>When the conditions are like you like them, we'll be able to tell you when it's on!</p>
+          <p>when conditions are great, you'll be the first to know!</p>
           <div className='field-form'>
             {/* <label>Your Name</label> */}
             <input type='text'
@@ -129,7 +129,7 @@ class SpotForm extends Component {
             </select>
           </div>
           <div className='field-form'>
-            <label>best swell eight</label>
+            <label>best swell height</label>
             <select value={height} onChange={(e) => this.setState({ height: e.target.value })}>
               {this.state.heights.map((per, i) =>
                 <option value={per} key={i}>{per}</option>

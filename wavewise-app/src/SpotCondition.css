@@ -52,8 +52,9 @@ h2 {
 } */
 
 .tideSpotData {
-  font-size: 132%;
+  font-size: 131%;
   color: #78A1BB;
+  margin-top: 8px;
 }
 
 .spot-menu-button {
@@ -86,7 +87,7 @@ h2 {
  
 
 .single-spot-header  {
-  font-size: 135%;
+  font-size: 134%;
   display: inline-block;
   margin: auto;
   margin-top: 5%;
@@ -100,6 +101,11 @@ h2 {
 
 .box-spot-tide {
   color: #EBF5EE;
+}
+
+.data-label-tide {
+  margin-top: 7px;
+  font-size: 75%;
 }
 
 .MuiButton-root-9 {
