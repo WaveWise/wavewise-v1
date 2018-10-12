@@ -3,35 +3,30 @@
 }
 
 .spot-info-container {
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+  margin-top: 0px;
+  display: grid;
+  grid-template-columns: 1fr 50%;
 }
 
-.condition-icon {
-  max-width: 34%;
-  /* display: inline-block; */
+ .condition-icon {
+  border-radius: 10px;
+  max-width: 75px;
+  margin: auto;
+  margin-bottom: -15px;
 }
-
-/* .menu {
-  z-index: 2;
-}
-
-.spotCondition-body {
-  z-index: 1;
-} */
 
 .box {
+  margin: 5px;
+  margin-top: 10px;
   display: flex;
-  justify-content: flex-start
-  /* margin: 5px;
-  margin-top: 20px; */
+  flex-direction: column;
 }
+
 .spotData {
-  margin-top: 60px;
+  margin-top: 10px;
+  color: #78A1BB;
+  font-size: 135%;
+  font-weight: bolder;
 }
 
 h2 {
@@ -39,12 +34,14 @@ h2 {
   margin: 5px;
 }
 
-.spot-data {
+/* .spot-data {
   margin-bottom: 10px;
-  display: inline-block;
-  /* width: 60%; */
-  
-  
+  display: inline-flex;
+} */
+
+.tideSpotData {
+  font-size: 95%;
+  color: #78A1BB;
 }
 
 .spot-menu-button {
@@ -62,8 +59,43 @@ h2 {
   position: relative;
   align-items: center;
 }
+
+.top-menu {
+  max-width: 30px;
+  padding: none;
+  display: inline-block;
+  align-items: left;
+}
+
+.single-spot-header  {
+  font-size: 135%;
+  display: inline-block;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.data-label {
+  font-size: 75%;
+  margin-top: 0;
+}
+
+.box-spot-tide {
+  color: #EBF5EE;
+}
+
+.MuiButton-root-9 {
+  margin-left: 0px !important;
+  padding-right: 5px !important;
+}
  
+.rating-container {
+  margin-top: -2%;
+}
 
-
+.rating-prompt {
+  height: 100%; 
+  margin-top: 10%;
+}
 
 

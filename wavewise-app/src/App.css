@@ -33,7 +33,6 @@
    justify-content: center;
    max-width: 100%;
  }
- 
  .logo {
    margin-right: 5px;
  }
@@ -47,7 +46,6 @@
    margin: 10px;
    margin-top: 15px;
    color: #EBF5EE;
-   
  }
 
  .surf-condition { 
@@ -81,6 +79,7 @@
 .rating-container {
   display: flex;
   justify-content: space-around;
+  margin-top: 0px
 }
 .rating-body {
   margin-top: 20px
@@ -99,8 +98,7 @@
 .footer {
   margin-top: 5px;
   padding: 5px;
-
+}
 .return-home {
   max-width: 40px;
-
 }
