@@ -15,6 +15,11 @@ const data = {
       .send(obj)
       .then(res => console.log(res))
   },
+  postNewSpot: (obj) => {
+    return request.post(`${apiDomain}/new_spots/create`)
+      .send(obj)
+      .then(res => console.log(res))
+  },
   findSpotConditionValue (spot) {
     let conditionValue = 0
     const badPeriod = spot.swell_period_s < 5 || spot.swell_period_s > 8

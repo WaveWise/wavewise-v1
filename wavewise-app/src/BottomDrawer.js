@@ -72,15 +72,14 @@ class BottomDrawer extends React.Component {
 
     const fullList = (
       <div className={classes.fullList}>
-        {/* 
-        <Divider />
-         */}
-        {(Object.values(this.props.spots).map((spot) =>
-                <List key={spot.spot_id} onClick={this.handleClose}> 
+        {(Object.values(this.props.spots).map((spot, i) =>
+                <List key={i} onClick={this.handleClose}> 
                 <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.tide_time}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}/${spot.rating}`} style={{ textDecoration: 'none', color:'#283044' }}>
                   {spot.spot_name}
     </Link> 
     </List> ))}
+    <Divider />
+    <Link to='/spotform' style={{ textDecoration: 'none', color:'#283044' }}>Tell us about your spot</Link>
       </div>
     );
 
