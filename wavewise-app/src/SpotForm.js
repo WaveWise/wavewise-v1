@@ -29,7 +29,6 @@ class SpotForm extends Component {
   showCoordinates (pos) {
     let lat = pos.coords.latitude
     let long = pos.coords.longitude
-    console.log(pos.coords)
     this.setState({
       location: Object.assign(
         {},
