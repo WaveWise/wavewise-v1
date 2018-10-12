@@ -70,7 +70,6 @@ class Home extends Component {
         <div className='footer'>
           <p className='check-spots'>check out other spots</p>
           <BottomDrawer1 className='bottom-wave-menu' spots={this.props.spots} />
-
         </div>
       </div>
     )
