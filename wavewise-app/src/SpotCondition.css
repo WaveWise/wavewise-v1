@@ -12,7 +12,7 @@
   border-radius: 10px;
   max-width: 75px;
   margin: auto;
-  margin-bottom: -10px;
+  margin-bottom: -15px;
 }
 
 .box {
@@ -25,8 +25,8 @@
 .spotData {
   margin-top: 10px;
   color: #78A1BB;
-  font-size: 125%;
-  font-weight: bold;
+  font-size: 135%;
+  font-weight: bolder;
 }
 
 h2 {
@@ -40,7 +40,7 @@ h2 {
 } */
 
 .tideSpotData {
-  font-size: 90%;
+  font-size: 95%;
   color: #78A1BB;
 }
 
@@ -71,6 +71,7 @@ h2 {
   font-size: 135%;
   display: inline-block;
   margin: auto;
+  margin-top: 5%;
   text-align: center;
 }
 

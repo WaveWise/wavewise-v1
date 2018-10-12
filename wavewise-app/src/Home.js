@@ -18,8 +18,8 @@ class Home extends Component {
     return (
       <div className='container'>
         <h1 className='header'><img className='logo'
-          alt='Sorry Surfer - Not Found'
-          src={wavewise} />Wave<strong className='wise'>Wise</strong></h1>
+          alt='Sorry Surfer - Not Found'src={wavewise} />
+          Wave<strong className='wise'>Wise</strong></h1>
         <div className='surf-suggestion'>
           <h3 className='suggestion'>Surf now at {bestSpot.spot_name}!</h3>
         </div>
