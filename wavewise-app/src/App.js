@@ -40,6 +40,10 @@ class App extends Component {
     }
   }
 
+  componentWillMount () {
+    this.setConditions()
+  }
+
   updateConditions () {
     this.setConditions()
   }
@@ -70,10 +74,6 @@ class App extends Component {
       })
   }
 
-  componentWillMount () {
-    this.setConditions()
-  }
-
   render () {
     return (
       <Router>
@@ -83,8 +83,9 @@ class App extends Component {
         <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
           spots={this.state.spots}
           currentUser={this.state.currentUser}
-          updateConditions={this.updateConditions} />
-        <SpotForm path='/spotform' />
+          ratingHasBeenSent={this.ratingHasBeenSent}
+          ratingSent={this.state.ratingSent} />
+        <SpotForm path='/spotform' currentUser={this.state.currentUser} />
       </Router>
     )
   }

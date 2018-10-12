@@ -13,8 +13,14 @@ import Rating from './Rating'
 import BottomDrawer2 from './BottomDrawer2'
 
 class SpotCondition extends Component {
+  constructor () {
+    super()
+    this.state = {
+      showRating: true
+    }
+  }
   render () {
-    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating, updateConditions } = this.props
+    let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating } = this.props
     return (
       <React.Fragment>
         <h2 className='single-spot-header'>{name}</h2>
@@ -64,7 +70,7 @@ class SpotCondition extends Component {
             tidetime={tidetime}
             liveRating={rating}
             currentUser={this.props.currentUser}
-            updateConditions={updateConditions} />
+          />
         </div>
         <BottomDrawer2 className='bottom-wave-menu' spots={this.props.spots} />
       </React.Fragment>

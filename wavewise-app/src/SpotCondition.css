@@ -2,6 +2,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+:root {  
+  --color-primary: #283044;
+  --color-blue: #78A1BB;
+  --color-light: #EBF5EE;
+  --color-sand: #EBE6D3;
+  --color-tan: #8B786D;
+}
+
 .spot-info-container {
   margin-top: 0px;
   display: grid;
@@ -66,6 +74,12 @@ h2 {
   display: inline-block;
   align-items: left;
 }
+.thanks-pic {
+ margin: 10px;
+ max-width: 175px;
+ border-radius: 200px;
+}
+ 
 
 .single-spot-header  {
   font-size: 135%;

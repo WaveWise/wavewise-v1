@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import ThumbUp from '@material-ui/icons/ThumbUp'
 import ThumbDown from '@material-ui/icons/ThumbDown'
+import photo from './assets/thanks.png'
 
 import data from './data'
 
@@ -39,67 +40,55 @@ class Rating extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      hidden: true,
       reviewSent: false,
-      ratingObject: { condition_rating: {
-        spot_id: this.props.spotId,
-        user: this.props.currentUser,
-        rating: null,
-        condition_swell_period_s: this.props.period,
-        condition_swell_height_ft: this.props.height,
-        condition_swell_direction: this.props.swelldir,
-        condition_wind_speed_mph: this.props.windspeed,
-        condition_wind_direction: this.props.winddir,
-        condition_tide_type: this.props.tide,
-        condition_tide_time: this.props.tidetime
-      }
-      }
+      showing: true
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
-  componentDidUpdate () {
-    if (this.state.ratingObject.rating !== null && !this.state.reviewSent) {
-      data.postReview(this.state.ratingObject).then(() => this.setState({ reviewSent: true }))
-    }
-  }
-
   handleClick (e) {
+    data.postReview({ condition_rating: {
+      spot_id: this.props.spotId,
+      user: this.props.currentUser,
+      rating: e.currentTarget.value,
+      condition_swell_period_s: this.props.period,
+      condition_swell_height_ft: this.props.height,
+      condition_swell_direction: this.props.swelldir,
+      condition_wind_speed_mph: this.props.windspeed,
+      condition_wind_direction: this.props.winddir,
+      condition_tide_type: this.props.tide,
+      condition_tide_time: this.props.tidetime } })
     this.setState({
-      ratingObject: { condition_rating: {
-        spot_id: this.props.spotId,
-        user: this.props.currentUser,
-        rating: e.currentTarget.value,
-        condition_swell_period_s: this.props.period,
-        condition_swell_height_ft: this.props.height,
-        condition_swell_direction: this.props.swelldir,
-        condition_wind_speed_mph: this.props.windspeed,
-        condition_wind_direction: this.props.winddir,
-        condition_tide_type: this.props.tide,
-        condition_tide_time: this.props.tidetime
-      }
-      }
+      reviewSent: true
     })
   }
 
   render () {
-    console.log(this.props.currentUser)
-    console.log(this.state.ratingObject.rating)
+    console.log(this.props)
     return (
       <div className='rating-body'>
-        <div className='rating-container'>
-          <div className='thumbs-icon up'>
-            <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
-            > <ThumbUp iconStyle={styles.smallIcon}
-                style={styles.small} /></IconButton>
+        {this.state.reviewSent
+          ? null
+          : <div className='rating-container'>
+            <div className='thumbs-icon up'>
+              <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
+              ><ThumbUp iconstyle={styles.smallIcon}
+                  style={styles.small} /></IconButton>
+            </div>
+            <div className='thumbs-icon down'>
+              <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
+                style={styles.small} /> </IconButton>
+            </div>
+          </div>}
+        {this.state.reviewSent
+          ? <div className='review-response'>
+            <div>
+              <p>Thanks!</p>
+              <img className='thanks-pic'src={photo} alt='thanks!' />
+            </div>
+            <p>We'll log your response for these conditions to reference in the future.</p>
           </div>
-          <p className='rating-prompt'>How were the waves?</p>
-          <div className='thumbs-icon down'>
-            <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
-              style={styles.small} /> </IconButton>
-          </div>
-        </div>
-
+          : <p>Tell us how it is</p>}
       </div>
     )
   }
