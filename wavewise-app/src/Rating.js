@@ -93,12 +93,13 @@ class Rating extends Component {
             > <ThumbUp iconStyle={styles.smallIcon}
                 style={styles.small} /></IconButton>
           </div>
+          <p className='rating-prompt'>How were the waves?</p>
           <div className='thumbs-icon down'>
             <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
               style={styles.small} /> </IconButton>
           </div>
         </div>
-        <p>Tell us how it is</p>
+
       </div>
     )
   }

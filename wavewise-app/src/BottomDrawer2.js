@@ -29,8 +29,8 @@ const styles = {
       height: 60,
     },
     small: {
-      width: 65,
-      height: 65,
+      width: 60,
+      height: 60,
       padding: 0,
     },
     medium: {

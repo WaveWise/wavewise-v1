@@ -10,43 +10,40 @@ import swellPeriod from './assets/swellPeriod.svg'
 import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
 import Rating from './Rating'
-import TopDrawer from './TopDrawer'
 import BottomDrawer2 from './BottomDrawer2'
 
 class SpotCondition extends Component {
   render () {
     let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating, updateConditions } = this.props
-    console.log(tide)
     return (
       <React.Fragment>
-        {/* <div className='top-menu'><TopDrawer align='left' className='top-drawer' spots={this.props.spots} /></div> */}
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
-            <p className='spotData'> {tide} @ {tidetime} </p>
-            <p className='data-label'>tide</p>
-            {/* {tide === 'LOW'
+            {tide === 'LOW'
               ? <img className='condition-icon' src={lowTide} alt='not found' />
-              : <img className='condition-icon' src={highTide} alt='not found' />} */}
+              : <img className='condition-icon' src={highTide} alt='not found' />}
+            <p className='tideSpotData'> {tide} @ {tidetime} </p>
+            <p className='data-label'>tide</p>
           </div>
           <div className='box spot-swell-direction'>
             {/* <h4>Swell Direction</h4> */}
-            {/* <img className='condition-icon' src={direction} alt='not found' /> */}
+            <img className='condition-icon' src={direction} alt='not found' />
             <p className='spotData'> <strong>{swelldir}</strong></p>
             <p className='data-label'>swell direction</p>
           </div>
           <div className='box spot-swell-height'>
-            {/* <img className='condition-icon' src={swellHeight} alt='not found' /> */}
+            <img className='condition-icon' src={swellHeight} alt='not found' />
             <p className='spotData'><strong>{height}</strong> ft</p>
             <p className='data-label'> swell height</p>
           </div>
           <div className='box spot-swell-period'>
-            {/* <img className='condition-icon' src={swellPeriod} alt='not found' /> */}
+            <img className='condition-icon' src={swellPeriod} alt='not found' />
             <p className='spotData'> <strong>{period}</strong> s</p>
             <p className='data-label'>swell period</p>
           </div>
           <div className='box spot-wind-speed'>
-            {/* <img className='condition-icon' src={windSpeed} alt='not found' /> */}
+            <img className='condition-icon' src={windSpeed} alt='not found' />
             <p className='spotData'> <strong>{windspeed}</strong> mph</p>
             <p className='data-label'>windspeed</p>
           </div>
