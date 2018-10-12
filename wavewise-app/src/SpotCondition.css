@@ -11,48 +11,68 @@
 }
 
 .spot-info-container {
-  margin-top: 25px;
+  margin-top: 0px;
   display: grid;
   grid-template-columns: 1fr 50%;
 }
+
  .condition-icon {
   border-radius: 10px;
-  max-width: 40px;
-  margin: 5px;
-  margin-left: 60px;
+  max-width: 75px;
+  margin: auto;
+  margin-bottom: -15px;
 }
+
 .box {
   margin: 5px;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
+
 .spotData {
   margin-top: 10px;
+  color: #78A1BB;
+  font-size: 135%;
+  font-weight: bolder;
 }
+
 h2 {
   color: #EBF5EE;
   margin: 5px;
 }
-.spot-data {
+
+/* .spot-data {
   margin-bottom: 10px;
   display: inline-flex;
+} */
+
+.tideSpotData {
+  font-size: 95%;
+  color: #78A1BB;
 }
+
 .spot-menu-button {
   position: absolute;
   justify-content: left;
 }
+
 .top-drawer {
   position: fixed;
   float: left;
   padding-right: 50%;
 }
+
 .thumb {
   position: relative;
   align-items: center;
 }
-.menu-test {
+
+.top-menu {
   max-width: 30px;
+  padding: none;
+  display: inline-block;
+  align-items: left;
 }
 .thanks-pic {
  margin: 10px;
@@ -61,6 +81,35 @@ h2 {
 }
  
 
+.single-spot-header  {
+  font-size: 135%;
+  display: inline-block;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+}
 
+.data-label {
+  font-size: 75%;
+  margin-top: 0;
+}
+
+.box-spot-tide {
+  color: #EBF5EE;
+}
+
+.MuiButton-root-9 {
+  margin-left: 0px !important;
+  padding-right: 5px !important;
+}
+ 
+.rating-container {
+  margin-top: -2%;
+}
+
+.rating-prompt {
+  height: 100%; 
+  margin-top: 10%;
+}
 
 
