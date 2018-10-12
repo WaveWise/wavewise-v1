@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from '@reach/router'
 import wavewise from './assets/wavewise-logo_0.5x.png'
 import './SpotForm.css'
+import data from './data'
 
 class SpotForm extends Component {
   constructor () {
@@ -15,26 +16,15 @@ class SpotForm extends Component {
       name: '',
       email: '',
       location: {},
+      height: '',
       directions: ['E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'],
-      periods: ['4-6', '6-8', '10-12', '12-15', '15+']
+      periods: ['4-6', '6-8', '10-12', '12-15', '15+'],
+      heights: ['1-2', '2-3', '3-5', '5-8', 'Real Big', 'Huge']
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.showCoordinates = this.showCoordinates.bind(this)
+    this.sendNewSpot = this.sendNewSpot.bind(this)
   }
-
-//   { newSpot: {
-//     name: 'string',
-//     currentUser: 'userId',
-//     email: 'email',
-//     spot_name: 'spot_name',
-//     location: {lat: 'lat', long: 'long'},
-//     swell_period_s: 'period',
-//     swell_height_ft: 'height',
-//     swell_direction: 'swelldir',
-//     wind_direction: 'wind_dir',
-//     tide_type: 'tide'
-//   }
-// }
 
   showCoordinates (pos) {
     let lat = pos.coords.latitude
@@ -51,6 +41,27 @@ class SpotForm extends Component {
 
   showError () {
     alert('location not found')
+  }
+
+  sendNewSpot () {
+    let spotObject = {
+      new_spot: {
+        'user_name': this.state.name,
+        'user': this.props.currentUser,
+        'email': this.state.email,
+        'spot_name': this.state.spotName,
+        'location': {
+          'latitude': this.state.location.lat,
+          'longitude': this.state.location.long
+        },
+        'swell_period_s': this.state.period,
+        'swell_height_ft': this.state.height,
+        'swell_direction': this.state.swelldir,
+        'wind_direction': this.state.wind,
+        'tide_type': this.state.tide
+      }
+    }
+    data.postNewSpot(spotObject)
   }
 
   stopLocationWatch (id) {
@@ -70,11 +81,11 @@ class SpotForm extends Component {
 
   handleClick (e) {
     e.preventDefault()
-    alert('submitted!')
+    this.sendNewSpot()
   }
 
   render () {
-    const { spotName, wind, swelldir, tide, period, name, email } = this.state
+    const { spotName, wind, swelldir, tide, period, name, email, height } = this.state
     return (
       <div className='spot-form-container'>
         <form className='form'>
@@ -122,6 +133,14 @@ class SpotForm extends Component {
             </select>
           </div>
           <div className='field-form'>
+            <label>Best Swell Height</label>
+            <select value={height} onChange={(e) => this.setState({ height: e.target.value })}>
+              {this.state.heights.map((per, i) =>
+                <option value={per} key={i}>{per}</option>
+              )}
+            </select>
+          </div>
+          <div className='field-form'>
             <label>Best Swell Period</label>
             <select value={period} onChange={(e) => this.setState({ period: e.target.value })}>
               {this.state.periods.map((per, i) =>
@@ -132,8 +151,8 @@ class SpotForm extends Component {
           <div className='field-form'>
             <label>Best Tide</label>
             <select value={tide} onChange={(e) => this.setState({ tide: e.target.value })}>
-              <option value='High'>High</option>
-              <option value='Low'>Low</option>
+              <option value='HIGH'>High</option>
+              <option value='LOW'>Low</option>
             </select>
           </div>
           <button onClick={(e) => this.handleClick(e)} type='submit'>Send it!</button>

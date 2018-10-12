@@ -85,7 +85,7 @@ class App extends Component {
           currentUser={this.state.currentUser}
           ratingHasBeenSent={this.ratingHasBeenSent}
           ratingSent={this.state.ratingSent} />
-        <SpotForm path='/spotform' />
+        <SpotForm path='/spotform' currentUser={this.state.currentUser} />
       </Router>
     )
   }
