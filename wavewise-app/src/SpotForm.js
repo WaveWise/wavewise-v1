@@ -22,6 +22,20 @@ class SpotForm extends Component {
     this.showCoordinates = this.showCoordinates.bind(this)
   }
 
+//   { newSpot: {
+//     name: 'string',
+//     currentUser: 'userId',
+//     email: 'email',
+//     spot_name: 'spot_name',
+//     location: {lat: 'lat', long: 'long'},
+//     swell_period_s: 'period',
+//     swell_height_ft: 'height',
+//     swell_direction: 'swelldir',
+//     wind_direction: 'wind_dir',
+//     tide_type: 'tide'
+//   }
+// }
+
   showCoordinates (pos) {
     let lat = pos.coords.latitude
     let long = pos.coords.longitude
@@ -70,14 +84,14 @@ class SpotForm extends Component {
             <label>Your Name</label>
             <input type='text'
               value={name}
-              placeholder='Tap Here'
+              placeholder='Spicoli'
               onChange={(e) => this.setState({ name: e.target.value })} />
           </div>
           <div className='field-form'>
             <label>Email</label>
             <input type='text'
               value={email}
-              placeholder='123-456-7890'
+              placeholder='spicoli@coolbuzz.club'
               onChange={(e) => this.setState({ email: e.target.value })} />
           </div>
           <div className='field-form'>
