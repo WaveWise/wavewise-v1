@@ -10,8 +10,12 @@
 }
 .spot-info-container {
   margin-top: 0px;
+  margin-bottom: -5%;
   display: grid;
   grid-template-columns: 1fr 50%;
+  max-width: 600px;
+  justify-items: center;
+  align-items: center;
 }
  .condition-icon {
   border-radius: 10px;
@@ -36,18 +40,27 @@ h2 {
   margin: 5px;
 }
 .tideSpotData {
-  font-size: 95%;
+  font-size: 131%;
   color: #78A1BB;
+  margin-top: 8px;
 }
 .spot-menu-button {
   position: absolute;
   justify-content: left;
 }
+
+/* .top-drawer {
+  position: fixed;
+  float: left;
+  padding-right: 50%;
+} */
+
 .top-drawer {
   position: fixed;
   float: left;
   padding-right: 50%;
 }
+
 .thumb {
   position: relative;
   align-items: center;
@@ -64,7 +77,7 @@ h2 {
  border-radius: 200px;
 }
 .single-spot-header  {
-  font-size: 135%;
+  font-size: 134%;
   display: inline-block;
   margin: auto;
   margin-top: 5%;
@@ -77,6 +90,12 @@ h2 {
 .box-spot-tide {
   color: #EBF5EE;
 }
+
+.data-label-tide {
+  margin-top: 7px;
+  font-size: 75%;
+}
+
 .MuiButton-root-9 {
   margin-left: 0px !important;
   padding-right: 5px !important;

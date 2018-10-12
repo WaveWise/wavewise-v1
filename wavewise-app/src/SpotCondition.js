@@ -37,6 +37,20 @@ class SpotCondition extends Component {
     let { name, tide, tidetime, swelldir, height, period, windspeed, winddir, id, rating } = this.props
     return (
       <React.Fragment>
+        <h2 className='single-spot-header'>{name}</h2>
+        <div className='spot-info-container'>
+          <div className='box spot-tide'>
+            {tide === 'LOW'
+              ? <img className='condition-icon' src={lowTide} alt='not found' />
+              : <img className='condition-icon' src={highTide} alt='not found' />}
+            <p className='tideSpotData'> {tide}: {tidetime} </p>
+            <p className='data-label-tide'>tide</p>
+          </div>
+          <div className='box spot-swell-direction'>
+            {/* <h4>Swell Direction</h4> */}
+            <img className='condition-icon' src={direction} alt='not found' />
+            <p className='spotData'> <strong>{swelldir}</strong></p>
+            <p className='data-label'>swell direction</p>
         <div className='spot-condition-body'>
           <h2 className='single-spot-header'>{name}</h2>
           <div className='spot-info-container'>
