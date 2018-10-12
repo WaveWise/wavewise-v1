@@ -113,10 +113,6 @@ class SpotForm extends Component {
               onChange={(e) => this.handleNameChange(e)} />
           </div>
           <div className='field-form'>
-            <label>Location</label>
-            <button onClick={(e) => this.handleGetLocation(e)}>Locate</button>
-          </div>
-          <div className='field-form'>
             <label>Best Wind</label>
             <select value={wind} onChange={(e) => this.setState({ wind: e.target.value })}>
               {this.state.directions.map((dir, i) =>
