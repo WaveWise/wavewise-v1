@@ -11,6 +11,7 @@ import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
 import Rating from './Rating'
 import TopDrawer from './TopDrawer'
+import BottomDrawer2 from './BottomDrawer2'
 
 class SpotCondition extends Component {
   render () {
@@ -18,49 +19,57 @@ class SpotCondition extends Component {
     console.log(tide)
     return (
       <React.Fragment>
-        <div className='menu-test'><TopDrawer align='left' className='top-drawer' spots={this.props.spots} /></div>
+        {/* <div className='top-menu'><TopDrawer align='left' className='top-drawer' spots={this.props.spots} /></div> */}
         <h2 className='single-spot-header'>{name}</h2>
         <div className='spot-info-container'>
           <div className='box spot-tide'>
-            <p className='spotData'>tide</p>
-            {tide === 'LOW'
+            <p className='spotData'> {tide} @ {tidetime} </p>
+            <p className='data-label'>tide</p>
+            {/* {tide === 'LOW'
               ? <img className='condition-icon' src={lowTide} alt='not found' />
-              : <img className='condition-icon' src={highTide} alt='not found' />}
-            <strong>{tide} at {tidetime}</strong>
+              : <img className='condition-icon' src={highTide} alt='not found' />} */}
           </div>
           <div className='box spot-swell-direction'>
             {/* <h4>Swell Direction</h4> */}
-            <img className='condition-icon' src={direction} alt='not found' />
-            <p className='spotData'>swell direction: <strong>{swelldir}</strong></p>
+            {/* <img className='condition-icon' src={direction} alt='not found' /> */}
+            <p className='spotData'> <strong>{swelldir}</strong></p>
+            <p className='data-label'>swell direction</p>
           </div>
           <div className='box spot-swell-height'>
-            <img className='condition-icon' src={swellHeight} alt='not found' />
-            <p className='spotData'>swell height: <strong>{height}</strong> ft</p>
+            {/* <img className='condition-icon' src={swellHeight} alt='not found' /> */}
+            <p className='spotData'><strong>{height}</strong> ft</p>
+            <p className='data-label'> swell height</p>
           </div>
           <div className='box spot-swell-period'>
-            <img className='condition-icon' src={swellPeriod} alt='not found' />
-            <p className='spotData'>swell period: <strong>{period}</strong> seconds</p>
+            {/* <img className='condition-icon' src={swellPeriod} alt='not found' /> */}
+            <p className='spotData'> <strong>{period}</strong> s</p>
+            <p className='data-label'>swell period</p>
           </div>
           <div className='box spot-wind-speed'>
-            <img className='condition-icon' src={windSpeed} alt='not found' />
-            <p className='spotData'>windspeed: <strong>{windspeed}</strong> mph</p>
+            {/* <img className='condition-icon' src={windSpeed} alt='not found' /> */}
+            <p className='spotData'> <strong>{windspeed}</strong> mph</p>
+            <p className='data-label'>windspeed</p>
           </div>
           <div className='box spot-wind-direction'>
             <img className='condition-icon' src={windDirection} alt='not found' />
-            <p className='spotData'>wind direction: <strong>{winddir}</strong></p>
+            <p className='spotData'> <strong>{winddir}</strong></p>
+            <p className='data-label'>wind direction</p>
           </div>
         </div>
-        <Rating spotId={id}
-          period={period}
-          height={height}
-          swelldir={swelldir}
-          windspeed={windspeed}
-          winddir={winddir}
-          tide={tide}
-          tidetime={tidetime}
-          liveRating={rating}
-          currentUser={this.props.currentUser}
-          updateConditions={updateConditions} />
+        <div className='rating-container'>
+          <Rating spotId={id}
+            period={period}
+            height={height}
+            swelldir={swelldir}
+            windspeed={windspeed}
+            winddir={winddir}
+            tide={tide}
+            tidetime={tidetime}
+            liveRating={rating}
+            currentUser={this.props.currentUser}
+            updateConditions={updateConditions} />
+        </div>
+        <BottomDrawer2 className='bottom-wave-menu' spots={this.props.spots} />
       </React.Fragment>
     )
   }

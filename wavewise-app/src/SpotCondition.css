@@ -3,51 +3,89 @@
 }
 
 .spot-info-container {
-  margin-top: 25px;
+  margin-top: 0px;
   display: grid;
-  grid-template-columns: 1fr 50%;
+  grid-template-columns: 1fr;
 }
+
  .condition-icon {
   border-radius: 10px;
   max-width: 40px;
   margin: 5px;
   margin-left: 60px;
 }
+
 .box {
   margin: 5px;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
+
 .spotData {
   margin-top: 10px;
+  color: #78A1BB;
+  font-size: 125%;
+  font-weight: bold;
 }
+
 h2 {
   color: #EBF5EE;
   margin: 5px;
 }
+
 .spot-data {
   margin-bottom: 10px;
   display: inline-flex;
 }
+
 .spot-menu-button {
   position: absolute;
   justify-content: left;
 }
+
 .top-drawer {
   position: fixed;
   float: left;
   padding-right: 50%;
 }
+
 .thumb {
   position: relative;
   align-items: center;
 }
-.menu-test {
+
+.top-menu {
   max-width: 30px;
+  padding: none;
+  display: inline-block;
+  align-items: left;
+}
+
+.single-spot-header  {
+  font-size: 110%;
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: -10px;
+  text-align: center;
+}
+
+.data-label {
+  font-size: 75%;
+}
+
+.box-spot-tide {
+  color: #EBF5EE;
+}
+
+.MuiButton-root-9 {
+  margin-left: 0px !important;
+  padding-right: 5px !important;
 }
  
-
+.rating-container {
+  margin-top: 0px;
+}
 
 
 
