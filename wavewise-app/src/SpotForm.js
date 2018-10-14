@@ -92,11 +92,11 @@ class SpotForm extends Component {
         {this.state.submitted
           ? <div className='return-home'>
             <h2>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h2>
-            <Link to='/'>return home</Link>
+            <Link style={{ textDecoration: 'none', color: '#283044' }} to='/'>return home</Link>
           </div>
           : <form className='form'>
             <h3>Tell us about your favorite spot:</h3>
-            <p>When the conditions are like you like them, we'll be able to tell you when it's on!</p>
+            <p>When the conditions are great, you will be the first to know!</p>
             <div className='field-form'>
               <label>Your Name</label>
               <input type='text'
