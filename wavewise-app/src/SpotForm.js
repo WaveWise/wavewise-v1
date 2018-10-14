@@ -92,7 +92,7 @@ class SpotForm extends Component {
         {this.state.submitted
           ? <div className='return-home'>
             <h2>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h2>
-            <Link style={{ textDecoration: 'none', color: '#283044' }} to='/'>return home</Link>
+            <Link className='return-home' style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
           </div>
           : <form className='form'>
             <h3>Tell us about your favorite spot:</h3>
@@ -157,7 +157,7 @@ class SpotForm extends Component {
                 <option value='LOW'>Low</option>
               </select>
             </div>
-            <button onClick={(e) => this.handleClick(e)} type='submit'><img className='return-home'src={wavewise} alt='Home' /></button>
+            <button className='submission' onClick={(e) => this.handleClick(e)} type='submit'><img className='return-home'src={wavewise} alt='Home' /></button>
           </form>}
       </div>
     )
