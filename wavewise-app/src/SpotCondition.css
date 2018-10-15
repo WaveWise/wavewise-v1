@@ -32,7 +32,7 @@
 .spotData {
   margin-top: 10px;
   color: #78A1BB;
-  font-size: 135%;
+  font-size: 133%;
   font-weight: bolder;
 }
 h2 {
@@ -40,7 +40,7 @@ h2 {
   margin: 5px;
 }
 .tideSpotData {
-  font-size: 130%;
+  font-size: 127%;
   color: #78A1BB;
   margin-top: 8px;
 }
@@ -48,12 +48,6 @@ h2 {
   position: absolute;
   justify-content: left;
 }
-
-/* .top-drawer {
-  position: fixed;
-  float: left;
-  padding-right: 50%;
-} */
 
 .top-drawer {
   position: fixed;
@@ -97,7 +91,9 @@ h2 {
 }
 
 .rating-container {
-  margin-top: -2%;
+  margin-top: 13%;
+  color: #EBF5EE;
+
 }
 .spot-condition-body {
   display: flex;
@@ -107,14 +103,6 @@ h2 {
   height: 100%; 
   margin-top: 10%;
 }
-
-/* .bottom-drawer-container {
-bottom: 0; 
-width: 75%;
-position: fixed;
-left: 50%;
-margin-left: -37.5%;
-} */
 
 .bottom-drawer-container {
   bottom: 0;
@@ -131,9 +119,5 @@ margin-left: -37.5%;
   
 }
 
-/* .menu-item:hover {background-color: white !important} */
 
-.menu-item:active {
-  box-shadow: 0 5px #666 !important;
-  transform: translateY(4px) !important;
-}
+

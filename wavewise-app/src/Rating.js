@@ -90,7 +90,7 @@ class Rating extends Component {
             </div>
             <p>We'll log your response for future condition rating</p>
           </div>
-          : <p>Tell us how it is</p>}
+          : <p className='formCTA'>Tell us how it is</p>}
       </div>
     )
   }
