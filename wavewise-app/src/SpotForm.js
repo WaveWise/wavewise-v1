@@ -98,28 +98,28 @@ class SpotForm extends Component {
             <h3>Tell us about your favorite spot:</h3>
             <p>When the conditions are great, you will be the first to know!</p>
             <div className='field-form'>
-              <label>Your Name</label>
+              <label>name</label>
               <input type='text'
                 value={name}
                 placeholder='Spicoli'
                 onChange={(e) => this.setState({ name: e.target.value })} />
             </div>
             <div className='field-form'>
-              <label>Email</label>
+              <label>e-mail</label>
               <input type='text'
                 value={email}
                 placeholder='spicoli@coolbuzz.club'
                 onChange={(e) => this.setState({ email: e.target.value })} />
             </div>
             <div className='field-form'>
-              <label>Spot Name</label>
+              <label>spot name</label>
               <input type='text'
                 value={spotName}
                 placeholder='the Jetty'
                 onChange={(e) => this.handleNameChange(e)} />
             </div>
             <div className='field-form'>
-              <label>Best Wind</label>
+              <label>best wind</label>
               <select value={wind} onChange={(e) => this.setState({ wind: e.target.value })}>
                 {this.state.directions.map((dir, i) =>
                   <option value={dir} key={i}>{dir}</option>
@@ -127,7 +127,7 @@ class SpotForm extends Component {
               </select>
             </div>
             <div className='field-form'>
-              <label>Best Swell Direction</label>
+              <label>best swell direction</label>
               <select value={swelldir} onChange={(e) => this.setState({ swelldir: e.target.value })}>
                 {this.state.directions.map((dir, i) =>
                   <option value={dir} key={i}>{dir}</option>

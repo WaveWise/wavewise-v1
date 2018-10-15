@@ -40,7 +40,7 @@ h2 {
   margin: 5px;
 }
 .tideSpotData {
-  font-size: 131%;
+  font-size: 135%;
   color: #78A1BB;
   margin-top: 8px;
 }
@@ -96,10 +96,6 @@ h2 {
   font-size: 75%;
 }
 
-/* .MuiButton-root-9 {
-  margin-left: 0px !important;
-  padding-right: 5px !important;
-} */
 .rating-container {
   margin-top: -2%;
 }
@@ -129,5 +125,6 @@ margin-left: -37.5%;
 
 .menu-item {
   padding: 20px !important;
-  background-color: #78A1BB !important;
+  background-color: #e6dcd6 !important;
+  font-family: 'Montserrat', sans-serif !important;
 }

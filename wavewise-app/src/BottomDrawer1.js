@@ -78,7 +78,7 @@ class BottomDrawer extends React.Component {
                   {spot.spot_name}
     </Link> 
     </List> ))}
-    <List className='menu-item'> <Link to='/spotform' style={{ textDecoration: 'none', color:'#283044' }}>Tell us about your spot</Link>
+    <List className='menu-item'> <Link to='/spotform' style={{ textDecoration: 'none', color:'#283044', fontWeight: 'bold'  }} >tell us about your spot</Link>
     </List>
       </div>
     );
