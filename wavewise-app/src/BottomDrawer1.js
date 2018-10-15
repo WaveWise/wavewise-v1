@@ -7,7 +7,6 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from "@reach/router";
 import Waves from '@material-ui/icons/Waves';
-// import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 const styles = {
   list: {
