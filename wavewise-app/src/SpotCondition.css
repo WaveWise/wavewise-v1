@@ -40,7 +40,7 @@ h2 {
   margin: 5px;
 }
 .tideSpotData {
-  font-size: 131%;
+  font-size: 130%;
   color: #78A1BB;
   margin-top: 8px;
 }
@@ -96,10 +96,6 @@ h2 {
   font-size: 75%;
 }
 
-.MuiButton-root-9 {
-  margin-left: 0px !important;
-  padding-right: 5px !important;
-}
 .rating-container {
   margin-top: -2%;
 }
@@ -111,8 +107,33 @@ h2 {
   height: 100%; 
   margin-top: 10%;
 }
-.bottom-wave-menu {
-  bottom: 10px;
+
+/* .bottom-drawer-container {
+bottom: 0; 
+width: 75%;
+position: fixed;
+left: 50%;
+margin-left: -37.5%;
+} */
+
+.bottom-drawer-container {
+  bottom: 0;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
+.menu-item {
+  padding: 20px !important;
+  color: #C6D8D3 !important; 
+  background-color: #283044 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  
+}
 
+/* .menu-item:hover {background-color: white !important} */
+
+.menu-item:active {
+  box-shadow: 0 5px #666 !important;
+  transform: translateY(4px) !important;
+}

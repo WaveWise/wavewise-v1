@@ -104,13 +104,18 @@ h3 {
   margin-top: 0px;
 }
 
-.footer {
-  margin-top: 5px;
-  padding: 5px;
+.bottom-drawer-container {
+  bottom: 0;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
+
 .return-home {
-  max-width: 40px;
+  max-width: 30px;
 }
+
+
 .clear {
   text-align: right;
 }
@@ -124,7 +129,13 @@ h3 {
   border-radius: 20px;
   padding: 10px;
 }
+
+.menu-item {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 .clear-button {
   background: transparent;
   border: none;
 }
+
