@@ -96,7 +96,7 @@ class SpotForm extends Component {
           </div>
           : <form className='form' noValidate>
             <h3>Tell us about your favorite spot!</h3>
-            <p className='form-intro'>When the conditions are great, you will be the first to know.</p>
+            <p className='form-intro'>When conditions are great, you'll be the first to know.</p>
             <div className='field-form'>
               <label className='form-label'>name</label>
               <input type='text'

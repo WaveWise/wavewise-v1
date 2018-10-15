@@ -1,4 +1,3 @@
-
 .field-form { 
   margin: 8px;
   display: flex;
@@ -17,7 +16,7 @@ input {
   padding: 4px;
   border: none;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: .5px solid #EBF5EE;
   border-radius: 10px;
   background: transparent;
@@ -40,3 +39,4 @@ select {
 .form-intro {
   font-size: 90%;
 }
+

@@ -49,12 +49,6 @@ h2 {
   justify-content: left;
 }
 
-/* .top-drawer {
-  position: fixed;
-  float: left;
-  padding-right: 50%;
-} */
-
 .top-drawer {
   position: fixed;
   float: left;
@@ -97,7 +91,9 @@ h2 {
 }
 
 .rating-container {
-  margin-top: -2%;
+  margin-top: 13%;
+  color: #EBF5EE;
+
 }
 .spot-condition-body {
   display: flex;
@@ -107,14 +103,6 @@ h2 {
   height: 100%; 
   margin-top: 10%;
 }
-
-/* .bottom-drawer-container {
-bottom: 0; 
-width: 75%;
-position: fixed;
-left: 50%;
-margin-left: -37.5%;
-} */
 
 .bottom-drawer-container {
   bottom: 0;
@@ -130,4 +118,6 @@ margin-left: -37.5%;
   font-family: 'Montserrat', sans-serif !important;
   
 }
+
+
 
