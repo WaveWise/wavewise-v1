@@ -88,7 +88,7 @@ class Rating extends Component {
               <p>Thanks!</p>
               <img className='thanks-pic'src={photo} alt='thanks!' />
             </div>
-            <p>We'll log your response for these conditions to reference in the future.</p>
+            <p>We'll log your response for future condition rating</p>
           </div>
           : <p>Tell us how it is</p>}
       </div>
