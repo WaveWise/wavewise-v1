@@ -27,3 +27,8 @@ select {
   background-color: transparent;
   border-radius: 10px
 }
+.submission {
+  background-color: transparent;
+  border-radius: 10px;
+  padding-top: 5px;
+}

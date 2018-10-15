@@ -134,6 +134,8 @@ h3 {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-
-
+.clear-button {
+  background: transparent;
+  border: none;
+}
 
