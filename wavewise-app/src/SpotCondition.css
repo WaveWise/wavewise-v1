@@ -96,10 +96,10 @@ h2 {
   font-size: 75%;
 }
 
-.MuiButton-root-9 {
+/* .MuiButton-root-9 {
   margin-left: 0px !important;
   padding-right: 5px !important;
-}
+} */
 .rating-container {
   margin-top: -2%;
 }
@@ -111,8 +111,12 @@ h2 {
   height: 100%; 
   margin-top: 10%;
 }
-.bottom-wave-menu {
-  bottom: 10px;
-}
 
+.bottom-drawer-container {
+bottom: 0; 
+width: 75%;
+position: fixed;
+left: 50%;
+margin-left: -37.5%;
+}
 
