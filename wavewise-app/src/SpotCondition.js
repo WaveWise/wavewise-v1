@@ -44,7 +44,7 @@ class SpotCondition extends Component {
               {tide === 'LOW'
                 ? <img className='condition-icon' src={lowTide} alt='not found' />
                 : <img className='condition-icon' src={highTide} alt='not found' />}
-              <p className='tideSpotData'> {tide}: {tidetime} </p>
+              <p className='tideSpotData'> {tide} {tidetime} </p>
               <p className='data-label'>tide</p>
             </div>
             <div className='box spot-swell-direction'>
@@ -92,7 +92,7 @@ class SpotCondition extends Component {
               </div>}
           </div>
           <div className='bottom-drawer-container'>
-            <BottomDrawer2 className='bottom-wave-menu' spots={this.props.spots} />
+            <BottomDrawer2 className='bottom-wave-menu' spots={this.props.spots} style={{ textDecoration: 'none', color: '#EBF5EE' }} />
           </div>
         </div>
       </React.Fragment>
