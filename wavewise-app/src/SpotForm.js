@@ -70,7 +70,7 @@ class SpotForm extends Component {
 
   componentDidMount () {
     navigator.geolocation.getCurrentPosition(this.showCoordinates, this.showError)
-    navigator.geolocation.watchPosition(this.showCoordinates)
+    console.log(navigator.geolocation.watchPosition(this.showCoordinates))
   }
 
   handleNameChange (e) {
@@ -89,6 +89,9 @@ class SpotForm extends Component {
     const { spotName, wind, swelldir, tide, period, name, email, height } = this.state
     return (
       <div>
+        <div className='return-home'>
+          <Link to='/'><p style={{ color: '#78A1BB' }}>Home</p></Link>
+        </div>
         <div className='spot-form-container'>
           {this.state.submitted
             ? <div className='return-home'>

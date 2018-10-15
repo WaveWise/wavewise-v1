@@ -35,7 +35,10 @@ select {
   border-radius: 10px;
   padding-top: 5px;
 }
-
+.return-home {
+  text-align: left;
+  margin: 10px;
+}
 .form-intro {
   font-size: 90%;
 }
