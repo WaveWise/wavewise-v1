@@ -6,6 +6,7 @@ import data from './data'
 import { default as UUID } from 'node-uuid'
 import { Router } from '@reach/router'
 import SpotForm from './SpotForm'
+import firebase from './firebase'
 
 class App extends Component {
   constructor () {
@@ -37,12 +38,38 @@ class App extends Component {
     return userId
   }
 
+  // getUserId () {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     this.setState({
+  //       currentUser: user.getToken()
+  //     })
+  //   })
+  // }
+
+  // componentDidMount () {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     this.setState({
+  //       currentUser: user.getToken()
+  //     })
+  //   })
+  // }
+
   componentWillMount () {
     this.setConditions()
   }
 
   updateConditions () {
     this.setConditions()
+  }
+
+  handleLogin = (event) => {
+    event.preventDefault()
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+  }
+  handleLogout = (event) => {
+    event.preventDefault()
+    firebase.auth.signOut()
   }
 
   hideRating () {
@@ -83,21 +110,28 @@ class App extends Component {
   }
 
   render () {
+    console.log(this.state.currentUser)
     return (
-      <Router>
-        <Home path='/'
-          bestSpot={this.state.currentBestSpot}
-          spots={this.state.spots} />
-        <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
-          spots={this.state.spots}
-          currentUser={this.state.currentUser}
-          ratingHasBeenSent={this.ratingHasBeenSent}
-          ratingSent={this.state.ratingSent}
-          showRating={this.state.showRating}
-          hideRating={this.hideRating}
-          resetRating={this.resetRating} />
-        <SpotForm path='/spotform' currentUser={this.state.currentUser} />
-      </Router>
+      <div>
+      <div className='page-header'>
+        <button onClick={this.handleLogout}>Logout</button>
+        <button onClick={this.handleLogin}>Login with Google</button>
+      </div>
+        <Router>
+          <Home path='/'
+            bestSpot={this.state.currentBestSpot}
+            spots={this.state.spots} />
+          <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
+            spots={this.state.spots}
+            currentUser={this.state.currentUser}
+            ratingHasBeenSent={this.ratingHasBeenSent}
+            ratingSent={this.state.ratingSent}
+            showRating={this.state.showRating}
+            hideRating={this.hideRating}
+            resetRating={this.resetRating} />
+          <SpotForm path='/spotform' currentUser={this.state.currentUser} />
+        </Router>
+      </div>
     )
   }
 }

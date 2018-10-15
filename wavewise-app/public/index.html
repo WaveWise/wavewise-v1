@@ -4,6 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDczbAIxUebvLot3APTxbUNPebm8tBHbcs",
+        authDomain: "wavewise-6647c.firebaseapp.com",
+        databaseURL: "https://wavewise-6647c.firebaseio.com",
+        projectId: "wavewise-6647c",
+        storageBucket: "wavewise-6647c.appspot.com",
+        messagingSenderId: "492736986338"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+    <script>
+      var config = {
+        // ...
+      };
+      firebase.initializeApp(config);
+    </script>
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -40,18 +61,6 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDczbAIxUebvLot3APTxbUNPebm8tBHbcs",
-      authDomain: "wavewise-6647c.firebaseapp.com",
-      databaseURL: "https://wavewise-6647c.firebaseio.com",
-      projectId: "wavewise-6647c",
-      storageBucket: "wavewise-6647c.appspot.com",
-      messagingSenderId: "492736986338"
-    };
-    firebase.initializeApp(config);
-  </script>
 <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
