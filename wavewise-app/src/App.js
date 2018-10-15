@@ -112,11 +112,11 @@ class App extends Component {
   render () {
     console.log(this.state.currentUser)
     return (
-      <div>
-      <div className='page-header'>
-        <button onClick={this.handleLogout}>Logout</button>
-        <button onClick={this.handleLogin}>Login with Google</button>
-      </div>
+      // <div>
+      // <div className='page-header'>
+      //   <button onClick={this.handleLogout}>Logout</button>
+      //   <button onClick={this.handleLogin}>Login with Google</button>
+      // </div>
         <Router>
           <Home path='/'
             bestSpot={this.state.currentBestSpot}
@@ -131,7 +131,7 @@ class App extends Component {
             resetRating={this.resetRating} />
           <SpotForm path='/spotform' currentUser={this.state.currentUser} />
         </Router>
-      </div>
+      // </div>
     )
   }
 }
