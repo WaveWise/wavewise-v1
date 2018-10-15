@@ -40,19 +40,19 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDczbAIxUebvLot3APTxbUNPebm8tBHbcs",
+      authDomain: "wavewise-6647c.firebaseapp.com",
+      databaseURL: "https://wavewise-6647c.firebaseio.com",
+      projectId: "wavewise-6647c",
+      storageBucket: "wavewise-6647c.appspot.com",
+      messagingSenderId: "492736986338"
+    };
+    firebase.initializeApp(config);
+  </script>
 <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDczbAIxUebvLot3APTxbUNPebm8tBHbcs",
-    authDomain: "wavewise-6647c.firebaseapp.com",
-    databaseURL: "https://wavewise-6647c.firebaseio.com",
-    projectId: "wavewise-6647c",
-    storageBucket: "wavewise-6647c.appspot.com",
-    messagingSenderId: "492736986338"
-  };
-  firebase.initializeApp(config);
-</script>
   <script>
     if ('serviceWorker' in navigator) {
       console.log("Will the service worker register?");
