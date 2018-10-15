@@ -112,11 +112,22 @@ h2 {
   margin-top: 10%;
 }
 
-.bottom-drawer-container {
+/* .bottom-drawer-container {
 bottom: 0; 
 width: 75%;
 position: fixed;
 left: 50%;
 margin-left: -37.5%;
+} */
+
+.bottom-drawer-container {
+  bottom: 0;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
+.menu-item {
+  padding: 20px !important;
+  background-color: #78A1BB !important;
+}
