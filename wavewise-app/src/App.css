@@ -117,9 +117,10 @@ h3 {
 
 .bottom-drawer-container {
   bottom: 0;
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
+  z-index: 0 !important;
 }
 
 .clear {
@@ -133,9 +134,17 @@ h3 {
 }
 
 .review-response {
-  border: 1px solid white;
+  background-color: #78A1BB;
+  color: #283044;
+  position: relative;
   border-radius: 20px;
   padding: 10px;
+  z-index: 2;
+  font-size: 125%;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
 }
 
 .menu-item {
@@ -147,12 +156,13 @@ h3 {
 }
 
 .user-vote-info {
-  margin: 2rem;
+  margin: 2.5rem;
 }
 
 .clear-button {
   background: transparent;
   border: none;
+  margin-right: 0px;
 }
 
 .return-home {
@@ -162,6 +172,16 @@ h3 {
 
 img.return-home {
   margin: 0; 
+}
+.rating-container {
+  margin-top: 20px;
+}
+.thumbs-icon {
+  margin-top: -30px;
+}
+.text-body-rating {
+  margin: 5px;
+  margin-top: 15px;
 }
 
 @media screen 

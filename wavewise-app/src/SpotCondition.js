@@ -54,12 +54,12 @@ class SpotCondition extends Component {
             <div className='box spot-swell-height'>
               <img className='condition-icon' src={swellHeight} alt='not found' />
               <p className='spotData'><strong>{height}</strong> ft</p>
-              <p className='data-label'> swell ht</p>
+              <p className='data-label'> swell height</p>
             </div>
             <div className='box spot-swell-period'>
               <img className='condition-icon' src={swellPeriod} alt='not found' />
               <p className='spotData'> <strong>{period}</strong> s</p>
-              <p className='data-label'>swell per</p>
+              <p className='data-label'>swell period</p>
             </div>
             <div className='box spot-wind-speed'>
               <img className='condition-icon' src={windSpeed} alt='not found' />

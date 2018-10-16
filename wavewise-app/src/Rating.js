@@ -73,7 +73,7 @@ class Rating extends Component {
               <div className='thumbs-icon up'>
                 <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
                 ><ThumbUp iconstyle={styles.smallIcon}
-                    style={styles.small} /></IconButton>
+                  style={styles.small} /></IconButton>
               </div>
               <div className='thumbs-icon down'>
                 <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
@@ -84,10 +84,12 @@ class Rating extends Component {
         {this.state.reviewSent
           ? <div className='review-response'>
             <div className='clear'>
-              <button onClick={(e) => this.props.hideRating(e)} className='clear-button'>X</button>
+              <button
+              // onClick={(e) => this.props.hideRating(e)}
+                className='clear-button'>X</button>
             </div>
             <p>Thanks!</p>
-            <h5>Your feedback goes a long way to refining our future reccomendations</h5>
+            <h4 className='text-body-rating'>Your feedback goes a long way toward refining our future recommendations.</h4>
           </div>
           : null}
       </div>

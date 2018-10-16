@@ -101,10 +101,10 @@ h2 {
 
 .bottom-drawer-container {
   bottom: 0;
-  position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
 }
+
 .return-home {
   color: blue;
 }
