@@ -87,7 +87,7 @@ class SpotCondition extends Component {
                 hideRating={this.props.hideRating}
               />
               : <div className='user-vote-info'>
-                <h4>You may vote once per hour.</h4>
+                <h4>You can vote again soon.</h4>
               </div>}
           </div>
           <div className='bottom-drawer-container'>

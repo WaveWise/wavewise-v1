@@ -6,7 +6,6 @@ import data from './data'
 import { default as UUID } from 'node-uuid'
 import { Router } from '@reach/router'
 import SpotForm from './SpotForm'
-import request from 'superagent/superagent.js'
 
 class App extends Component {
   constructor () {

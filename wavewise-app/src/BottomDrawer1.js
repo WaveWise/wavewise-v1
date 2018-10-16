@@ -4,11 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import { Link } from "@reach/router";
 import Waves from '@material-ui/icons/Waves';
 import home from './assets/home.svg';
-import firebase from './firebase'
 
 const styles = {
   list: {
@@ -54,29 +52,29 @@ class BottomDrawer extends React.Component {
     right: false,
   };
 
-  prompt () {
-  const messaging = firebase.messaging()
-    messaging.getToken().then((currentToken) => {
-      if (currentToken) {
-        this.setState({ msgToken: currentToken })
-      } else {
-        this.setState({ msgToken: null })
-      }
-    }).catch((err) => {
-      console.log('An error occurred while retrieving token. ', err)      
-    })
-    messaging.onTokenRefresh(() => {
-      messaging.getToken().then((currentToken) => {
-        if (currentToken) {
-          this.setState({ msgToken: currentToken })
-        } else {
-          this.setState({ msgToken: null })
-        }
-      }).catch((err) => {
-        console.log('An error occurred while retrieving token. ', err)      
-      })
-    })
-  }
+  // prompt () {
+  // const messaging = firebase.messaging()
+  //   messaging.getToken().then((currentToken) => {
+  //     if (currentToken) {
+  //       this.setState({ msgToken: currentToken })
+  //     } else {
+  //       this.setState({ msgToken: null })
+  //     }
+  //   }).catch((err) => {
+  //     console.log('An error occurred while retrieving token. ', err)      
+  //   })
+  //   messaging.onTokenRefresh(() => {
+  //     messaging.getToken().then((currentToken) => {
+  //       if (currentToken) {
+  //         this.setState({ msgToken: currentToken })
+  //       } else {
+  //         this.setState({ msgToken: null })
+  //       }
+  //     }).catch((err) => {
+  //       console.log('An error occurred while retrieving token. ', err)      
+  //     })
+  //   })
+  // }
 
   toggleDrawer = (side, open) => () => {
     this.setState({
@@ -97,7 +95,7 @@ class BottomDrawer extends React.Component {
     </List> ))}
 
     <List className='menu-item'> <Link to='/spotform' style={{ textDecoration: 'none', color:'#C6D8D3' }} >Recommend a Spot</Link> </List>
-    <List className='menu-item' onClick={() => this.prompt()}>Register for Notifications</List>
+    {/* <List className='menu-item'>Register for Notifications</List> */}
     <List className='menu-item'> <Link to='/' style={{ textDecoration: 'none', color:'#EBF5EE' }}><img className='return-home'src={home} alt='Home' /></Link> </List>
   
       </div>

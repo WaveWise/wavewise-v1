@@ -142,9 +142,7 @@ h3 {
   z-index: 2;
   font-size: 125%;
   text-align: center;
-  -webkit-box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
+  
 }
 
 .menu-item {
@@ -167,7 +165,7 @@ box-shadow: 0px 0px 39px 0px rgba(0,0,0,0.75);
 
 .return-home {
   max-width: 25px;
-  padding: 0px;
+  padding-bottom: 10px;
 }
 
 img.return-home {

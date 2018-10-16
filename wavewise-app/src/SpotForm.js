@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from '@reach/router'
-import wavewise from './assets/wavewise-logo_0.5x.png'
 import './SpotForm.css'
 import data from './data'
 
@@ -63,19 +62,23 @@ class SpotForm extends Component {
     return (
       <div className='spot-form-container'>
         {this.state.submitted
-          ? <div className='return-home'>
-            <h3>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h3>
-            <Link className='return-home' style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
+          ? <div>
+            <div className='form-submit-response'>
+              <h3>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h3>
+            </div>
+            <div className='return-home-text'>
+              <Link style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
+            </div>
           </div>
           : <div>
-            <div className='return-home'>
+            <div className='return-home-text'>
               <Link to='/' style={{ textDecoration: 'none', color: '#78A1BB' }}>
                 Home
               </Link>
             </div>
             <form className='form' noValidate>
               <h3>Recommend a spot for us to add:</h3>
-              <p className='form-intro'>When conditions are great, you'll be the first to know!</p>
+              <p className='form-intro'>When conditions are great, you'll <br /> be the first to know!</p>
               <div className='field-form'>
                 <label className='form-label'>Name</label>
                 <input type='text'
@@ -91,7 +94,7 @@ class SpotForm extends Component {
                   onChange={(e) => this.setState({ email: e.target.value })} />
               </div>
               <div className='field-form'>
-                <label className='form-label'>Spot Name</label>
+                <label className='form-label'>Location</label>
                 <div className='location-field'>
                   <div className='location-box'>
                     <input className='field-form-half' type='text' required
@@ -108,7 +111,7 @@ class SpotForm extends Component {
                 </div>
               </div>
               <div className='field-form'>
-                <label className='form-label'>spot name</label>
+                <label className='form-label'>Spot Name</label>
                 <input type='text'
                   value={spotName}
                   placeholder='the Jetty'
@@ -155,7 +158,8 @@ class SpotForm extends Component {
                 </select>
               </div>
               <button className='submission' onClick={(e) => this.handleClick(e)} type='submit'>
-                <img className='return-home'src={wavewise} alt='Home' />
+                {/* <img className='return-home'src={wavewise} alt='Home' /> */}
+                <p className='submit-button'>Submit</p>
               </button>
             </form>
           </div>}

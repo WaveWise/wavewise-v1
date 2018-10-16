@@ -31,19 +31,39 @@ select {
 }
 
 .submission {
-  background-color: transparent;
+  background-color: #C6d8d3;
   border-radius: 10px;
+  margin: 5px;
   padding-top: 5px;
 }
 
-.return-home {
+.submit-button {
+  color: #283044;
+  font-size: 1.25rem;
+  font-weight: bolder;
+  line-height: 1rem;
+}
+
+.return-home-form {
   text-align: left;
   margin: 10px;
   text-decoration-style: none;
 }
 
+.form-submit-response {
+  max-width: 150px;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.return-home-text {
+  text-align: left;
+  margin: 10px;
+}
+
 .form-intro {
   font-size: 90%;
+  margin: 5px 40px;
 }
 
 .location-field {
