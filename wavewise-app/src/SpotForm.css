@@ -35,11 +35,25 @@ select {
   border-radius: 10px;
   padding-top: 5px;
 }
+
 .return-home {
   text-align: left;
   margin: 10px;
 }
+
 .form-intro {
   font-size: 90%;
 }
 
+.location-field {
+  display: flex;
+}
+
+.location-box {
+ text-align: left;
+ margin-right: -23px;
+}
+
+.field-form-half {
+  max-width: 70%;
+}

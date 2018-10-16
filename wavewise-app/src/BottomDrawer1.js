@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from "@reach/router";
 import Waves from '@material-ui/icons/Waves';
+import home from './assets/home.svg';
 
 const styles = {
   list: {
@@ -69,10 +70,11 @@ class BottomDrawer extends React.Component {
                   {spot.spot_name}
     </Link> 
     </List> ))}
-    <List className='menu-item'> <Link to='/spotform' style={{ textDecoration: 'none', color:'#C6D8D3', fontWeight: 'bolder'  }} >Recommend a Spot</Link>
-    <Divider />
+
+    <List className='menu-item'> <Link to='/spotform' style={{ textDecoration: 'none', color:'#C6D8D3' }} >Recommend a Spot</Link> </List>
     <List className='menu-item'>Register for Notifications</List>
-    </List>
+    <List className='menu-item'> <Link to='/' style={{ textDecoration: 'none', color:'#EBF5EE' }}><img className='return-home'src={home} alt='Home' /></Link> </List>
+  
       </div>
     );
 

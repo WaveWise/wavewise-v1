@@ -10,7 +10,7 @@ import swellPeriod from './assets/swellPeriod.svg'
 import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
 import Rating from './Rating'
-import BottomDrawer2 from './BottomDrawer2'
+import BottomDrawer1 from './BottomDrawer1'
 
 class SpotCondition extends Component {
   constructor () {
@@ -21,7 +21,6 @@ class SpotCondition extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.currentUser)
     data.checkUserReviewHistory(this.props.currentUser)
       .then(res => {
         if (res.body === 'ok') {
@@ -92,7 +91,7 @@ class SpotCondition extends Component {
               </div>}
           </div>
           <div className='bottom-drawer-container'>
-            <BottomDrawer2 className='bottom-wave-menu' spots={this.props.spots} style={{ textDecoration: 'none', color: '#EBF5EE' }} />
+            <BottomDrawer1 className='bottom-wave-menu' spots={this.props.spots} style={{ textDecoration: 'none', color: '#EBF5EE' }} />
           </div>
         </div>
       </React.Fragment>

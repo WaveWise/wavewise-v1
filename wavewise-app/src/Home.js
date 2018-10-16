@@ -5,7 +5,7 @@ import CBimage from './map_gifs/CB.gif'
 import SCimage from './map_gifs/SC.gif'
 import WbNeimage from './map_gifs/WB_NE.gif'
 import WbSeimage from './map_gifs/WB_SE.gif'
-import wavewise from './assets/wavewise-logo_0.5x.png'
+import wavewise from './assets/wavewise-logo.svg'
 import BottomDrawer1 from './BottomDrawer1'
 
 class Home extends Component {
