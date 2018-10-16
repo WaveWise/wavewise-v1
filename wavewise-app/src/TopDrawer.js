@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from "@reach/router";
 import Waves from '@material-ui/icons/Waves';
+import home from './assets/house.jpg'
 // import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 const styles = {
@@ -29,8 +30,8 @@ const styles = {
     height: 60,
   },
   small: {
-    width: 72,
-    height: 72,
+    width: 50,
+    height: 50,
     padding: 0,
   },
   medium: {
@@ -44,6 +45,7 @@ const styles = {
     padding: 30,
   },
 };
+
 
 class TopDrawer extends React.Component {
   state = {
@@ -72,15 +74,15 @@ class TopDrawer extends React.Component {
 
     const fullList = (
       <div className={classes.fullList}>
-        {(Object.values(this.props.spots).map((spot) =>
-                <List key={spot.spot_id} onClick={this.handleClose}> 
+        {(Object.values(this.props.spots).map((spot, i) =>
+                <List key={i} onClick={this.handleClose}> 
                 <Link to={`/spots/${spot.spot_name}/${spot.tide_type}/${spot.tide_time}/${spot.swell_direction}/${spot.swell_height_ft}/${spot.swell_period_s}/${spot.wind_speed_mph}/${spot.wind_direction}/${spot.spot_id}/${spot.rating}`} style={{ textDecoration: 'none', color:'#283044' }}>
                   {spot.spot_name}
     </Link> 
     </List> ))}
     <Divider />
     <div className={classes.fullList}>
-    <Link to='/' style={{ textDecoration: 'none', color:'#283044' }}>Home</Link>
+    <Link to='/' style={{ textDecoration: 'none', color:'#283044' }}><img className='return-home'src={home} alt='Home' /></Link>
     </div>
       </div>
     );

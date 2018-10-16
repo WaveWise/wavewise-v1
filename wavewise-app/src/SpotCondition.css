@@ -1,46 +1,126 @@
 * {
   font-family: 'Montserrat', sans-serif;
 }
-
+:root {  
+  --color-primary: #283044;
+  --color-blue: #78A1BB;
+  --color-light: #EBF5EE;
+  --color-sand: #EBE6D3;
+  --color-tan: #8B786D;
+}
 .spot-info-container {
-  /* display: grid; */
-  /* grid-template-columns: repeat(2, 1fr); */
-  max-width: 700px;
-  /* grid-template-rows: 1fr 33% 33%;
-  justify-items: center;  
-  flex-direction: column;
-  justify-content: center; */
-  /* flex: 1; */
-  width: 100%;
+  margin-top: 0px;
+  margin-bottom: -5%;
+  display: grid;
+  grid-template-columns: 1fr 50%;
+  max-width: 600px;
+  justify-items: center;
+  align-items: center;
 }
-.condition-icon {
-  display: inline-block;
+ .condition-icon {
   border-radius: 10px;
-  max-width: 40px;
-}
-.menu {
-  z-index: 2;
-}
-.spotCondition-body {
-  z-index: 1;
+  max-width: 75px;
+  margin: auto;
+  margin-bottom: -15px;
 }
 .box {
-  height: 60px;
+  margin: 5px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
-
-p.spot-data {
-  margin-bottom: 10px;
-  display: inline-block;
-  width: 60%;
-  text-align: left;
+.spotData {
+  margin-top: 10px;
+  color: #78A1BB;
+  font-size: 133%;
+  font-weight: bolder;
 }
 h2 {
   color: #EBF5EE;
+  margin: 5px;
 }
-
+.tideSpotData {
+  font-size: 127%;
+  color: #78A1BB;
+  margin-top: 8px;
+}
 .spot-menu-button {
   position: absolute;
   justify-content: left;
+}
+
+.top-drawer {
+  position: fixed;
+  float: left;
+  padding-right: 50%;
+}
+
+.thumb {
+  position: relative;
+  align-items: center;
+}
+.top-menu {
+  max-width: 30px;
+  padding: none;
+  display: inline-block;
+  align-items: left;
+}
+.thanks-pic {
+ margin: 10px;
+ max-width: 175px;
+ border-radius: 200px;
+}
+.single-spot-header  {
+  font-size: 134%;
+  display: inline-block;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+}
+.data-label {
+  font-size: 75%;
+  margin-top: 0;
+}
+.box-spot-tide {
+  color: #EBF5EE;
+}
+
+.data-label-tide {
+  margin-top: 7px;
+  font-size: 75%;
+}
+
+.rating-container {
+  /* margin-top: 13%; */
+  color: #EBF5EE;
+
+}
+.spot-condition-body {
+  display: flex;
+  flex-direction: column;
+}
+.rating-prompt {
+  height: 100%; 
+  margin-top: 10%;
+}
+
+.bottom-drawer-container {
+  bottom: 0;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.menu-item {
+  padding: 15px !important;
+  color: #C6D8D3 !important; 
+  background-color: #283044 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  
+}
+
+.return-home {
+  background-color: #283044 !important;
 }
 
 

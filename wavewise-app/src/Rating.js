@@ -1,75 +1,95 @@
 import React, { Component } from 'react'
-
+import IconButton from '@material-ui/core/IconButton'
 import ThumbUp from '@material-ui/icons/ThumbUp'
 import ThumbDown from '@material-ui/icons/ThumbDown'
 
 import data from './data'
 
+const styles = {
+  smallIcon: {
+    width: 20,
+    height: 20
+  },
+  mediumIcon: {
+    width: 48,
+    height: 48
+  },
+  largeIcon: {
+    width: 60,
+    height: 60
+  },
+  small: {
+    width: 40,
+    height: 40,
+    padding: 16
+  },
+  medium: {
+    width: 96,
+    height: 96,
+    padding: 24
+  },
+  large: {
+    width: 120,
+    height: 120,
+    padding: 30
+  }
+}
+
 class Rating extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      hidden: true,
-      ratingObject: { condition_rating: {
-        spot_id: this.props.spotId,
-        user: this.props.currentUser,
-        rating: null,
-        condition_swell_period_s: this.props.period,
-        condition_swell_height_ft: this.props.height,
-        condition_swell_direction: this.props.swelldir,
-        condition_wind_speed_mph: this.props.windspeed,
-        condition_wind_direction: this.props.winddir,
-        condition_tide_type: this.props.tide,
-        condition_tide_time: this.props.tidetime
-      }
-      }
+      reviewSent: false,
+      showing: true
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
-  componentDidUpdate () {
-    if (this.state.ratingObject.rating !== null) {
-      data.postReview(this.state.ratingObject)
-    }
-    console.log(this.state.ratingObject)
-  }
-
   handleClick (e) {
+    data.postReview({ condition_rating: {
+      spot_id: this.props.spotId,
+      user: this.props.currentUser,
+      rating: e.currentTarget.value,
+      condition_swell_period_s: this.props.period,
+      condition_swell_height_ft: this.props.height,
+      condition_swell_direction: this.props.swelldir,
+      condition_wind_speed_mph: this.props.windspeed,
+      condition_wind_direction: this.props.winddir,
+      condition_tide_type: this.props.tide,
+      condition_tide_time: this.props.tidetime } })
     this.setState({
-      ratingObject: { condition_rating: {
-        spot_id: this.props.spotId,
-        user: this.props.currentUser,
-        rating: e.target.value,
-        condition_swell_period_s: this.props.period,
-        condition_swell_height_ft: this.props.height,
-        condition_swell_direction: this.props.swelldir,
-        condition_wind_speed_mph: this.props.windspeed,
-        condition_wind_direction: this.props.winddir,
-        condition_tide_type: this.props.tide,
-        condition_tide_time: this.props.tidetime
-      }
-      }
+      reviewSent: true
     })
-    // this.state.ratingObject.rating
-    // console.log(this.state.ratingObject)
-    // data.postReview(this.state.rating)
-    // this.props.updateConditions()
   }
 
   render () {
-    const { liveRating } = this.props
     return (
       <div className='rating-body'>
-        <p>{liveRating}% of people are saying it's good right now!</p>
-        <div className='rating-container'>
-          <div className='thumbs-icon up'>
-            <button onClick={(e) => this.handleClick(e)} value='1'>Thumbs Up</button>
+        {this.state.reviewSent
+          ? null
+          : <div>
+            <p className='formCTA'>How is the surf?</p>
+            <div className='rating-container'>
+              <div className='thumbs-icon up'>
+                <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
+                ><ThumbUp iconstyle={styles.smallIcon}
+                    style={styles.small} /></IconButton>
+              </div>
+              <div className='thumbs-icon down'>
+                <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
+                  style={styles.small} /> </IconButton>
+              </div>
+            </div>
+          </div>}
+        {this.state.reviewSent
+          ? <div className='review-response'>
+            <div className='clear'>
+              <button onClick={(e) => this.props.hideRating(e)} className='clear-button'>X</button>
+            </div>
+            <p>Thanks!</p>
+            <h5>Your feedback goes a long way to refining our future reccomendations</h5>
           </div>
-          <div className='thumbs-icon down'>
-            <button onClick={(e) => this.handleClick(e)} value='-1'>Thumbs Down</button>
-          </div>
-        </div>
-        <p>Tell us how it is</p>
+          : null}
       </div>
     )
   }

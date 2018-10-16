@@ -5,6 +5,9 @@ import SpotCondition from './SpotCondition'
 import data from './data'
 import { default as UUID } from 'node-uuid'
 import { Router } from '@reach/router'
+import SpotForm from './SpotForm'
+import firebase from './firebase'
+import request from 'superagent'
 
 class App extends Component {
   constructor () {
@@ -18,29 +21,92 @@ class App extends Component {
       },
       currentBestSpot: {},
       spotValues: [],
-      currentUser: null
+      currentUser: this.getUserId(),
+      showRating: true,
+      location: {},
+      msgToken: null
     }
     this.updateConditions = this.updateConditions.bind(this)
     this.setConditions = this.setConditions.bind(this)
+    this.hideRating = this.hideRating.bind(this)
+    this.resetRating = this.resetRating.bind(this)
+    this.showCoordinates = this.showCoordinates.bind(this)
+  }
+
+  getUserId () {
+    let userId = window.localStorage.getItem('userId')
+    if (!userId) {
+      userId = UUID.v4()
+      window.localStorage.setItem('userId', userId)
+    }
+    return userId
+  }
+
+  showError () {
+    alert('location not found')
   }
 
   componentDidMount () {
-    const userId = window.localStorage.getItem('userId')
-    if (userId) {
-      this.setState({
-        currentUser: userId
+    navigator.geolocation.getCurrentPosition(this.showCoordinates, this.showError)
+    navigator.geolocation.watchPosition(this.showCoordinates)
+    const messaging = firebase.messaging()
+    messaging.getToken().then((currentToken) => {
+      if (currentToken) {
+        this.setState({ msgToken: currentToken })
+      } else {
+        this.setState({ msgToken: null })
+      }
+    }).catch((err) => {
+      console.log('An error occurred while retrieving token. ', err)      
+    })
+    messaging.onTokenRefresh(() => {
+      messaging.getToken().then((currentToken) => {
+        if (currentToken) {
+          this.setState({ msgToken: currentToken })
+        } else {
+          this.setState({ msgToken: null })
+        }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err)      
       })
-    } else {
-      const newUserId = UUID.v4()
-      window.localStorage.setItem('userId', newUserId)
-      this.setState({
-        currentUser: newUserId
-      })
-    }
+    })
+  }
+
+  componentWillMount () {
+    this.setConditions()
+  }
+  stopLocationWatch (id) {
+    navigator.geolocation.clearWatch(id)
+  }
+  componentWillUnmount () {
+    this.stopLocationWatch(navigator.geolocation.watchPosition(this.showCoordinates))
   }
 
   updateConditions () {
     this.setConditions()
+  }
+
+  hideRating () {
+    this.setState({
+      showRating: false
+    })
+  }
+  resetRating () {
+    this.setState({
+      showRating: true
+    })
+  }
+
+  showCoordinates (pos) {
+    let lat = pos.coords.latitude
+    let long = pos.coords.longitude
+    this.setState({
+      location: Object.assign(
+        {},
+        this.state.location,
+        { lat, long }
+      )
+    })
   }
 
   setConditions () {
@@ -69,10 +135,6 @@ class App extends Component {
       })
   }
 
-  componentWillMount () {
-    this.setConditions()
-  }
-
   render () {
     return (
       <Router>
@@ -82,7 +144,12 @@ class App extends Component {
         <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
           spots={this.state.spots}
           currentUser={this.state.currentUser}
-          updateConditions={this.updateConditions} />
+          ratingHasBeenSent={this.ratingHasBeenSent}
+          ratingSent={this.state.ratingSent}
+          showRating={this.state.showRating}
+          hideRating={this.hideRating}
+          resetRating={this.resetRating} />
+        <SpotForm path='/spotform' currentUser={this.state.currentUser} />
       </Router>
     )
   }
