@@ -112,11 +112,15 @@ h2 {
 }
 
 .menu-item {
-  padding: 20px !important;
+  padding: 15px !important;
   color: #C6D8D3 !important; 
   background-color: #283044 !important;
   font-family: 'Montserrat', sans-serif !important;
   
+}
+
+.return-home {
+  background-color: #283044 !important;
 }
 
 
