@@ -84,9 +84,9 @@ class Rating extends Component {
               <button onClick={(e) => this.props.hideRating(e)} className='clear-button'>X</button>
             </div>
             <p>Thanks!</p>
-            <p>We'll use your response to update our suggestions</p>
+            <p>We'll log your response for future condition recommendation</p>
           </div>
-          : <p className='formCTA'>Tell us how it is</p>}
+          : <p className='formCTA'>How was our recommendation?</p>}
       </div>
     )
   }
