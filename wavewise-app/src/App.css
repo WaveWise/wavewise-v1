@@ -117,7 +117,7 @@ h3 {
 
 .bottom-drawer-container {
   margin-bottom: 30px;
-  position: fixed;
+  position: relative;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 0 !important;
