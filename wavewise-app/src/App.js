@@ -6,6 +6,8 @@ import data from './data'
 import { default as UUID } from 'node-uuid'
 import { Router } from '@reach/router'
 import SpotForm from './SpotForm'
+import firebase from './firebase'
+import request from 'superagent'
 
 class App extends Component {
   constructor () {
@@ -21,7 +23,8 @@ class App extends Component {
       spotValues: [],
       currentUser: this.getUserId(),
       showRating: true,
-      location: {}
+      location: {},
+      msgToken: null
     }
     this.updateConditions = this.updateConditions.bind(this)
     this.setConditions = this.setConditions.bind(this)
@@ -46,6 +49,27 @@ class App extends Component {
   componentDidMount () {
     navigator.geolocation.getCurrentPosition(this.showCoordinates, this.showError)
     navigator.geolocation.watchPosition(this.showCoordinates)
+    const messaging = firebase.messaging()
+    messaging.getToken().then((currentToken) => {
+      if (currentToken) {
+        this.setState({ msgToken: currentToken })
+      } else {
+        this.setState({ msgToken: null })
+      }
+    }).catch((err) => {
+      console.log('An error occurred while retrieving token. ', err)      
+    })
+    messaging.onTokenRefresh(() => {
+      messaging.getToken().then((currentToken) => {
+        if (currentToken) {
+          this.setState({ msgToken: currentToken })
+        } else {
+          this.setState({ msgToken: null })
+        }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err)      
+      })
+    })
   }
 
   componentWillMount () {

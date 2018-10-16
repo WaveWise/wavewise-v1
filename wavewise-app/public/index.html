@@ -61,7 +61,6 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
-<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       console.log("Will the service worker register?");
@@ -71,6 +70,14 @@
         }).catch(function(err) {
           console.log("No it didn't. This happened: ", err)
         });
+
+    navigator.serviceWorker.register('firebase-messaging-sw.js')
+      .then(function(registration) {
+        console.log('Registration successful, scope is:', registration.scope);
+      }).catch(function(err) {
+        console.log('Service worker registration failed, error:', err);
+      });
     }
+
   </script>
 </html>
