@@ -22,14 +22,12 @@ input {
   background: transparent;
   color: #78A1BB
 }
-
 select {
   font-size: 1.2rem;
   color: #78A1BB;
   background-color: transparent;
   border-radius: 10px
 }
-
 .submission {
   background-color: transparent;
   border-radius: 10px;
@@ -42,4 +40,13 @@ select {
 .form-intro {
   font-size: 90%;
 }
-
+.location-field {
+  display: flex;
+}
+.location-box {
+ text-align: left;
+ margin-right: -23px;
+}
+.field-form-half {
+  max-width: 70%;
+}

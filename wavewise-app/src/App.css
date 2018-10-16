@@ -110,12 +110,9 @@ h3 {
   left: 50%;
   transform: translate(-50%, 0);
 }
-
 .return-home {
   max-width: 30px;
 }
-
-
 .clear {
   text-align: right;
 }

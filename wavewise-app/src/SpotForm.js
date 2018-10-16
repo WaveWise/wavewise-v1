@@ -15,32 +15,16 @@ class SpotForm extends Component {
       tide: '',
       name: '',
       email: '',
-      location: {},
+      city: '',
+      state: '',
       height: '',
       submitted: false,
-      directions: ['E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'],
-      periods: ['4-6', '6-8', '10-12', '12-15', '15+'],
-      heights: ['1-2', '2-3', '3-5', '5-8', 'Real Big', 'Huge']
+      directions: ['', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'],
+      periods: ['', '4-6', '6-8', '10-12', '12-15', '15+'],
+      heights: ['', '1-2', '2-3', '3-5', '5-8', 'Real Big', 'Huge']
     }
     this.handleNameChange = this.handleNameChange.bind(this)
-    this.showCoordinates = this.showCoordinates.bind(this)
     this.sendNewSpot = this.sendNewSpot.bind(this)
-  }
-
-  showCoordinates (pos) {
-    let lat = pos.coords.latitude
-    let long = pos.coords.longitude
-    this.setState({
-      location: Object.assign(
-        {},
-        this.state.location,
-        { lat, long }
-      )
-    })
-  }
-
-  showError () {
-    alert('location not found')
   }
 
   sendNewSpot () {
@@ -50,10 +34,8 @@ class SpotForm extends Component {
         'user': this.props.currentUser,
         'email': this.state.email,
         'spot_name': this.state.spotName,
-        'location': {
-          'latitude': this.state.location.lat,
-          'longitude': this.state.location.long
-        },
+        'city': this.state.city,
+        'state': this.state.state,
         'swell_period_s': this.state.period,
         'swell_height_ft': this.state.height,
         'swell_direction': this.state.swelldir,
@@ -62,15 +44,6 @@ class SpotForm extends Component {
       }
     }
     data.postNewSpot(spotObject)
-  }
-
-  stopLocationWatch (id) {
-    navigator.geolocation.clearWatch(id)
-  }
-
-  componentDidMount () {
-    navigator.geolocation.getCurrentPosition(this.showCoordinates, this.showError)
-    console.log(navigator.geolocation.watchPosition(this.showCoordinates))
   }
 
   handleNameChange (e) {
@@ -86,19 +59,19 @@ class SpotForm extends Component {
   }
 
   render () {
-    const { spotName, wind, swelldir, tide, period, name, email, height } = this.state
+    const { spotName, wind, swelldir, tide, period, name, email, height, city, state } = this.state
     return (
-      <div>
-        <div className='return-home'>
-          <Link to='/'><p style={{ color: '#78A1BB' }}>Home</p></Link>
-        </div>
-        <div className='spot-form-container'>
-          {this.state.submitted
-            ? <div className='return-home'>
-              <h2>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h2>
-              <Link className='return-home' style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
+      <div className='spot-form-container'>
+        {this.state.submitted
+          ? <div className='return-home'>
+            <h2>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h2>
+            <Link className='return-home' style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
+          </div>
+          : <div>
+            <div className='return-home'>
+              <Link to='/'><p style={{ color: '#78A1BB' }}>Home</p></Link>
             </div>
-            : <form className='form' noValidate>
+            <form className='form' noValidate>
               <h3>Tell us about your favorite spot!</h3>
               <p className='form-intro'>When conditions are great, you'll be the first to know.</p>
               <div className='field-form'>
@@ -114,6 +87,23 @@ class SpotForm extends Component {
                   value={email}
                   placeholder='spicoli@coolbuzz.club'
                   onChange={(e) => this.setState({ email: e.target.value })} />
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>wave Location</label>
+                <div className='location-field'>
+                  <div className='location-box'>
+                    <input className='field-form-half' type='text' required
+                      value={city}
+                      placeholder='City'
+                      onChange={(e) => this.setState({ city: e.target.value })} />
+                  </div>
+                  <div className='location-box'>
+                    <input className='field-form-half' type='text' required
+                      value={state}
+                      placeholder='State'
+                      onChange={(e) => this.setState({ state: e.target.value })} />
+                  </div>
+                </div>
               </div>
               <div className='field-form'>
                 <label className='form-label'>spot name</label>
@@ -157,6 +147,7 @@ class SpotForm extends Component {
               <div className='field-form'>
                 <label className='form-label'>best tide</label>
                 <select value={tide} onChange={(e) => this.setState({ tide: e.target.value })}>
+                  <option value='' />
                   <option value='HIGH'>high</option>
                   <option value='LOW'>low</option>
                 </select>
@@ -164,8 +155,8 @@ class SpotForm extends Component {
               <button className='submission' onClick={(e) => this.handleClick(e)} type='submit'>
                 <img className='return-home'src={wavewise} alt='Home' />
               </button>
-            </form>}
-        </div>
+            </form>
+          </div>}
       </div>
     )
   }

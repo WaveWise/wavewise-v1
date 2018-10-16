@@ -21,7 +21,6 @@ class SpotCondition extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.currentUser)
     data.checkUserReviewHistory(this.props.currentUser)
       .then(res => {
         if (res.body === 'ok') {

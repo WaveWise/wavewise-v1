@@ -6,7 +6,6 @@ import data from './data'
 import { default as UUID } from 'node-uuid'
 import { Router } from '@reach/router'
 import SpotForm from './SpotForm'
-import firebase from './firebase'
 
 class App extends Component {
   constructor () {
@@ -21,12 +20,14 @@ class App extends Component {
       currentBestSpot: {},
       spotValues: [],
       currentUser: this.getUserId(),
-      showRating: true
+      showRating: true,
+      location: {}
     }
     this.updateConditions = this.updateConditions.bind(this)
     this.setConditions = this.setConditions.bind(this)
     this.hideRating = this.hideRating.bind(this)
     this.resetRating = this.resetRating.bind(this)
+    this.showCoordinates = this.showCoordinates.bind(this)
   }
 
   getUserId () {
@@ -38,38 +39,27 @@ class App extends Component {
     return userId
   }
 
-  // getUserId () {
-  //   firebase.auth().onAuthStateChanged(user => {
-  //     this.setState({
-  //       currentUser: user.getToken()
-  //     })
-  //   })
-  // }
+  showError () {
+    alert('location not found')
+  }
 
-  // componentDidMount () {
-  //   firebase.auth().onAuthStateChanged(user => {
-  //     this.setState({
-  //       currentUser: user.getToken()
-  //     })
-  //   })
-  // }
+  componentDidMount () {
+    navigator.geolocation.getCurrentPosition(this.showCoordinates, this.showError)
+    navigator.geolocation.watchPosition(this.showCoordinates)
+  }
 
   componentWillMount () {
     this.setConditions()
   }
+  stopLocationWatch (id) {
+    navigator.geolocation.clearWatch(id)
+  }
+  componentWillUnmount () {
+    this.stopLocationWatch(navigator.geolocation.watchPosition(this.showCoordinates))
+  }
 
   updateConditions () {
     this.setConditions()
-  }
-
-  handleLogin = (event) => {
-    event.preventDefault()
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider)
-  }
-  handleLogout = (event) => {
-    event.preventDefault()
-    firebase.auth.signOut()
   }
 
   hideRating () {
@@ -80,6 +70,18 @@ class App extends Component {
   resetRating () {
     this.setState({
       showRating: true
+    })
+  }
+
+  showCoordinates (pos) {
+    let lat = pos.coords.latitude
+    let long = pos.coords.longitude
+    this.setState({
+      location: Object.assign(
+        {},
+        this.state.location,
+        { lat, long }
+      )
     })
   }
 
@@ -110,28 +112,21 @@ class App extends Component {
   }
 
   render () {
-    console.log(this.state.currentUser)
     return (
-      // <div>
-      // <div className='page-header'>
-      //   <button onClick={this.handleLogout}>Logout</button>
-      //   <button onClick={this.handleLogin}>Login with Google</button>
-      // </div>
-        <Router>
-          <Home path='/'
-            bestSpot={this.state.currentBestSpot}
-            spots={this.state.spots} />
-          <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
-            spots={this.state.spots}
-            currentUser={this.state.currentUser}
-            ratingHasBeenSent={this.ratingHasBeenSent}
-            ratingSent={this.state.ratingSent}
-            showRating={this.state.showRating}
-            hideRating={this.hideRating}
-            resetRating={this.resetRating} />
-          <SpotForm path='/spotform' currentUser={this.state.currentUser} />
-        </Router>
-      // </div>
+      <Router>
+        <Home path='/'
+          bestSpot={this.state.currentBestSpot}
+          spots={this.state.spots} />
+        <SpotCondition path='/spots/:name/:tide/:tidetime/:swelldir/:height/:period/:windspeed/:winddir/:id/:rating'
+          spots={this.state.spots}
+          currentUser={this.state.currentUser}
+          ratingHasBeenSent={this.ratingHasBeenSent}
+          ratingSent={this.state.ratingSent}
+          showRating={this.state.showRating}
+          hideRating={this.hideRating}
+          resetRating={this.resetRating} />
+        <SpotForm path='/spotform' currentUser={this.state.currentUser} />
+      </Router>
     )
   }
 }
