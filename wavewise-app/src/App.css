@@ -139,7 +139,15 @@ h3 {
 }
 
 .menu-item {
+  border-top: 1px solid #C6D8D3 !important;
+  padding: 15px !important;
+  color: #C6D8D3 !important; 
+  background-color: #283044 !important;
   font-family: 'Montserrat', sans-serif !important;
+}
+
+.user-vote-info {
+  margin: 2rem;
 }
 
 .clear-button {
@@ -149,7 +157,7 @@ h3 {
 
 .return-home {
   max-width: 25px;
-  padding: 0px !important;
+  padding: 0px;
 }
 
 img.return-home {

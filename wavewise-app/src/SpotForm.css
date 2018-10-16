@@ -39,6 +39,7 @@ select {
 .return-home {
   text-align: left;
   margin: 10px;
+  text-decoration-style: none;
 }
 
 .form-intro {

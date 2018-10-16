@@ -65,11 +65,7 @@ h2 {
   display: inline-block;
   align-items: left;
 }
-.thanks-pic {
- margin: 10px;
- max-width: 175px;
- border-radius: 200px;
-}
+
 .single-spot-header  {
   font-size: 134%;
   display: inline-block;
@@ -89,16 +85,15 @@ h2 {
   margin-top: 7px;
   font-size: 75%;
 }
-
 .rating-container {
-  /* margin-top: 13%; */
   color: #EBF5EE;
-
 }
+
 .spot-condition-body {
   display: flex;
   flex-direction: column;
 }
+
 .rating-prompt {
   height: 100%; 
   margin-top: 10%;
@@ -110,17 +105,8 @@ h2 {
   left: 50%;
   transform: translate(-50%, 0);
 }
-
-.menu-item {
-  padding: 15px !important;
-  color: #C6D8D3 !important; 
-  background-color: #283044 !important;
-  font-family: 'Montserrat', sans-serif !important;
-  
-}
-
 .return-home {
-  background-color: #283044 !important;
+  color: blue;
 }
 
 
