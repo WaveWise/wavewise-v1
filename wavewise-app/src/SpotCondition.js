@@ -50,17 +50,17 @@ class SpotCondition extends Component {
             <div className='box spot-swell-direction'>
               <img className='condition-icon' src={direction} alt='not found' />
               <p className='spotData'> <strong>{swelldir}</strong></p>
-              <p className='data-label'>swell direction</p>
+              <p className='data-label'>swell dir</p>
             </div>
             <div className='box spot-swell-height'>
               <img className='condition-icon' src={swellHeight} alt='not found' />
               <p className='spotData'><strong>{height}</strong> ft</p>
-              <p className='data-label'> swell height</p>
+              <p className='data-label'> swell ht</p>
             </div>
             <div className='box spot-swell-period'>
               <img className='condition-icon' src={swellPeriod} alt='not found' />
               <p className='spotData'> <strong>{period}</strong> s</p>
-              <p className='data-label'>swell period</p>
+              <p className='data-label'>swell per</p>
             </div>
             <div className='box spot-wind-speed'>
               <img className='condition-icon' src={windSpeed} alt='not found' />
@@ -70,7 +70,7 @@ class SpotCondition extends Component {
             <div className='box spot-wind-direction'>
               <img className='condition-icon' src={windDirection} alt='not found' />
               <p className='spotData'> <strong>{winddir}</strong></p>
-              <p className='data-label'>wind direction</p>
+              <p className='data-label'>wind dir</p>
             </div>
           </div>
           <div className='rating-container'>
