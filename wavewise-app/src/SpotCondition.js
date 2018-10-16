@@ -90,9 +90,10 @@ class SpotCondition extends Component {
                 <h4>You can vote again soon.</h4>
               </div>}
           </div>
-          <div className='bottom-drawer-container'>
+          <div className='menu-pos-div-1'>
             <BottomDrawer1 className='bottom-wave-menu' spots={this.props.spots} style={{ textDecoration: 'none', color: '#EBF5EE' }} />
           </div>
+          <div className='bottom-drawer-container' />
         </div>
       </React.Fragment>
     )

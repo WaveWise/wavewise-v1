@@ -52,30 +52,6 @@ class BottomDrawer extends React.Component {
     right: false,
   };
 
-  // prompt () {
-  // const messaging = firebase.messaging()
-  //   messaging.getToken().then((currentToken) => {
-  //     if (currentToken) {
-  //       this.setState({ msgToken: currentToken })
-  //     } else {
-  //       this.setState({ msgToken: null })
-  //     }
-  //   }).catch((err) => {
-  //     console.log('An error occurred while retrieving token. ', err)      
-  //   })
-  //   messaging.onTokenRefresh(() => {
-  //     messaging.getToken().then((currentToken) => {
-  //       if (currentToken) {
-  //         this.setState({ msgToken: currentToken })
-  //       } else {
-  //         this.setState({ msgToken: null })
-  //       }
-  //     }).catch((err) => {
-  //       console.log('An error occurred while retrieving token. ', err)      
-  //     })
-  //   })
-  // }
-
   toggleDrawer = (side, open) => () => {
     this.setState({
       [side]: open,
@@ -102,7 +78,7 @@ class BottomDrawer extends React.Component {
     );
 
     return (
-      <div>
+      <div className='drawer-div'>
         <Button onClick={this.toggleDrawer('bottom', true)} style={{ color:'#78A1BB' }} > <Waves iconStyle={styles.smallIcon}
       style={styles.small}/> </Button>
        
