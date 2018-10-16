@@ -15,31 +15,16 @@ class SpotForm extends Component {
       tide: '',
       name: '',
       email: '',
-      location: {},
+      city: '',
+      state: '',
       height: '',
-      directions: ['E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'],
-      periods: ['4-6', '6-8', '10-12', '12-15', '15+'],
-      heights: ['1-2', '2-3', '3-5', '5-8', 'Real Big', 'Huge']
+      submitted: false,
+      directions: ['', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'NE'],
+      periods: ['', '4-6', '6-8', '10-12', '12-15', '15+'],
+      heights: ['', '1-2', '2-3', '3-5', '5-8', 'Real Big', 'Huge']
     }
     this.handleNameChange = this.handleNameChange.bind(this)
-    this.showCoordinates = this.showCoordinates.bind(this)
     this.sendNewSpot = this.sendNewSpot.bind(this)
-  }
-
-  showCoordinates (pos) {
-    let lat = pos.coords.latitude
-    let long = pos.coords.longitude
-    this.setState({
-      location: Object.assign(
-        {},
-        this.state.location,
-        { lat, long }
-      )
-    })
-  }
-
-  showError () {
-    alert('location not found')
   }
 
   sendNewSpot () {
@@ -49,10 +34,8 @@ class SpotForm extends Component {
         'user': this.props.currentUser,
         'email': this.state.email,
         'spot_name': this.state.spotName,
-        'location': {
-          'latitude': this.state.location.lat,
-          'longitude': this.state.location.long
-        },
+        'city': this.state.city,
+        'state': this.state.state,
         'swell_period_s': this.state.period,
         'swell_height_ft': this.state.height,
         'swell_direction': this.state.swelldir,
@@ -61,15 +44,6 @@ class SpotForm extends Component {
       }
     }
     data.postNewSpot(spotObject)
-  }
-
-  stopLocationWatch (id) {
-    navigator.geolocation.clearWatch(id)
-  }
-
-  componentDidMount () {
-    navigator.geolocation.getCurrentPosition(this.showCoordinates, this.showError)
-    navigator.geolocation.watchPosition(this.showCoordinates)
   }
 
   handleNameChange (e) {
@@ -81,78 +55,110 @@ class SpotForm extends Component {
   handleClick (e) {
     e.preventDefault()
     this.sendNewSpot()
+    this.setState({ submitted: true })
   }
 
   render () {
-    const { spotName, wind, swelldir, tide, period, name, email, height } = this.state
+    const { spotName, wind, swelldir, tide, period, name, email, height, city, state } = this.state
     return (
       <div className='spot-form-container'>
-        <form className='form'>
-          <h3>Tell us about your favorite spot:</h3>
-          <p>When the conditions are like you like them, we'll be able to tell you when it's on!</p>
-          <div className='field-form'>
-            <label>Your Name</label>
-            <input type='text'
-              value={name}
-              placeholder='Spicoli'
-              onChange={(e) => this.setState({ name: e.target.value })} />
+        {this.state.submitted
+          ? <div className='return-home'>
+            <h3>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h3>
+            <Link className='return-home' style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
           </div>
-          <div className='field-form'>
-            <label>Email</label>
-            <input type='text'
-              value={email}
-              placeholder='spicoli@coolbuzz.club'
-              onChange={(e) => this.setState({ email: e.target.value })} />
-          </div>
-          <div className='field-form'>
-            <label>Spot Name</label>
-            <input type='text'
-              value={spotName}
-              placeholder='the Jetty'
-              onChange={(e) => this.handleNameChange(e)} />
-          </div>
-          <div className='field-form'>
-            <label>Best Wind</label>
-            <select value={wind} onChange={(e) => this.setState({ wind: e.target.value })}>
-              {this.state.directions.map((dir, i) =>
-                <option value={dir} key={i}>{dir}</option>
-              )}
-            </select>
-          </div>
-          <div className='field-form'>
-            <label>Best Swell Direction</label>
-            <select value={swelldir} onChange={(e) => this.setState({ swelldir: e.target.value })}>
-              {this.state.directions.map((dir, i) =>
-                <option value={dir} key={i}>{dir}</option>
-              )}
-            </select>
-          </div>
-          <div className='field-form'>
-            <label>Best Swell Height</label>
-            <select value={height} onChange={(e) => this.setState({ height: e.target.value })}>
-              {this.state.heights.map((per, i) =>
-                <option value={per} key={i}>{per}</option>
-              )}
-            </select>
-          </div>
-          <div className='field-form'>
-            <label>Best Swell Period</label>
-            <select value={period} onChange={(e) => this.setState({ period: e.target.value })}>
-              {this.state.periods.map((per, i) =>
-                <option value={per} key={i}>{per}</option>
-              )}
-            </select>
-          </div>
-          <div className='field-form'>
-            <label>Best Tide</label>
-            <select value={tide} onChange={(e) => this.setState({ tide: e.target.value })}>
-              <option value='HIGH'>High</option>
-              <option value='LOW'>Low</option>
-            </select>
-          </div>
-          <button onClick={(e) => this.handleClick(e)} type='submit'>Send it!</button>
-        </form>
-        <Link to='/' style={{ textDecoration: 'none', color: '#283044' }}><img className='return-home'src={wavewise} alt='Home' /></Link>
+          : <div>
+            <div className='return-home'>
+              <Link to='/' style={{ textDecoration: 'none', color: '#78A1BB' }}>
+                Home
+              </Link>
+            </div>
+            <form className='form' noValidate>
+              <h3>Recommend a spot for us to add:</h3>
+              <p className='form-intro'>When conditions are great, you'll be the first to know!</p>
+              <div className='field-form'>
+                <label className='form-label'>Name</label>
+                <input type='text'
+                  value={name}
+                  placeholder='Spicoli'
+                  onChange={(e) => this.setState({ name: e.target.value })} />
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>E-mail</label>
+                <input type='text' required
+                  value={email}
+                  placeholder='spicoli@coolbuzz.club'
+                  onChange={(e) => this.setState({ email: e.target.value })} />
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>Spot Name</label>
+                <div className='location-field'>
+                  <div className='location-box'>
+                    <input className='field-form-half' type='text' required
+                      value={city}
+                      placeholder='City'
+                      onChange={(e) => this.setState({ city: e.target.value })} />
+                  </div>
+                  <div className='location-box'>
+                    <input className='field-form-half' type='text' required
+                      value={state}
+                      placeholder='State'
+                      onChange={(e) => this.setState({ state: e.target.value })} />
+                  </div>
+                </div>
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>spot name</label>
+                <input type='text'
+                  value={spotName}
+                  placeholder='the Jetty'
+                  onChange={(e) => this.handleNameChange(e)} />
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>Best Wind</label>
+                <select value={wind} onChange={(e) => this.setState({ wind: e.target.value })}>
+                  {this.state.directions.map((dir, i) =>
+                    <option value={dir} key={i}>{dir}</option>
+                  )}
+                </select>
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>Best Swell Direction</label>
+                <select value={swelldir} onChange={(e) => this.setState({ swelldir: e.target.value })}>
+                  {this.state.directions.map((dir, i) =>
+                    <option value={dir} key={i}>{dir}</option>
+                  )}
+                </select>
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>Best Swell Height</label>
+                <select value={height} onChange={(e) => this.setState({ height: e.target.value })}>
+                  {this.state.heights.map((per, i) =>
+                    <option value={per} key={i}>{per}</option>
+                  )}
+                </select>
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>Best Swell Period</label>
+                <select value={period} onChange={(e) => this.setState({ period: e.target.value })}>
+                  {this.state.periods.map((per, i) =>
+                    <option value={per} key={i}>{per}</option>
+                  )}
+                </select>
+              </div>
+              <div className='field-form'>
+                <label className='form-label'>Best Tide</label>
+                <select value={tide} onChange={(e) => this.setState({ tide: e.target.value })}>
+                  <option value='' />
+                  <option value='HIGH'>high</option>
+                  <option value='LOW'>low</option>
+                </select>
+              </div>
+              <button className='submission' onClick={(e) => this.handleClick(e)} type='submit'>
+                <img className='return-home'src={wavewise} alt='Home' />
+              </button>
+            </form>
+          </div>}
       </div>
     )
   }

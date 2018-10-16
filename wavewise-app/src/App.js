@@ -6,6 +6,8 @@ import data from './data'
 import { default as UUID } from 'node-uuid'
 import { Router } from '@reach/router'
 import SpotForm from './SpotForm'
+import firebase from './firebase'
+import request from 'superagent/superagent.js'
 
 class App extends Component {
   constructor () {
@@ -20,12 +22,15 @@ class App extends Component {
       currentBestSpot: {},
       spotValues: [],
       currentUser: this.getUserId(),
-      showRating: true
+      showRating: true,
+      location: {},
+      msgToken: null
     }
     this.updateConditions = this.updateConditions.bind(this)
     this.setConditions = this.setConditions.bind(this)
     this.hideRating = this.hideRating.bind(this)
     this.resetRating = this.resetRating.bind(this)
+    this.showCoordinates = this.showCoordinates.bind(this)
   }
 
   getUserId () {
@@ -37,8 +42,44 @@ class App extends Component {
     return userId
   }
 
+  showError () {
+    alert('location not found')
+  }
+
+  componentDidMount () {
+    navigator.geolocation.getCurrentPosition(this.showCoordinates, this.showError)
+    navigator.geolocation.watchPosition(this.showCoordinates)
+    // const messaging = firebase.messaging()
+    // messaging.getToken().then((currentToken) => {
+    //   if (currentToken) {
+    //     this.setState({ msgToken: currentToken })
+    //   } else {
+    //     this.setState({ msgToken: null })
+    //   }
+    // }).catch((err) => {
+    //   console.log('An error occurred while retrieving token. ', err)      
+    // })
+    // messaging.onTokenRefresh(() => {
+    //   messaging.getToken().then((currentToken) => {
+    //     if (currentToken) {
+    //       this.setState({ msgToken: currentToken })
+    //     } else {
+    //       this.setState({ msgToken: null })
+    //     }
+    //   }).catch((err) => {
+    //     console.log('An error occurred while retrieving token. ', err)      
+    //   })
+    // })
+  }
+
   componentWillMount () {
     this.setConditions()
+  }
+  stopLocationWatch (id) {
+    navigator.geolocation.clearWatch(id)
+  }
+  componentWillUnmount () {
+    this.stopLocationWatch(navigator.geolocation.watchPosition(this.showCoordinates))
   }
 
   updateConditions () {
@@ -53,6 +94,18 @@ class App extends Component {
   resetRating () {
     this.setState({
       showRating: true
+    })
+  }
+
+  showCoordinates (pos) {
+    let lat = pos.coords.latitude
+    let long = pos.coords.longitude
+    this.setState({
+      location: Object.assign(
+        {},
+        this.state.location,
+        { lat, long }
+      )
     })
   }
 

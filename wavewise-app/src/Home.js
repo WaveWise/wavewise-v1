@@ -5,7 +5,7 @@ import CBimage from './map_gifs/CB.gif'
 import SCimage from './map_gifs/SC.gif'
 import WbNeimage from './map_gifs/WB_NE.gif'
 import WbSeimage from './map_gifs/WB_SE.gif'
-import wavewise from './assets/wavewise-logo_0.5x.png'
+import wavewise from './assets/wavewise-logo.svg'
 import BottomDrawer1 from './BottomDrawer1'
 
 class Home extends Component {
@@ -67,7 +67,7 @@ class Home extends Component {
           <p className='surf-condition'>The surf is {bestSpot.swell_height_ft} ft at {bestSpot.swell_period_s} seconds</p>
           <p className='overview-conditions'>The wind is {bestSpot.wind_direction} at {bestSpot.wind_speed_mph} mph</p>
         </div>
-        <div className='footer'>
+        <div className='bottom-drawer-container'>
           <p className='check-spots'>check out other spots</p>
           <BottomDrawer1 className='bottom-wave-menu' spots={this.props.spots} />
         </div>

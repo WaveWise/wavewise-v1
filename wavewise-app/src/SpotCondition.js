@@ -10,7 +10,7 @@ import swellPeriod from './assets/swellPeriod.svg'
 import windSpeed from './assets/windSpeed.svg'
 import windDirection from './assets/windDirection.svg'
 import Rating from './Rating'
-import BottomDrawer2 from './BottomDrawer2'
+import BottomDrawer1 from './BottomDrawer1'
 
 class SpotCondition extends Component {
   constructor () {
@@ -21,7 +21,6 @@ class SpotCondition extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.currentUser)
     data.checkUserReviewHistory(this.props.currentUser)
       .then(res => {
         if (res.body === 'ok') {
@@ -44,13 +43,13 @@ class SpotCondition extends Component {
               {tide === 'LOW'
                 ? <img className='condition-icon' src={lowTide} alt='not found' />
                 : <img className='condition-icon' src={highTide} alt='not found' />}
-              <p className='tideSpotData'> {tide} @ {tidetime} </p>
+              <p className='tideSpotData'> {tide} {tidetime} </p>
               <p className='data-label'>tide</p>
             </div>
             <div className='box spot-swell-direction'>
               <img className='condition-icon' src={direction} alt='not found' />
               <p className='spotData'> <strong>{swelldir}</strong></p>
-              <p className='data-label'>swell direction</p>
+              <p className='data-label'>swell dir</p>
             </div>
             <div className='box spot-swell-height'>
               <img className='condition-icon' src={swellHeight} alt='not found' />
@@ -70,7 +69,7 @@ class SpotCondition extends Component {
             <div className='box spot-wind-direction'>
               <img className='condition-icon' src={windDirection} alt='not found' />
               <p className='spotData'> <strong>{winddir}</strong></p>
-              <p className='data-label'>wind direction</p>
+              <p className='data-label'>wind dir</p>
             </div>
           </div>
           <div className='rating-container'>
@@ -87,12 +86,12 @@ class SpotCondition extends Component {
                 currentUser={this.props.currentUser}
                 hideRating={this.props.hideRating}
               />
-              : <div>
-                <h4>You will be able to vote again an hour from your last vote!</h4>
+              : <div className='user-vote-info'>
+                <h4>You may vote once per hour.</h4>
               </div>}
           </div>
-          <div className='bottom-wave-menu'>
-            <BottomDrawer2 className='bottom-wave-menu' spots={this.props.spots} />
+          <div className='bottom-drawer-container'>
+            <BottomDrawer1 className='bottom-wave-menu' spots={this.props.spots} style={{ textDecoration: 'none', color: '#EBF5EE' }} />
           </div>
         </div>
       </React.Fragment>
