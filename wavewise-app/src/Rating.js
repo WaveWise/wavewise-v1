@@ -67,15 +67,18 @@ class Rating extends Component {
       <div className='rating-body'>
         {this.state.reviewSent
           ? null
-          : <div className='rating-container'>
-            <div className='thumbs-icon up'>
-              <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
-              ><ThumbUp iconstyle={styles.smallIcon}
-                  style={styles.small} /></IconButton>
-            </div>
-            <div className='thumbs-icon down'>
-              <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
-                style={styles.small} /> </IconButton>
+          : <div>
+            <p className='formCTA'>How is the surf?</p>
+            <div className='rating-container'>
+              <div className='thumbs-icon up'>
+                <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='1' style={{ color: '#EBF5EE' }} iconStyle={styles.smallIcon}
+                ><ThumbUp iconstyle={styles.smallIcon}
+                    style={styles.small} /></IconButton>
+              </div>
+              <div className='thumbs-icon down'>
+                <IconButton className='thumb' onClick={(e) => this.handleClick(e)} value='-1' style={{ color: '#EBF5EE' }}> <ThumbDown iconStyle={styles.smallIcon}
+                  style={styles.small} /> </IconButton>
+              </div>
             </div>
           </div>}
         {this.state.reviewSent
@@ -84,9 +87,9 @@ class Rating extends Component {
               <button onClick={(e) => this.props.hideRating(e)} className='clear-button'>X</button>
             </div>
             <p>Thanks!</p>
-            <p>We'll log your response for future condition recommendation</p>
+            <h5>Your feedback goes a long way to refining our future reccomendations</h5>
           </div>
-          : <p className='formCTA'>How was our recommendation?</p>}
+          : null}
       </div>
     )
   }
