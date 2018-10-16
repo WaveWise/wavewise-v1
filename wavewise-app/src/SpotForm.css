@@ -3,6 +3,24 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  max-width: 100%;
+}
+.field-form-location {
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 100%;
+}
+
+.field-form-half {
+  width: 90%;
+}
+
+.location-field {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
 }
 
 label {
@@ -66,15 +84,8 @@ select {
   margin: 5px 40px;
 }
 
-.location-field {
-  display: flex;
-}
-
 .location-box {
- text-align: left;
- margin-right: -23px;
+ text-align: center;
 }
 
-.field-form-half {
-  max-width: 70%;
-}
+

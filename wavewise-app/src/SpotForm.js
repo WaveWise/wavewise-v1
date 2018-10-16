@@ -93,7 +93,7 @@ class SpotForm extends Component {
                   placeholder='spicoli@coolbuzz.club'
                   onChange={(e) => this.setState({ email: e.target.value })} />
               </div>
-              <div className='field-form'>
+              <div className='field-form-location'>
                 <label className='form-label'>Location</label>
                 <div className='location-field'>
                   <div className='location-box'>

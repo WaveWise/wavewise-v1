@@ -17,8 +17,9 @@ body {
   background-repeat: no-repeat;
   vertical-align: bottom;
   min-height: 100vh;
+  max-width: 100%;
  }
- 
+
  p {
   color: var(--color-light);
   margin: 5px;
