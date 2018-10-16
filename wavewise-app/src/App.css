@@ -40,7 +40,7 @@
 
  .logo {
    margin-right: 5px;
-   max-width: 11%;
+   max-width: 35px;
  }
 
  .surf-suggestion {
@@ -159,8 +159,9 @@ img.return-home {
 @media screen 
   and (min-width: 768px) { 
     .spot-info-container {
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    max-width: 100% !important;
     }
 }
 

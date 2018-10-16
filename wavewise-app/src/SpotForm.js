@@ -64,7 +64,7 @@ class SpotForm extends Component {
       <div className='spot-form-container'>
         {this.state.submitted
           ? <div className='return-home'>
-            <h2>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h2>
+            <h3>Spot saved.  We'll keep you posted on updates regarding {spotName}.</h3>
             <Link className='return-home' style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
           </div>
           : <div>
