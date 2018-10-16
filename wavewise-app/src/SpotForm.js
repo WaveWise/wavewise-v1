@@ -99,7 +99,7 @@ class SpotForm extends Component {
               <Link className='return-home' style={{ textDecoration: 'none', color: '#78A1BB' }} to='/'>return home</Link>
             </div>
             : <form className='form' noValidate>
-              <h3>Tell us about your favorite spot!</h3>
+              <h3>Recommend a spot for us to add!</h3>
               <p className='form-intro'>When conditions are great, you'll be the first to know.</p>
               <div className='field-form'>
                 <label className='form-label'>Name</label>
